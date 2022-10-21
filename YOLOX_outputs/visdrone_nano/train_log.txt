@@ -1,0 +1,630 @@
+2022-10-21 00:10:23.921 | INFO     | yolox.core.trainer:before_train:130 - args: Namespace(batch_size=64, cache=False, ckpt=None, devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, logger='tensorboard', machine_rank=0, name=None, num_machines=1, occupy=False, opts=['b', '64', '--fp16', '-o', '-c', 'pretrained_models/yolox_nano.pth'], resume=False, start_epoch=None)
+2022-10-21 00:10:23.933 | INFO     | yolox.core.trainer:before_train:131 - exp value:
+╒═══════════════════╤═══════════════════════════╕
+│ keys              │ values                    │
+╞═══════════════════╪═══════════════════════════╡
+│ seed              │ None                      │
+├───────────────────┼───────────────────────────┤
+│ output_dir        │ './YOLOX_outputs'         │
+├───────────────────┼───────────────────────────┤
+│ print_interval    │ 10                        │
+├───────────────────┼───────────────────────────┤
+│ eval_interval     │ 10                        │
+├───────────────────┼───────────────────────────┤
+│ num_classes       │ 12                        │
+├───────────────────┼───────────────────────────┤
+│ depth             │ 0.33                      │
+├───────────────────┼───────────────────────────┤
+│ width             │ 0.25                      │
+├───────────────────┼───────────────────────────┤
+│ act               │ 'silu'                    │
+├───────────────────┼───────────────────────────┤
+│ data_num_workers  │ 4                         │
+├───────────────────┼───────────────────────────┤
+│ input_size        │ (416, 416)                │
+├───────────────────┼───────────────────────────┤
+│ multiscale_range  │ 5                         │
+├───────────────────┼───────────────────────────┤
+│ data_dir          │ 'datasets/VisDrone'       │
+├───────────────────┼───────────────────────────┤
+│ train_ann         │ 'train2019_fix.json'      │
+├───────────────────┼───────────────────────────┤
+│ val_ann           │ 'val2019_fix.json'        │
+├───────────────────┼───────────────────────────┤
+│ test_ann          │ 'instances_test2017.json' │
+├───────────────────┼───────────────────────────┤
+│ mosaic_prob       │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ mixup_prob        │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ hsv_prob          │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ flip_prob         │ 0.5                       │
+├───────────────────┼───────────────────────────┤
+│ degrees           │ 10.0                      │
+├───────────────────┼───────────────────────────┤
+│ translate         │ 0.1                       │
+├───────────────────┼───────────────────────────┤
+│ mosaic_scale      │ (0.5, 1.5)                │
+├───────────────────┼───────────────────────────┤
+│ enable_mixup      │ False                     │
+├───────────────────┼───────────────────────────┤
+│ mixup_scale       │ (0.5, 1.5)                │
+├───────────────────┼───────────────────────────┤
+│ shear             │ 2.0                       │
+├───────────────────┼───────────────────────────┤
+│ warmup_epochs     │ 5                         │
+├───────────────────┼───────────────────────────┤
+│ max_epoch         │ 300                       │
+├───────────────────┼───────────────────────────┤
+│ warmup_lr         │ 0                         │
+├───────────────────┼───────────────────────────┤
+│ min_lr_ratio      │ 0.05                      │
+├───────────────────┼───────────────────────────┤
+│ basic_lr_per_img  │ 0.00015625                │
+├───────────────────┼───────────────────────────┤
+│ scheduler         │ 'yoloxwarmcos'            │
+├───────────────────┼───────────────────────────┤
+│ no_aug_epochs     │ 15                        │
+├───────────────────┼───────────────────────────┤
+│ ema               │ True                      │
+├───────────────────┼───────────────────────────┤
+│ weight_decay      │ 0.0005                    │
+├───────────────────┼───────────────────────────┤
+│ momentum          │ 0.9                       │
+├───────────────────┼───────────────────────────┤
+│ save_history_ckpt │ True                      │
+├───────────────────┼───────────────────────────┤
+│ exp_name          │ 'visdrone_nano'           │
+├───────────────────┼───────────────────────────┤
+│ test_size         │ (416, 416)                │
+├───────────────────┼───────────────────────────┤
+│ test_conf         │ 0.01                      │
+├───────────────────┼───────────────────────────┤
+│ nmsthre           │ 0.65                      │
+├───────────────────┼───────────────────────────┤
+│ random_size       │ (10, 20)                  │
+╘═══════════════════╧═══════════════════════════╛
+2022-10-21 00:10:23.935 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (9121), thread 'MainThread' (4550966784):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 134, in <module>
+    launch(
+    └ <function launch at 0x7ff8ad4b3280>
+
+> File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════╕
+    │            │ keys              │ values                    │
+    │            ╞═══════════════════╪═══...
+    └ <function main at 0x7ff8adec6d30>
+
+  File "tools/train.py", line 118, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7ff8aed9c820>
+    └ <yolox.core.trainer.Trainer object at 0x7ff8aed8a4f0>
+
+  File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/trainer.py", line 74, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7ff8aeda5040>
+    └ <yolox.core.trainer.Trainer object at 0x7ff8aed8a4f0>
+
+  File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/trainer.py", line 134, in before_train
+    torch.cuda.set_device(self.local_rank)
+    │     │    │          │    └ 0
+    │     │    │          └ <yolox.core.trainer.Trainer object at 0x7ff8aed8a4f0>
+    │     │    └ <function set_device at 0x7ff8abc54820>
+    │     └ <module 'torch.cuda' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/cuda/__init__.py'>
+    └ <module 'torch' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/__init__.py'>
+
+  File "/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in set_device
+    torch._C._cuda_setDevice(device)
+    │     │                  └ 0
+    │     └ <module 'torch._C' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/_C.cpython-38-darw...
+    └ <module 'torch' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/__init__.py'>
+
+AttributeError: module 'torch._C' has no attribute '_cuda_setDevice'
+2022-10-21 00:13:15.731 | INFO     | yolox.core.trainer:before_train:130 - args: Namespace(batch_size=64, cache=False, ckpt=None, devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, logger='tensorboard', machine_rank=0, name=None, num_machines=1, occupy=False, opts=['b', '64', '--fp16', '-o', '-c', 'pretrained_models/yolox_nano.pth'], resume=False, start_epoch=None)
+2022-10-21 00:13:15.750 | INFO     | yolox.core.trainer:before_train:131 - exp value:
+╒═══════════════════╤═══════════════════════════╕
+│ keys              │ values                    │
+╞═══════════════════╪═══════════════════════════╡
+│ seed              │ None                      │
+├───────────────────┼───────────────────────────┤
+│ output_dir        │ './YOLOX_outputs'         │
+├───────────────────┼───────────────────────────┤
+│ print_interval    │ 10                        │
+├───────────────────┼───────────────────────────┤
+│ eval_interval     │ 10                        │
+├───────────────────┼───────────────────────────┤
+│ num_classes       │ 12                        │
+├───────────────────┼───────────────────────────┤
+│ depth             │ 0.33                      │
+├───────────────────┼───────────────────────────┤
+│ width             │ 0.25                      │
+├───────────────────┼───────────────────────────┤
+│ act               │ 'silu'                    │
+├───────────────────┼───────────────────────────┤
+│ data_num_workers  │ 4                         │
+├───────────────────┼───────────────────────────┤
+│ input_size        │ (416, 416)                │
+├───────────────────┼───────────────────────────┤
+│ multiscale_range  │ 5                         │
+├───────────────────┼───────────────────────────┤
+│ data_dir          │ 'datasets/VisDrone'       │
+├───────────────────┼───────────────────────────┤
+│ train_ann         │ 'train2019_fix.json'      │
+├───────────────────┼───────────────────────────┤
+│ val_ann           │ 'val2019_fix.json'        │
+├───────────────────┼───────────────────────────┤
+│ test_ann          │ 'instances_test2017.json' │
+├───────────────────┼───────────────────────────┤
+│ mosaic_prob       │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ mixup_prob        │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ hsv_prob          │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ flip_prob         │ 0.5                       │
+├───────────────────┼───────────────────────────┤
+│ degrees           │ 10.0                      │
+├───────────────────┼───────────────────────────┤
+│ translate         │ 0.1                       │
+├───────────────────┼───────────────────────────┤
+│ mosaic_scale      │ (0.5, 1.5)                │
+├───────────────────┼───────────────────────────┤
+│ enable_mixup      │ False                     │
+├───────────────────┼───────────────────────────┤
+│ mixup_scale       │ (0.5, 1.5)                │
+├───────────────────┼───────────────────────────┤
+│ shear             │ 2.0                       │
+├───────────────────┼───────────────────────────┤
+│ warmup_epochs     │ 5                         │
+├───────────────────┼───────────────────────────┤
+│ max_epoch         │ 300                       │
+├───────────────────┼───────────────────────────┤
+│ warmup_lr         │ 0                         │
+├───────────────────┼───────────────────────────┤
+│ min_lr_ratio      │ 0.05                      │
+├───────────────────┼───────────────────────────┤
+│ basic_lr_per_img  │ 0.00015625                │
+├───────────────────┼───────────────────────────┤
+│ scheduler         │ 'yoloxwarmcos'            │
+├───────────────────┼───────────────────────────┤
+│ no_aug_epochs     │ 15                        │
+├───────────────────┼───────────────────────────┤
+│ ema               │ True                      │
+├───────────────────┼───────────────────────────┤
+│ weight_decay      │ 0.0005                    │
+├───────────────────┼───────────────────────────┤
+│ momentum          │ 0.9                       │
+├───────────────────┼───────────────────────────┤
+│ save_history_ckpt │ True                      │
+├───────────────────┼───────────────────────────┤
+│ exp_name          │ 'visdrone_nano'           │
+├───────────────────┼───────────────────────────┤
+│ test_size         │ (416, 416)                │
+├───────────────────┼───────────────────────────┤
+│ test_conf         │ 0.01                      │
+├───────────────────┼───────────────────────────┤
+│ nmsthre           │ 0.65                      │
+├───────────────────┼───────────────────────────┤
+│ random_size       │ (10, 20)                  │
+╘═══════════════════╧═══════════════════════════╛
+2022-10-21 00:13:15.752 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (9152), thread 'MainThread' (4552470016):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 134, in <module>
+    launch(
+    └ <function launch at 0x7f86d137f280>
+
+> File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════╕
+    │            │ keys              │ values                    │
+    │            ╞═══════════════════╪═══...
+    └ <function main at 0x7f86d27ead30>
+
+  File "tools/train.py", line 118, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f86d359b820>
+    └ <yolox.core.trainer.Trainer object at 0x7f86d35894f0>
+
+  File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/trainer.py", line 74, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f86d35a4040>
+    └ <yolox.core.trainer.Trainer object at 0x7f86d35894f0>
+
+  File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/trainer.py", line 134, in before_train
+    torch.cuda.set_device(self.local_rank)
+    │     │    │          │    └ 0
+    │     │    │          └ <yolox.core.trainer.Trainer object at 0x7f86d35894f0>
+    │     │    └ <function set_device at 0x7f86d0450820>
+    │     └ <module 'torch.cuda' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/cuda/__init__.py'>
+    └ <module 'torch' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/__init__.py'>
+
+  File "/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in set_device
+    torch._C._cuda_setDevice(device)
+    │     │                  └ 0
+    │     └ <module 'torch._C' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/_C.cpython-38-darw...
+    └ <module 'torch' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/__init__.py'>
+
+AttributeError: module 'torch._C' has no attribute '_cuda_setDevice'
+2022-10-21 00:22:42.264 | INFO     | yolox.core.trainer:before_train:130 - args: Namespace(batch_size=64, cache=False, ckpt=None, devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, logger='tensorboard', machine_rank=0, name=None, num_machines=1, occupy=False, opts=['b', '64', '--fp16', '-o', '-c', 'pretrained_models/yolox_nano.pth', '--device', 'cpy'], resume=False, start_epoch=None)
+2022-10-21 00:22:42.279 | INFO     | yolox.core.trainer:before_train:131 - exp value:
+╒═══════════════════╤═══════════════════════════╕
+│ keys              │ values                    │
+╞═══════════════════╪═══════════════════════════╡
+│ seed              │ None                      │
+├───────────────────┼───────────────────────────┤
+│ output_dir        │ './YOLOX_outputs'         │
+├───────────────────┼───────────────────────────┤
+│ print_interval    │ 10                        │
+├───────────────────┼───────────────────────────┤
+│ eval_interval     │ 10                        │
+├───────────────────┼───────────────────────────┤
+│ num_classes       │ 12                        │
+├───────────────────┼───────────────────────────┤
+│ depth             │ 0.33                      │
+├───────────────────┼───────────────────────────┤
+│ width             │ 0.25                      │
+├───────────────────┼───────────────────────────┤
+│ act               │ 'silu'                    │
+├───────────────────┼───────────────────────────┤
+│ data_num_workers  │ 4                         │
+├───────────────────┼───────────────────────────┤
+│ input_size        │ (416, 416)                │
+├───────────────────┼───────────────────────────┤
+│ multiscale_range  │ 5                         │
+├───────────────────┼───────────────────────────┤
+│ data_dir          │ 'datasets/VisDrone'       │
+├───────────────────┼───────────────────────────┤
+│ train_ann         │ 'train2019_fix.json'      │
+├───────────────────┼───────────────────────────┤
+│ val_ann           │ 'val2019_fix.json'        │
+├───────────────────┼───────────────────────────┤
+│ test_ann          │ 'instances_test2017.json' │
+├───────────────────┼───────────────────────────┤
+│ mosaic_prob       │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ mixup_prob        │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ hsv_prob          │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ flip_prob         │ 0.5                       │
+├───────────────────┼───────────────────────────┤
+│ degrees           │ 10.0                      │
+├───────────────────┼───────────────────────────┤
+│ translate         │ 0.1                       │
+├───────────────────┼───────────────────────────┤
+│ mosaic_scale      │ (0.5, 1.5)                │
+├───────────────────┼───────────────────────────┤
+│ enable_mixup      │ False                     │
+├───────────────────┼───────────────────────────┤
+│ mixup_scale       │ (0.5, 1.5)                │
+├───────────────────┼───────────────────────────┤
+│ shear             │ 2.0                       │
+├───────────────────┼───────────────────────────┤
+│ warmup_epochs     │ 5                         │
+├───────────────────┼───────────────────────────┤
+│ max_epoch         │ 300                       │
+├───────────────────┼───────────────────────────┤
+│ warmup_lr         │ 0                         │
+├───────────────────┼───────────────────────────┤
+│ min_lr_ratio      │ 0.05                      │
+├───────────────────┼───────────────────────────┤
+│ basic_lr_per_img  │ 0.00015625                │
+├───────────────────┼───────────────────────────┤
+│ scheduler         │ 'yoloxwarmcos'            │
+├───────────────────┼───────────────────────────┤
+│ no_aug_epochs     │ 15                        │
+├───────────────────┼───────────────────────────┤
+│ ema               │ True                      │
+├───────────────────┼───────────────────────────┤
+│ weight_decay      │ 0.0005                    │
+├───────────────────┼───────────────────────────┤
+│ momentum          │ 0.9                       │
+├───────────────────┼───────────────────────────┤
+│ save_history_ckpt │ True                      │
+├───────────────────┼───────────────────────────┤
+│ exp_name          │ 'visdrone_nano'           │
+├───────────────────┼───────────────────────────┤
+│ test_size         │ (416, 416)                │
+├───────────────────┼───────────────────────────┤
+│ test_conf         │ 0.01                      │
+├───────────────────┼───────────────────────────┤
+│ nmsthre           │ 0.65                      │
+├───────────────────┼───────────────────────────┤
+│ random_size       │ (10, 20)                  │
+╘═══════════════════╧═══════════════════════════╛
+2022-10-21 00:22:42.281 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (9279), thread 'MainThread' (4572474880):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 134, in <module>
+    launch(
+    └ <function launch at 0x7f81054b4280>
+
+> File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════╕
+    │            │ keys              │ values                    │
+    │            ╞═══════════════════╪═══...
+    └ <function main at 0x7f8105fead30>
+
+  File "tools/train.py", line 118, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f8106d9c820>
+    └ <yolox.core.trainer.Trainer object at 0x7f8106da64c0>
+
+  File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/trainer.py", line 74, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f8106da5040>
+    └ <yolox.core.trainer.Trainer object at 0x7f8106da64c0>
+
+  File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/trainer.py", line 134, in before_train
+    torch.cuda.set_device(self.local_rank)
+    │     │    │          │    └ 0
+    │     │    │          └ <yolox.core.trainer.Trainer object at 0x7f8106da64c0>
+    │     │    └ <function set_device at 0x7f8103c55820>
+    │     └ <module 'torch.cuda' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/cuda/__init__.py'>
+    └ <module 'torch' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/__init__.py'>
+
+  File "/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in set_device
+    torch._C._cuda_setDevice(device)
+    │     │                  └ 0
+    │     └ <module 'torch._C' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/_C.cpython-38-darw...
+    └ <module 'torch' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/__init__.py'>
+
+AttributeError: module 'torch._C' has no attribute '_cuda_setDevice'
+2022-10-21 00:22:52.809 | INFO     | yolox.core.trainer:before_train:130 - args: Namespace(batch_size=64, cache=False, ckpt=None, devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, logger='tensorboard', machine_rank=0, name=None, num_machines=1, occupy=False, opts=['b', '64', '--fp16', '-o', '-c', 'pretrained_models/yolox_nano.pth', '--device', 'cpu'], resume=False, start_epoch=None)
+2022-10-21 00:22:52.818 | INFO     | yolox.core.trainer:before_train:131 - exp value:
+╒═══════════════════╤═══════════════════════════╕
+│ keys              │ values                    │
+╞═══════════════════╪═══════════════════════════╡
+│ seed              │ None                      │
+├───────────────────┼───────────────────────────┤
+│ output_dir        │ './YOLOX_outputs'         │
+├───────────────────┼───────────────────────────┤
+│ print_interval    │ 10                        │
+├───────────────────┼───────────────────────────┤
+│ eval_interval     │ 10                        │
+├───────────────────┼───────────────────────────┤
+│ num_classes       │ 12                        │
+├───────────────────┼───────────────────────────┤
+│ depth             │ 0.33                      │
+├───────────────────┼───────────────────────────┤
+│ width             │ 0.25                      │
+├───────────────────┼───────────────────────────┤
+│ act               │ 'silu'                    │
+├───────────────────┼───────────────────────────┤
+│ data_num_workers  │ 4                         │
+├───────────────────┼───────────────────────────┤
+│ input_size        │ (416, 416)                │
+├───────────────────┼───────────────────────────┤
+│ multiscale_range  │ 5                         │
+├───────────────────┼───────────────────────────┤
+│ data_dir          │ 'datasets/VisDrone'       │
+├───────────────────┼───────────────────────────┤
+│ train_ann         │ 'train2019_fix.json'      │
+├───────────────────┼───────────────────────────┤
+│ val_ann           │ 'val2019_fix.json'        │
+├───────────────────┼───────────────────────────┤
+│ test_ann          │ 'instances_test2017.json' │
+├───────────────────┼───────────────────────────┤
+│ mosaic_prob       │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ mixup_prob        │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ hsv_prob          │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ flip_prob         │ 0.5                       │
+├───────────────────┼───────────────────────────┤
+│ degrees           │ 10.0                      │
+├───────────────────┼───────────────────────────┤
+│ translate         │ 0.1                       │
+├───────────────────┼───────────────────────────┤
+│ mosaic_scale      │ (0.5, 1.5)                │
+├───────────────────┼───────────────────────────┤
+│ enable_mixup      │ False                     │
+├───────────────────┼───────────────────────────┤
+│ mixup_scale       │ (0.5, 1.5)                │
+├───────────────────┼───────────────────────────┤
+│ shear             │ 2.0                       │
+├───────────────────┼───────────────────────────┤
+│ warmup_epochs     │ 5                         │
+├───────────────────┼───────────────────────────┤
+│ max_epoch         │ 300                       │
+├───────────────────┼───────────────────────────┤
+│ warmup_lr         │ 0                         │
+├───────────────────┼───────────────────────────┤
+│ min_lr_ratio      │ 0.05                      │
+├───────────────────┼───────────────────────────┤
+│ basic_lr_per_img  │ 0.00015625                │
+├───────────────────┼───────────────────────────┤
+│ scheduler         │ 'yoloxwarmcos'            │
+├───────────────────┼───────────────────────────┤
+│ no_aug_epochs     │ 15                        │
+├───────────────────┼───────────────────────────┤
+│ ema               │ True                      │
+├───────────────────┼───────────────────────────┤
+│ weight_decay      │ 0.0005                    │
+├───────────────────┼───────────────────────────┤
+│ momentum          │ 0.9                       │
+├───────────────────┼───────────────────────────┤
+│ save_history_ckpt │ True                      │
+├───────────────────┼───────────────────────────┤
+│ exp_name          │ 'visdrone_nano'           │
+├───────────────────┼───────────────────────────┤
+│ test_size         │ (416, 416)                │
+├───────────────────┼───────────────────────────┤
+│ test_conf         │ 0.01                      │
+├───────────────────┼───────────────────────────┤
+│ nmsthre           │ 0.65                      │
+├───────────────────┼───────────────────────────┤
+│ random_size       │ (10, 20)                  │
+╘═══════════════════╧═══════════════════════════╛
+2022-10-21 00:22:52.820 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (9291), thread 'MainThread' (4729081344):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 134, in <module>
+    launch(
+    └ <function launch at 0x7feb89bb4280>
+
+> File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════╕
+    │            │ keys              │ values                    │
+    │            ╞═══════════════════╪═══...
+    └ <function main at 0x7feb8a7e9d30>
+
+  File "tools/train.py", line 118, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7feb8b59c820>
+    └ <yolox.core.trainer.Trainer object at 0x7feb8b5a64c0>
+
+  File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/trainer.py", line 74, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7feb8b5a4040>
+    └ <yolox.core.trainer.Trainer object at 0x7feb8b5a64c0>
+
+  File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/trainer.py", line 134, in before_train
+    torch.cuda.set_device(self.local_rank)
+    │     │    │          │    └ 0
+    │     │    │          └ <yolox.core.trainer.Trainer object at 0x7feb8b5a64c0>
+    │     │    └ <function set_device at 0x7feb8845d820>
+    │     └ <module 'torch.cuda' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/cuda/__init__.py'>
+    └ <module 'torch' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/__init__.py'>
+
+  File "/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in set_device
+    torch._C._cuda_setDevice(device)
+    │     │                  └ 0
+    │     └ <module 'torch._C' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/_C.cpython-38-darw...
+    └ <module 'torch' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/__init__.py'>
+
+AttributeError: module 'torch._C' has no attribute '_cuda_setDevice'
+2022-10-21 00:23:09.108 | INFO     | yolox.core.trainer:before_train:130 - args: Namespace(batch_size=64, cache=False, ckpt=None, devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, logger='tensorboard', machine_rank=0, name=None, num_machines=1, occupy=False, opts=['b', '64', '--fp16', '-o', '-c', 'pretrained_models/yolox_nano.pth', '--device', 'cpu'], resume=False, start_epoch=None)
+2022-10-21 00:23:09.117 | INFO     | yolox.core.trainer:before_train:131 - exp value:
+╒═══════════════════╤═══════════════════════════╕
+│ keys              │ values                    │
+╞═══════════════════╪═══════════════════════════╡
+│ seed              │ None                      │
+├───────────────────┼───────────────────────────┤
+│ output_dir        │ './YOLOX_outputs'         │
+├───────────────────┼───────────────────────────┤
+│ print_interval    │ 10                        │
+├───────────────────┼───────────────────────────┤
+│ eval_interval     │ 10                        │
+├───────────────────┼───────────────────────────┤
+│ num_classes       │ 12                        │
+├───────────────────┼───────────────────────────┤
+│ depth             │ 0.33                      │
+├───────────────────┼───────────────────────────┤
+│ width             │ 0.25                      │
+├───────────────────┼───────────────────────────┤
+│ act               │ 'silu'                    │
+├───────────────────┼───────────────────────────┤
+│ data_num_workers  │ 4                         │
+├───────────────────┼───────────────────────────┤
+│ input_size        │ (416, 416)                │
+├───────────────────┼───────────────────────────┤
+│ multiscale_range  │ 5                         │
+├───────────────────┼───────────────────────────┤
+│ data_dir          │ 'datasets/VisDrone'       │
+├───────────────────┼───────────────────────────┤
+│ train_ann         │ 'train2019_fix.json'      │
+├───────────────────┼───────────────────────────┤
+│ val_ann           │ 'val2019_fix.json'        │
+├───────────────────┼───────────────────────────┤
+│ test_ann          │ 'instances_test2017.json' │
+├───────────────────┼───────────────────────────┤
+│ mosaic_prob       │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ mixup_prob        │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ hsv_prob          │ 1.0                       │
+├───────────────────┼───────────────────────────┤
+│ flip_prob         │ 0.5                       │
+├───────────────────┼───────────────────────────┤
+│ degrees           │ 10.0                      │
+├───────────────────┼───────────────────────────┤
+│ translate         │ 0.1                       │
+├───────────────────┼───────────────────────────┤
+│ mosaic_scale      │ (0.5, 1.5)                │
+├───────────────────┼───────────────────────────┤
+│ enable_mixup      │ False                     │
+├───────────────────┼───────────────────────────┤
+│ mixup_scale       │ (0.5, 1.5)                │
+├───────────────────┼───────────────────────────┤
+│ shear             │ 2.0                       │
+├───────────────────┼───────────────────────────┤
+│ warmup_epochs     │ 5                         │
+├───────────────────┼───────────────────────────┤
+│ max_epoch         │ 300                       │
+├───────────────────┼───────────────────────────┤
+│ warmup_lr         │ 0                         │
+├───────────────────┼───────────────────────────┤
+│ min_lr_ratio      │ 0.05                      │
+├───────────────────┼───────────────────────────┤
+│ basic_lr_per_img  │ 0.00015625                │
+├───────────────────┼───────────────────────────┤
+│ scheduler         │ 'yoloxwarmcos'            │
+├───────────────────┼───────────────────────────┤
+│ no_aug_epochs     │ 15                        │
+├───────────────────┼───────────────────────────┤
+│ ema               │ True                      │
+├───────────────────┼───────────────────────────┤
+│ weight_decay      │ 0.0005                    │
+├───────────────────┼───────────────────────────┤
+│ momentum          │ 0.9                       │
+├───────────────────┼───────────────────────────┤
+│ save_history_ckpt │ True                      │
+├───────────────────┼───────────────────────────┤
+│ exp_name          │ 'visdrone_nano'           │
+├───────────────────┼───────────────────────────┤
+│ test_size         │ (416, 416)                │
+├───────────────────┼───────────────────────────┤
+│ test_conf         │ 0.01                      │
+├───────────────────┼───────────────────────────┤
+│ nmsthre           │ 0.65                      │
+├───────────────────┼───────────────────────────┤
+│ random_size       │ (10, 20)                  │
+╘═══════════════════╧═══════════════════════════╛
+2022-10-21 00:23:09.122 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (9304), thread 'MainThread' (4527238656):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 134, in <module>
+    launch(
+    └ <function launch at 0x7f85efcb4280>
+
+> File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════╕
+    │            │ keys              │ values                    │
+    │            ╞═══════════════════╪═══...
+    └ <function main at 0x7f85f07e9d30>
+
+  File "tools/train.py", line 118, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f85f15dc820>
+    └ <yolox.core.trainer.Trainer object at 0x7f85f15ca4c0>
+
+  File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/trainer.py", line 74, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f85f15e5040>
+    └ <yolox.core.trainer.Trainer object at 0x7f85f15ca4c0>
+
+  File "/Users/happyhoo/Desktop/swCapstone/YOLOX_Drone/YOLOX/yolox/core/trainer.py", line 134, in before_train
+    torch.cuda.set_device(self.local_rank)
+    │     │    │          │    └ 0
+    │     │    │          └ <yolox.core.trainer.Trainer object at 0x7f85f15ca4c0>
+    │     │    └ <function set_device at 0x7f85eec5e820>
+    │     └ <module 'torch.cuda' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/cuda/__init__.py'>
+    └ <module 'torch' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/__init__.py'>
+
+  File "/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/cuda/__init__.py", line 314, in set_device
+    torch._C._cuda_setDevice(device)
+    │     │                  └ 0
+    │     └ <module 'torch._C' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/_C.cpython-38-darw...
+    └ <module 'torch' from '/Users/happyhoo/opt/miniconda3/envs/Yolox_Drone/lib/python3.8/site-packages/torch/__init__.py'>
+
+AttributeError: module 'torch._C' has no attribute '_cuda_setDevice'
