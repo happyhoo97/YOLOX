@@ -25,6 +25,7 @@ class Exp(MyExp):
         self.data_dir = "datasets/VisDrone"
         self.train_ann = "train2019_fix.json"
         self.val_ann = "val2019_fix.json"
+        self.test_ann = "val2019_fix.json"
 
         self.num_classes = 12
 
