@@ -40,8 +40,8 @@ class COCODataset(Dataset):
     def __init__(
         self,
         data_dir=None,
-        json_file="train2019_fix.json",
-        name="train2019",
+        json_file="train2017.json",
+        name="train2017",
         img_size=(416, 416),
         preproc=None,
         cache=False,

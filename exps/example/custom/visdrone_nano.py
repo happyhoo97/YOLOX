@@ -22,10 +22,10 @@ class Exp(MyExp):
         self.enable_mixup = False
 
         # Define yourself dataset path
-        self.data_dir = "datasets/VisDrone"
-        self.train_ann = "train2019_fix.json"
-        self.val_ann = "val2019_fix.json"
-        self.test_ann = "val2019_fix.json"
+        self.data_dir = "/local_datasets/VisDrone"
+        self.train_ann = "train2017.json"
+        self.val_ann = "val2017.json"
+        self.test_ann = "val2017.json"
 
         self.num_classes = 12
 
