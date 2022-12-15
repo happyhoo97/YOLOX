@@ -133,8 +133,20 @@ sbatch prune_script.sh
 
 
 ```shell
-sbatch validation.sh
+sbatch validation_script.sh
 ```
+  
+</details>
+
+<details>
+<summary>학습한 모델로 실제 사진에 inference</summary>
+
+
+```shell
+sbatch inference_script.sh
+```
+  
+</details>
 
 ## 참고 자료
 
