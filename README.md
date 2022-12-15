@@ -88,6 +88,7 @@ YOLOX-Nano와 동일한 데이터셋인 VisDrone 데이터셋으로 학습을 �
 
 
 <summary>YOLOX-Nano 모델 학습</summary>
+  
 ```shell
 sbatch train_script.sh
 ```
