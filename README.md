@@ -81,6 +81,26 @@ Input의 경우 832 by 832 사이즈로 설정하였다. Data augmentation의 �
 YOLOX-Nano와 동일한 데이터셋인 VisDrone 데이터셋으로 학습을 진행했다. backbone의 depth와 width는 각각 0.33, 0.50으로 설정했으며, input의 경우 832 by 832 사이즈로 설정하였다. Data augmentation의 경우, mixup method와 mosaic method를 사용했으며, Nano모델 보다는 augmentation을 적극적으로 사용했다. YOLOX-S는 경량화 즉, Network Slimming 방식의 Pruning을 진행했다. Pruning에 대한 threshold는 0.65로 설정했으며, sparsity training에서의 sparsity regularization term λ를 0.0001로 설정했다. 총 300epoch의 학습을 진행했으며, Pruning으로 모델을 경량화 한 후, Pruning된 모델에 대해 Fine-tuning을 진행하여 모델의 완성도를 높이고자 하였다. Fine-tuning 역시 동일한 parameter 조건으로 300 epoch을 진행했다.
 
 
+## 수행 결과
+
+### 1. 과제수행 결과
+<img src="assets/결과비교.png" >
+
+
+모델의 mAP@0.5는 YOLOX-Nano(28.5)가 가장 우수했으며, 그 다음으로는 SlimYOLOv3(21.2)가 우수했으며, YOLOX-S-Pruned(16.4)가 가장 저조한 것을 확인할 수 있었다. Class별 mAP의 경우, 모든 class에서 YOLOX-Nano가 우수한 것을 확인할 수 있었다. SlimYOLOv3와 YOLOX-S-Pruned는 각 class 에 대해 비슷한 mAP 성능을 가지고 있으나, YOLOX-S-Pruned가 일부 항목에 대해서 소폭 낮은 성능을 보이고 있다. Parameter size의 경우, YOLOX Nano(0.90M)이 가장 작아 이상적인 경량화를 이루었고, SlimYOLOv3(5.1M)와 YOLOX-S-Pruned(8.94M)는 Nano 대비 size가 큰 것을 확인할 수 있었다. 모델의 Volume 역시 YOLOX-Nano(7.6MB)가 가장 작았다. 한편 YOLOX-S-Pruned(12.4MB)의 volume은 SlimYOLOv3(19.4MB) 작은 것으로 확인되어, Pruning을 통한 경량화가 어느 정도 효과가 있었음을 확인할 수 있었다. 마지막으로 FLOPS의 경우, YOLOX-S-Pruned(45.25 Gflops)가 가장 우수한 것으로 확인되었으며, 그 다음으로는 YOLOX-Nano(4.32 Gflops), SlimYOLOv3(26.29 Bflops) 순서로 우수한 것을 확인할 수 있었다.
+
+
+### 2. 기대효과 및 활용방안
+
+(YOLOX-Nano) mAP, class별  AP,  parameter size 부분에서 모두 가장 우수
+(YOLOX-S-Pruned) FLOPS에서 가장 우수, Volume부분은 선행연구(SlimYOLOv3)보다 우수
+
+기존 SlimYOLOv3 모델을 대신하여, YOLOX-Nano 모델과 YOLOX-S-Pruned 모델을 활용하여, UAV 기체의 연산 부하를 줄일 수 있으며, 지상의 물체를 탐지하는 성능 역시 개선 가능할 것으로 기대
+
+본 과제의 YOLOX-Nano와 YOLOX-S-Pruned 모델과 함께, 활용 분야에 따라 다양한 장비(광학, 적외선, 레이다 센서 등)를 탑재하여 감시, 정찰, 정밀공격무기의 유도, 통신/정보중계, EA/EP, Decoy 등의 임무를 수행하는 방식으로 활용 가능
+
+
+
 ## Quick Start
 
 <details>
