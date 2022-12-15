@@ -51,7 +51,11 @@ regularization는 가중치의 크기를 고려한 cost function이기에 가중
 
 ### 2) 데이터셋 전처리
 
-선행연구(SlimYOLOv3: Narrower, Faster and Better for Real-Time UAV Applications)에서 사용한 데이터셋, VisDrone을 YOLOX-Nano 모델에 사용할 수 있도록 전처리 작업을 수행했다. VisDrone 데이터셋은 드론이 다양한 장소, 높이로부터 촬영한 7,019개의 정적인 이미지로 구성되어 있다. 이미지는 10개의 class(pedestrian, person, car, van, bus, truck, motor, bicycle, awning-tricycle, tricycle)에 대해 annotation 되어 있다. YOLOX-Nano 모델은 PASCAL VOC, COCO 포맷의 데이터셋을 지원한다. 이에 VisDrone 데이터셋을 COCO 포맷으로 변환하는 전처리 코드를 작성하여 포맷을 변환했다. 구체적인 내용으로는, annotation 정보가 txt 파일로 저장되어 있던 기존의 VisDrone 데이터셋을 COCO 포맷에 맞춰 annotation 정보를 json 파일로 저장한 후, jpg파일들과 json 파일들을 COCO 포맷에서 사용하는 폴더 구성에 맞춰 재배치하였다. 
+선행연구(SlimYOLOv3: Narrower, Faster and Better for Real-Time UAV Applications)에서 사용한 데이터셋, VisDrone을 YOLOX-Nano 모델에 사용할 수 있도록 전처리 작업을 수행했다. VisDrone 데이터셋은 드론이 다양한 장소, 높이로부터 촬영한 7,019개의 정적인 이미지로 구성되어 있다. 이미지는 10개의 class(pedestrian, person, car, van, bus, truck, motor, bicycle, awning-tricycle, tricycle)에 대해 annotation 되어 있다. YOLOX-Nano 모델은 PASCAL VOC, COCO 포맷의 데이터셋을 지원한다. 이에 VisDrone 데이터셋을 COCO 포맷으로 변환하는 전처리 코드를 작성하여 포맷을 변환했다. 구체적인 내용으로는, annotation 정보가 txt 파일로 저장되어 있던 기존의 VisDrone 데이터셋을 COCO 포맷에 맞춰 annotation 정보를 json 파일로 저장한 후, jpg파일들과 json 파일들을 COCO 포맷에서 사용하는 폴더 구성에 맞춰 재배치하였다.  
+   
+ 사용한 데이터셋   
+ https://drive.google.com/file/d/1nK-hNapNvFFXkMxAnWl1C5qQnWWxoRm8/view?usp=sharing   
+
 
 
 ### 3) 딥러닝 학습환경 구축
