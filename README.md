@@ -1,249 +1,127 @@
 <div align="center"><img src="assets/logo.png" width="350"></div>
 <img src="assets/demo.png" >
 
-## Introduction
-YOLOX is an anchor-free version of YOLO, with a simpler design but better performance! It aims to bridge the gap between research and industrial communities.
-For more details, please refer to our [report on Arxiv](https://arxiv.org/abs/2107.08430).
+## 과제 개요
+### 가. 과제 설계 배경 및 필요성
 
-This repo is an implementation of PyTorch version YOLOX, there is also a [MegEngine implementation](https://github.com/MegEngine/YOLOX).
-
-<img src="assets/git_fig.png" width="1000" >
-
-## Updates!!
-* 【2022/04/14】 We suport jit compile op.
-* 【2021/08/19】 We optimize the training process with **2x** faster training and **~1%** higher performance! See [notes](docs/updates_note.md) for more details.
-* 【2021/08/05】 We release [MegEngine version YOLOX](https://github.com/MegEngine/YOLOX).
-* 【2021/07/28】 We fix the fatal error of [memory leak](https://github.com/Megvii-BaseDetection/YOLOX/issues/103)
-* 【2021/07/26】 We now support [MegEngine](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/demo/MegEngine) deployment.
-* 【2021/07/20】 We have released our technical report on [Arxiv](https://arxiv.org/abs/2107.08430).
-
-## Coming soon
-- [ ] YOLOX-P6 and larger model.
-- [ ] Objects365 pretrain.
-- [ ] Transformer modules.
-- [ ] More features in need.
-
-## Benchmark
-
-#### Standard Models.
-
-|Model |size |mAP<sup>val<br>0.5:0.95 |mAP<sup>test<br>0.5:0.95 | Speed V100<br>(ms) | Params<br>(M) |FLOPs<br>(G)| weights |
-| ------        |:---: | :---:    | :---:       |:---:     |:---:  | :---: | :----: |
-|[YOLOX-s](./exps/default/yolox_s.py)    |640  |40.5 |40.5      |9.8      |9.0 | 26.8 | [github](https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_s.pth) |
-|[YOLOX-m](./exps/default/yolox_m.py)    |640  |46.9 |47.2      |12.3     |25.3 |73.8| [github](https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_m.pth) |
-|[YOLOX-l](./exps/default/yolox_l.py)    |640  |49.7 |50.1      |14.5     |54.2| 155.6 | [github](https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_l.pth) |
-|[YOLOX-x](./exps/default/yolox_x.py)   |640   |51.1 |**51.5**  | 17.3    |99.1 |281.9 | [github](https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_x.pth) |
-|[YOLOX-Darknet53](./exps/default/yolov3.py)   |640  | 47.7 | 48.0 | 11.1 |63.7 | 185.3 | [github](https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_darknet.pth) |
-
-<details>
-<summary>Legacy models</summary>
-
-|Model |size |mAP<sup>test<br>0.5:0.95 | Speed V100<br>(ms) | Params<br>(M) |FLOPs<br>(G)| weights |
-| ------        |:---: | :---:       |:---:     |:---:  | :---: | :----: |
-|[YOLOX-s](./exps/default/yolox_s.py)    |640  |39.6      |9.8     |9.0 | 26.8 | [onedrive](https://megvii-my.sharepoint.cn/:u:/g/personal/gezheng_megvii_com/EW62gmO2vnNNs5npxjzunVwB9p307qqygaCkXdTO88BLUg?e=NMTQYw)/[github](https://github.com/Megvii-BaseDetection/storage/releases/download/0.0.1/yolox_s.pth) |
-|[YOLOX-m](./exps/default/yolox_m.py)    |640  |46.4      |12.3     |25.3 |73.8| [onedrive](https://megvii-my.sharepoint.cn/:u:/g/personal/gezheng_megvii_com/ERMTP7VFqrVBrXKMU7Vl4TcBQs0SUeCT7kvc-JdIbej4tQ?e=1MDo9y)/[github](https://github.com/Megvii-BaseDetection/storage/releases/download/0.0.1/yolox_m.pth) |
-|[YOLOX-l](./exps/default/yolox_l.py)    |640  |50.0  |14.5 |54.2| 155.6 | [onedrive](https://megvii-my.sharepoint.cn/:u:/g/personal/gezheng_megvii_com/EWA8w_IEOzBKvuueBqfaZh0BeoG5sVzR-XYbOJO4YlOkRw?e=wHWOBE)/[github](https://github.com/Megvii-BaseDetection/storage/releases/download/0.0.1/yolox_l.pth) |
-|[YOLOX-x](./exps/default/yolox_x.py)   |640  |**51.2**      | 17.3 |99.1 |281.9 | [onedrive](https://megvii-my.sharepoint.cn/:u:/g/personal/gezheng_megvii_com/EdgVPHBziOVBtGAXHfeHI5kBza0q9yyueMGdT0wXZfI1rQ?e=tABO5u)/[github](https://github.com/Megvii-BaseDetection/storage/releases/download/0.0.1/yolox_x.pth) |
-|[YOLOX-Darknet53](./exps/default/yolov3.py)   |640  | 47.4      | 11.1 |63.7 | 185.3 | [onedrive](https://megvii-my.sharepoint.cn/:u:/g/personal/gezheng_megvii_com/EZ-MV1r_fMFPkPrNjvbJEMoBLOLAnXH-XKEB77w8LhXL6Q?e=mf6wOc)/[github](https://github.com/Megvii-BaseDetection/storage/releases/download/0.0.1/yolox_darknet53.pth) |
-
-</details>
-
-#### Light Models.
-
-|Model |size |mAP<sup>val<br>0.5:0.95 | Params<br>(M) |FLOPs<br>(G)| weights |
-| ------        |:---:  |  :---:       |:---:     |:---:  | :---: |
-|[YOLOX-Nano](./exps/default/yolox_nano.py) |416  |25.8  | 0.91 |1.08 | [github](https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_nano.pth) |
-|[YOLOX-Tiny](./exps/default/yolox_tiny.py) |416  |32.8 | 5.06 |6.45 | [github](https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_tiny.pth) |
+무인항공기(UAV: Unmanned Aerial Vehicle)은 실제 조종사가 직접 탑승하지 않고, 지상에서
+무선으로 조종해 사전 프로그램된 경로에 따라 자동, 반자동으로 날아가는 비행체다. 활용 분야에 따라 다양한 장비(광학, 적외선, 레이다 센서 등)를 탑재하여 감시, 정찰, 정밀공격의 유도, 통신/정보중계 등의 임무를 수행하고 있다. 그러나 UAV 플랫폼에서 실행되는 객체 탐지(Object Detection)를 통한 실시간 장면 분석은
+UAV 기체의 제한된 메모리와 컴퓨팅 성능으로 인해 어려움이 있다. 하드웨어와 같은 물리적
+제약에 영향을 받지 않도록, 작고 효율적인 객체 탐지 모델이 필요하며, 이와 관련된 연구가
+많이 진행되고 있다. 따라서 이번 과제를 통해, 최신 객체 탐지 모델 중, 경량형 모델을 UAV 플랫폼에 적합하도록 학습 및 개선하고자 한다. 최신 객체 탐지 모델 중, 경량형 모델인 YOLOX-Nano를 UAV
+플랫폼 최적으로 학습한 후, 선행 연구의 논문에서 제안되었던 SlimYOLOv3 모델과 비교 분석을 진행할 예정이다. 더 나아가, Base Convolution을 사용하는 YOLOX 시리즈 중, 가장 작은 모델인 YOLOX-S를 UAV 플랫폼에 더욱 적합하도록, pruning과 같은 방법을 통해 개선하고자 한다. SlimYOLOv3, YOLOX-Nano, 직접 Pruning한 YOLOX-S 모델의 결과를 비교, 분석하고자 한다.
 
 
-<details>
-<summary>Legacy models</summary>
+### 나. 과제 주요내용
 
-|Model |size |mAP<sup>val<br>0.5:0.95 | Params<br>(M) |FLOPs<br>(G)| weights |
-| ------        |:---:  |  :---:       |:---:     |:---:  | :---: |
-|[YOLOX-Nano](./exps/default/yolox_nano.py) |416  |25.3  | 0.91 |1.08 | [github](https://github.com/Megvii-BaseDetection/storage/releases/download/0.0.1/yolox_nano.pth) |
-|[YOLOX-Tiny](./exps/default/yolox_tiny.py) |416  |32.8 | 5.06 |6.45 | [github](https://github.com/Megvii-BaseDetection/storage/releases/download/0.0.1/yolox_tiny_32dot8.pth) |
+본 과제에서는 최신 객체 탐지 모델 중, YOLOX-Nano와 YOLOX-S를 UAV 플랫폼 최적으로 학습한
+후, 선행 연구의 논문에서 제안되었던 SlimYOLOv3 모델과 비교 분석을 진행할 예정이다. 더 나아가, YOLOX-S를 Network Slimming 방식의 channel pruning으로 구조적 개선을 하고자 한다. YOLO(You Only Look Once) 시리즈는 real-time application을 위해 속도와 정확성 간의 최적
+trade-off를 추구하는 객체 탐지 딥러닝 모델이다. YOLO 시리즈는 YOLOv2, YOLOv3를 거쳐 YOLOv4,
+YOLOv5까지 개선, 개발되었다. 선행 연구에서 제안된 SlimYOLOv3는 YOLOv3에 channel pruning을 적용하여, 객체 탐지 성능의 큰
+하락 없이 경량화한 모델이다. channel pruning이란 channel의 중요도를 나타내는 scaling factor가 낮은 channel을 제거하는 방식이다. UAV 플랫폼에 적용하고자 하는 YOLOX 모델은 객체 탐지 모델로 유명한 YOLO 시리즈 중, 일부 요소가 적용된 모델이다. 최근 객체 탐지에서 관심이 높은 3가지 요소인, anchor-free detectors,
+advanced label assignment strategies, end-to-end (NMS-free) detectors가 YOLOv5까지 적용되지 않았다. 이에 선행 연구의 논문(YOLOX: Exceeding YOLO Series in 2021)에서 3가지 요소를 YOLO 시리즈에 적용한 모델인 YOLOX를 제안하였고, 유의미한 개선 효과를 확인했다. 선행 연구에서 YOLOX 모델을 제안할 때, 다양한 크기의 backbone을 적용하여 여러 버전의 YOLOX를 제안하였는데, 이 중
+Depthwise Separable Convolution을 사용한 경량형 모델은 YOLOX-Nano이고, Base Convolution을 사요한 경량형 모델은 YOLOX-S이다. YOLOX-Nano, YOLOX-S를 VisDrone-Det 데이터셋으로 학습하여 UAV가 탐지하고자 하는 객체들을
+대상으로 특화하고자 한다. VisDrone-Det은 드론이 다양한 장소, 높이로부터 촬영한 7,019개의 정적인 
+이미지로 구성되어 있다. 이미지는 10개의 class(pedestrian, person, car, van, bus, truck, motor,
+bicycle, awning-tricycle, tricycle)에 대해 bounding box로 annotation 되어 있다. YOLOX-S의 경우, 모델의 불필요한 구조를 prune하여 모델을 경량화 측면에서 고도화하고자 한다. 최종적으로 학습이 완료된 YOLOX-S, YOLOX-Nano, SlimYOLOv3를 다양한 metric으로 비교 분석한다. 
 
-</details>
+
+### 다. 최종결과물의 목표 
+
+선행 연구에서 제안한 YOLOX의 경량모델들인 YOLOX-S와 YOLOX-Nano를 UAV 플랫폼에 특화하여
+리소스 대비 성능이 뛰어난 고효율의 경량형 모델로 발전시키고자 한다. 또한 SlimYOLOv3,
+YOLOX-Nano, UAV 플랫폼 특화 개량된 YOLOX-S를 네 가지의 metric(mAP, FLOPS, FPS, Model volume)을 기준으로 정량적 비교 분석을 수행한다.
+
+## 과제 수행방법
+
+추진된 내용은 총 6가지로, 1)선행연구 탐구, 2)데이터셋 전처리, 3)딥러닝 학습환경 구축, 4)
+VisDrone 데이터셋에 대한 object detection 평가 코드 구현, 5) YOLOX-Nano 모델 학습, 6) YOLOX-S 모델 학습 및 경량화이다.
+
+
+### 1) 선행연구 탐구
+
+UAV 플랫폼 특화 YOLO 모델을 개발한 선행 연구(SlimYOLOv3: Narrower, Faster and
+Better for Real-Time UAV Applications)를 통해, 기존의 YOLOv3 모델을 경량화 하는 방식에
+대해 알 수 있었다. 본 선행연구에서는 드론에서 촬영한 항공사진을 데이터셋으로 사용하며, YOLOv3 모델을 학습하되, channel pruning을 통해 경량화를 진행하였다. channel pruning에
+대해서는 본 선행연구에서 참조한 또 다른 선행연구(Learning Efficient Convolutional
+Networks through Network Slimming)에서 확인할 수 있었다. 선행연구 탐구를 통해, L1 Norm, L1 Loss, L1 Regulation, batch normalization 등에 대한 개념을 학습할 수 있었다. 이를 바탕으로 모델이 학습되는 전반적인 과정도 이해할 수 있었다. 모델에 input이 들어간 후, input 노드에서 가중치가 곱해진 후, batch normalization으로 정규화가 되는데, batch normalization의 수식에서 scaling factor인 감마가 역전파를 통해 계속
+업데이트가 될 때, 업데이트를 함에 있어 L1 regularization을 통해 업데이트된다. L1
+regularization는 가중치의 크기를 고려한 cost function이기에 가중치가 작아지며, 모델의 성능을 향상한다. 따라서 불필요한 가중치는 0에 가까워지게 작아지거나 0이 되어, 즉 prune되기에 sparse한 모델을 구축할 수 있다. 가중치가 곱해지고, batch normalization가 진행된 데이터는 activation funcion을 거쳐, hidden layor의 첫 번째 노드로 들어간다. 위의 내용을 반복하며 hidden layor의 2, 3, n번째까지 진행하고, output 노드까지 진행된다. 
+
+
+### 2) 데이터셋 전처리
+
+선행연구(SlimYOLOv3: Narrower, Faster and Better for Real-Time UAV Applications)에서 사용한 데이터셋, VisDrone을 YOLOX-Nano 모델에 사용할 수 있도록 전처리 작업을 수행했다. VisDrone 데이터셋은 드론이 다양한 장소, 높이로부터 촬영한 7,019개의 정적인 이미지로 구성되어 있다. 이미지는 10개의 class(pedestrian, person, car, van, bus, truck, motor, bicycle, awning-tricycle, tricycle)에 대해 annotation 되어 있다. YOLOX-Nano 모델은 PASCAL VOC, COCO 포맷의 데이터셋을 지원한다. 이에 VisDrone 데이터셋을 COCO 포맷으로 변환하는 전처리 코드를 작성하여 포맷을 변환했다. 구체적인 내용으로는, annotation 정보가 txt 파일로 저장되어 있던 기존의 VisDrone 데이터셋을 COCO 포맷에 맞춰 annotation 정보를 json 파일로 저장한 후, jpg파일들과 json 파일들을 COCO 포맷에서 사용하는 폴더 구성에 맞춰 재배치하였다. 
+
+
+### 3) 딥러닝 학습환경 구축
+
+교내 GPU 서버(Seraph)에서 학습을 진행하였다.
+수행해야 하는 작업들을 shell script로 작성하고 srun, sbatch와 같은 Slurm 명령어를 통해 코드를 동작했다.
+
+
+### 4) VisDrone 데이터셋에 대한 object detection 평가 코드 구현
+
+YOLOX를 개발한 선행연구에서 사용한 objection detection metric은 mAP로, general
+purpose를 갖는 방법론 연구의 특성상 VisDrone 데이터셋에 대한 objection detection을 평가하기에 부적합하다고 판단한다. 이에 10개의 class에 대한 objection detection의 precision,
+recall, F1-Score, mAP를 평가할 수 있는 코드를 구현했다. 또한 선행연구(SlimYOLOv3)의 결과와 본 과제에서의 결과물을 동등하게 비교하기 위해, mAP의 경우 mAP@0.5를 계산하도록
+코드를 구현했다. 
+
+
+### 5) YOLOX-Nano 모델 학습
+
+최종적으로 교내 GPU 서버에 VisDrone 데이터셋과 YOLOX-Nano 모델 구축 코드를 업로드한 후, 선행연구에서 제시한 parameter로 설정한 상태로 학습을 진행했다. 구체적인 내용으로는, backbone으로 사용되는 CSPDarknet의 depth와 width를 각각 0.33, 0.25로 설정하였다.
+Input의 경우 832 by 832 사이즈로 설정하였다. Data augmentation의 경우, mixup method
+는 사용하지 않고, mosaic method의 경우 scaling range를 줄여서 사용하였다. 총 300epoch
+의 학습을 진행했으며, 결과 분석은 가장 성능이 우수했던 epoch의 가중치를 사용했다. 
+
+
+### 6) YOLOX-S 모델 학습 및 경량화
+
+YOLOX-Nano와 동일한 데이터셋인 VisDrone 데이터셋으로 학습을 진행했다. backbone의 depth와 width는 각각 0.33, 0.50으로 설정했으며, input의 경우 832 by 832 사이즈로 설정하였다. Data augmentation의 경우, mixup method와 mosaic method를 사용했으며, Nano모델 보다는 augmentation을 적극적으로 사용했다. YOLOX-S는 경량화 즉, Network Slimming 방식의 Pruning을 진행했다. Pruning에 대한 threshold는 0.65로 설정했으며, sparsity training에서의 sparsity regularization term λ를 0.0001로 설정했다. 총 300epoch의 학습을 진행했으며, Pruning으로 모델을 경량화 한 후, Pruning된 모델에 대해 Fine-tuning을 진행하여 모델의 완성도를 높이고자 하였다. Fine-tuning 역시 동일한 parameter 조건으로 300 epoch을 진행했다.
+
 
 ## Quick Start
 
 <details>
-<summary>Installation</summary>
+모든 학습은 GPU서버의 Slurm 환경에서 진행
 
-Step1. Install YOLOX from source.
+
+<summary>YOLOX-Nano 모델 학습</summary>
 ```shell
-git clone git@github.com:Megvii-BaseDetection/YOLOX.git
-cd YOLOX
-pip3 install -v -e .  # or  python3 setup.py develop
+sbatch train_script.sh
+```
+
+</details>
+
+
+
+<details>
+<summary>YOLOX-S 모델을 Network Slimming으로 Pruning 진행</summary>
+Sparsity training → Pruning → Fine Tuning의 과정을 수행
+
+
+```shell
+sbatch prune_script.sh
 ```
 
 </details>
 
 <details>
-<summary>Demo</summary>
+<summary>학습한 모델을 평가</summary>
 
-Step1. Download a pretrained model from the benchmark table.
-
-Step2. Use either -n or -f to specify your detector's config. For example:
 
 ```shell
-python tools/demo.py image -n yolox-s -c /path/to/your/yolox_s.pth --path assets/dog.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result --device [cpu/gpu]
-```
-or
-```shell
-python tools/demo.py image -f exps/default/yolox_s.py -c /path/to/your/yolox_s.pth --path assets/dog.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result --device [cpu/gpu]
-```
-Demo for video:
-```shell
-python tools/demo.py video -n yolox-s -c /path/to/your/yolox_s.pth --path /path/to/your/video --conf 0.25 --nms 0.45 --tsize 640 --save_result --device [cpu/gpu]
+sbatch validation.sh
 ```
 
+## 참고 자료
 
-</details>
+Zhang, Pengyi, Yunxin Zhong, and Xiaoqiong Li. "SlimYOLOv3: Narrower, faster and better for
+real-time UAV applications." Proceedings of the IEEE/CVF International Conference on Computer
+Vision Workshops. 2019.
 
-<details>
-<summary>Reproduce our results on COCO</summary>
+Ge, Zheng, et al. "Yolox: Exceeding yolo series in 2021." arXiv preprint arXiv:2107.08430 (2021).
 
-Step1. Prepare COCO dataset
-```shell
-cd <YOLOX_HOME>
-ln -s /path/to/your/COCO ./datasets/COCO
-```
-
-Step2. Reproduce our results on COCO by specifying -n:
-
-```shell
-python -m yolox.tools.train -n yolox-s -d 8 -b 64 --fp16 -o [--cache]
-                               yolox-m
-                               yolox-l
-                               yolox-x
-```
-* -d: number of gpu devices
-* -b: total batch size, the recommended number for -b is num-gpu * 8
-* --fp16: mixed precision training
-* --cache: caching imgs into RAM to accelarate training, which need large system RAM. 
-
-  
-
-When using -f, the above commands are equivalent to:
-```shell
-python -m yolox.tools.train -f exps/default/yolox_s.py -d 8 -b 64 --fp16 -o [--cache]
-                               exps/default/yolox_m.py
-                               exps/default/yolox_l.py
-                               exps/default/yolox_x.py
-```
-
-**Multi Machine Training**
-
-We also support multi-nodes training. Just add the following args:
-* --num\_machines: num of your total training nodes
-* --machine\_rank: specify the rank of each node
-
-Suppose you want to train YOLOX on 2 machines, and your master machines's IP is 123.123.123.123, use port 12312 and TCP.  
-On master machine, run
-```shell
-python tools/train.py -n yolox-s -b 128 --dist-url tcp://123.123.123.123:12312 --num_machines 2 --machine_rank 0
-```
-On the second machine, run
-```shell
-python tools/train.py -n yolox-s -b 128 --dist-url tcp://123.123.123.123:12312 --num_machines 2 --machine_rank 1
-```
-
-**Logging to Weights & Biases**
-
-To log metrics, predictions and model checkpoints to [W&B](https://docs.wandb.ai/guides/integrations/other/yolox) use the command line argument `--logger wandb` and use the prefix "wandb-" to specify arguments for initializing the wandb run.
-
-```shell
-python tools/train.py -n yolox-s -d 8 -b 64 --fp16 -o [--cache] --logger wandb wandb-project <project name>
-                         yolox-m
-                         yolox-l
-                         yolox-x
-```
-
-An example wandb dashboard is available [here](https://wandb.ai/manan-goel/yolox-nano/runs/3pzfeom0)
-
-**Others**  
-See more information with the following command:
-```shell
-python -m yolox.tools.train --help
-```
-
-</details>
-
-
-<details>
-<summary>Evaluation</summary>
-
-We support batch testing for fast evaluation:
-
-```shell
-python -m yolox.tools.eval -n  yolox-s -c yolox_s.pth -b 64 -d 8 --conf 0.001 [--fp16] [--fuse]
-                               yolox-m
-                               yolox-l
-                               yolox-x
-```
-* --fuse: fuse conv and bn
-* -d: number of GPUs used for evaluation. DEFAULT: All GPUs available will be used.
-* -b: total batch size across on all GPUs
-
-To reproduce speed test, we use the following command:
-```shell
-python -m yolox.tools.eval -n  yolox-s -c yolox_s.pth -b 1 -d 1 --conf 0.001 --fp16 --fuse
-                               yolox-m
-                               yolox-l
-                               yolox-x
-```
-
-</details>
-
-
-<details>
-<summary>Tutorials</summary>
-
-*  [Training on custom data](docs/train_custom_data.md)
-*  [Manipulating training image size](docs/manipulate_training_image_size.md)
-*  [Freezing model](docs/freeze_module.md)
-
-</details>
-
-## Deployment
-
-
-1.  [MegEngine in C++ and Python](./demo/MegEngine)
-2.  [ONNX export and an ONNXRuntime](./demo/ONNXRuntime)
-3.  [TensorRT in C++ and Python](./demo/TensorRT)
-4.  [ncnn in C++ and Java](./demo/ncnn)
-5.  [OpenVINO in C++ and Python](./demo/OpenVINO)
-
-
-## Third-party resources
-* YOLOX for streaming perception: [StreamYOLO (CVPR 2022 Oral)](https://github.com/yancie-yjr/StreamYOLO)
-* Integrated into [Huggingface Spaces 🤗](https://huggingface.co/spaces) using [Gradio](https://github.com/gradio-app/gradio). Try out the Web Demo: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Sultannn/YOLOX-Demo)
-* The ncnn android app with video support: [ncnn-android-yolox](https://github.com/FeiGeChuanShu/ncnn-android-yolox) from [FeiGeChuanShu](https://github.com/FeiGeChuanShu)
-* YOLOX with Tengine support: [Tengine](https://github.com/OAID/Tengine/blob/tengine-lite/examples/tm_yolox.cpp) from [BUG1989](https://github.com/BUG1989)
-* YOLOX + ROS2 Foxy: [YOLOX-ROS](https://github.com/Ar-Ray-code/YOLOX-ROS) from [Ar-Ray](https://github.com/Ar-Ray-code)
-* YOLOX Deploy DeepStream: [YOLOX-deepstream](https://github.com/nanmi/YOLOX-deepstream) from [nanmi](https://github.com/nanmi)
-* YOLOX MNN/TNN/ONNXRuntime: [YOLOX-MNN](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/mnn/cv/mnn_yolox.cpp)、[YOLOX-TNN](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_yolox.cpp) and [YOLOX-ONNXRuntime C++](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ort/cv/yolox.cpp) from [DefTruth](https://github.com/DefTruth)
-* Converting darknet or yolov5 datasets to COCO format for YOLOX: [YOLO2COCO](https://github.com/RapidAI/YOLO2COCO) from [Daniel](https://github.com/znsoftm)
-
-## Cite YOLOX
-If you use YOLOX in your research, please cite our work by using the following BibTeX entry:
-
-```latex
- @article{yolox2021,
-  title={YOLOX: Exceeding YOLO Series in 2021},
-  author={Ge, Zheng and Liu, Songtao and Wang, Feng and Li, Zeming and Sun, Jian},
-  journal={arXiv preprint arXiv:2107.08430},
-  year={2021}
-}
-```
-## In memory of Dr. Jian Sun
-Without the guidance of [Dr. Sun Jian](http://www.jiansun.org/), YOLOX would not have been released and open sourced to the community.
-The passing away of Dr. Sun Jian is a great loss to the Computer Vision field. We have added this section here to express our remembrance and condolences to our captain Dr. Sun.
-It is hoped that every AI practitioner in the world will stick to the concept of "continuous innovation to expand cognitive boundaries, and extraordinary technology to achieve product value" and move forward all the way.
-
-<div align="center"><img src="assets/sunjian.png" width="200"></div>
-没有孙剑博士的指导，YOLOX也不会问世并开源给社区使用。
-孙剑博士的离去是CV领域的一大损失，我们在此特别添加了这个部分来表达对我们的“船长”孙老师的纪念和哀思。
-希望世界上的每个AI从业者秉持着“持续创新拓展认知边界，非凡科技成就产品价值”的观念，一路向前。
+Liu, Zhuang, et al. "Learning efficient convolutional networks through network slimming."
+Proceedings of the IEEE international conference on computer vision. 2017.
