@@ -92,7 +92,7 @@ YOLOX-Nano와 동일한 데이터셋인 VisDrone 데이터셋으로 학습을 �
 
 ### 2. 기대효과 및 활용방안
 
-(YOLOX-Nano) mAP, class별  AP,  parameter size 부분에서 모두 가장 우수
+(YOLOX-Nano) mAP, class별  AP,  parameter size 부분에서 모두 가장 우수  
 (YOLOX-S-Pruned) FLOPS에서 가장 우수, Volume부분은 선행연구(SlimYOLOv3)보다 우수
 
 기존 SlimYOLOv3 모델을 대신하여, YOLOX-Nano 모델과 YOLOX-S-Pruned 모델을 활용하여, UAV 기체의 연산 부하를 줄일 수 있으며, 지상의 물체를 탐지하는 성능 역시 개선 가능할 것으로 기대
