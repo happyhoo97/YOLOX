@@ -1,0 +1,7 @@
+20221208-233331
+usage: prune_ktian.py [-h] [--cfg CFG] [--weights WEIGHTS]
+                      [--img_size IMG_SIZE] [--save PATH]
+                      [--overall_ratio OVERALL_RATIO]
+                      [--perlayer_ratio PERLAYER_RATIO]
+prune_ktian.py: error: unrecognized arguments: -c YOLOX_outputs/visdrone_nano/latest_ckpt.pth -f exps/example/custom/visdrone_nano.py -expn pruned_yolox_nano
+done

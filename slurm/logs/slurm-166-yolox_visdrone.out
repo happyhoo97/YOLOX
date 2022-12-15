@@ -1,0 +1,999 @@
+extracting the dataset from NAS ...
+done
+setup yolox environment ...
+Using pip 22.1.2 from /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/pip (python 3.8)
+Defaulting to user installation because normal site-packages is not writeable
+Obtaining file:///data/happyhoo97/repos/YOLOX
+  Preparing metadata (setup.py): started
+  Running command python setup.py egg_info
+  running egg_info
+  creating /tmp/pip-pip-egg-info-fbbcivnz/yolox.egg-info
+  writing /tmp/pip-pip-egg-info-fbbcivnz/yolox.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-fbbcivnz/yolox.egg-info/dependency_links.txt
+  writing requirements to /tmp/pip-pip-egg-info-fbbcivnz/yolox.egg-info/requires.txt
+  writing top-level names to /tmp/pip-pip-egg-info-fbbcivnz/yolox.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-fbbcivnz/yolox.egg-info/SOURCES.txt'
+  reading manifest file '/tmp/pip-pip-egg-info-fbbcivnz/yolox.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/torch/utils/cpp_extension.py:411: UserWarning: Attempted to use ninja as the BuildExtension backend but we could not find ninja.. Falling back to using the slow distutils backend.
+    warnings.warn(msg.format('we could not find ninja.'))
+  warning: no files found matching '*.cu' under directory 'yolox'
+  warning: no files found matching '*.cuh' under directory 'yolox'
+  warning: no files found matching '*.cc' under directory 'yolox'
+  adding license file 'LICENSE'
+  writing manifest file '/tmp/pip-pip-egg-info-fbbcivnz/yolox.egg-info/SOURCES.txt'
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: numpy in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (1.23.1)
+Requirement already satisfied: torch>=1.7 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (1.12.1)
+Requirement already satisfied: opencv_python in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (4.6.0.66)
+Requirement already satisfied: loguru in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.6.0)
+Requirement already satisfied: tqdm in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (4.64.1)
+Requirement already satisfied: torchvision in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (0.13.1)
+Requirement already satisfied: thop in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.1.1.post2209072238)
+Requirement already satisfied: ninja in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (1.10.2.4)
+Requirement already satisfied: tabulate in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.9.0)
+Requirement already satisfied: pycocotools>=2.0.2 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (2.0.5)
+Requirement already satisfied: onnx==1.8.1 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (1.8.1)
+Requirement already satisfied: onnxruntime==1.8.0 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (1.8.0)
+Requirement already satisfied: onnx-simplifier==0.3.5 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.3.5)
+Requirement already satisfied: protobuf in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (3.19.5)
+Requirement already satisfied: six in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (1.16.0)
+Requirement already satisfied: typing-extensions>=3.6.2.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (4.3.0)
+Requirement already satisfied: onnxoptimizer>=0.2.5 in /home/happyhoo97/.local/lib/python3.8/site-packages (from onnx-simplifier==0.3.5->yolox==0.3.0) (0.3.1)
+Requirement already satisfied: flatbuffers in /home/happyhoo97/.local/lib/python3.8/site-packages (from onnxruntime==1.8.0->yolox==0.3.0) (22.10.26)
+Requirement already satisfied: matplotlib>=2.1.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from pycocotools>=2.0.2->yolox==0.3.0) (3.5.3)
+Requirement already satisfied: requests in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from torchvision->yolox==0.3.0) (2.28.1)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from torchvision->yolox==0.3.0) (9.2.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (3.0.9)
+Requirement already satisfied: fonttools>=4.22.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (4.37.2)
+Requirement already satisfied: python-dateutil>=2.7 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (2.8.2)
+Requirement already satisfied: cycler>=0.10 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (0.11.0)
+Requirement already satisfied: packaging>=20.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (21.3)
+Requirement already satisfied: kiwisolver>=1.0.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (1.4.4)
+Requirement already satisfied: idna<4,>=2.5 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (3.3)
+Requirement already satisfied: charset-normalizer<3,>=2 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (2.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (2022.6.15)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (1.26.11)
+Installing collected packages: yolox
+  Attempting uninstall: yolox
+    Found existing installation: yolox 0.3.0
+    Uninstalling yolox-0.3.0:
+      Removing file or directory /home/happyhoo97/.local/lib/python3.8/site-packages/yolox.egg-link
+      Removing pth entries from /home/happyhoo97/.local/lib/python3.8/site-packages/easy-install.pth:
+      Removing entry: /data/happyhoo97/repos/YOLOX
+      Successfully uninstalled yolox-0.3.0
+  Running setup.py develop for yolox
+    Running command python setup.py develop
+    running develop
+    running egg_info
+    writing yolox.egg-info/PKG-INFO
+    writing dependency_links to yolox.egg-info/dependency_links.txt
+    writing requirements to yolox.egg-info/requires.txt
+    writing top-level names to yolox.egg-info/top_level.txt
+    reading manifest file 'yolox.egg-info/SOURCES.txt'
+    reading manifest template 'MANIFEST.in'
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/setuptools/command/easy_install.py:144: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+      warnings.warn(
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+      warnings.warn(
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/torch/utils/cpp_extension.py:411: UserWarning: Attempted to use ninja as the BuildExtension backend but we could not find ninja.. Falling back to using the slow distutils backend.
+      warnings.warn(msg.format('we could not find ninja.'))
+    warning: no files found matching '*.cu' under directory 'yolox'
+    warning: no files found matching '*.cuh' under directory 'yolox'
+    warning: no files found matching '*.cc' under directory 'yolox'
+    adding license file 'LICENSE'
+    writing manifest file 'yolox.egg-info/SOURCES.txt'
+    running build_ext
+    copying build/lib.linux-x86_64-cpython-38/yolox/layers/fast_cocoeval.cpython-38-x86_64-linux-gnu.so -> yolox/layers
+    Creating /home/happyhoo97/.local/lib/python3.8/site-packages/yolox.egg-link (link to .)
+    Adding yolox 0.3.0 to easy-install.pth file
+
+    Installed /data/happyhoo97/repos/YOLOX
+Successfully installed yolox
+done
+20221101-205806
+2022-11-01 20:58:07 | INFO     | yolox.core.trainer:130 - args: Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=True, logger='tensorboard', machine_rank=0, name=None, num_machines=1, occupy=False, opts=[], resume=False, start_epoch=None)
+2022-11-01 20:58:07 | INFO     | yolox.core.trainer:131 - exp value:
+╒═══════════════════╤════════════════════════════╕
+│ keys              │ values                     │
+╞═══════════════════╪════════════════════════════╡
+│ seed              │ None                       │
+├───────────────────┼────────────────────────────┤
+│ output_dir        │ './YOLOX_outputs'          │
+├───────────────────┼────────────────────────────┤
+│ print_interval    │ 10                         │
+├───────────────────┼────────────────────────────┤
+│ eval_interval     │ 10                         │
+├───────────────────┼────────────────────────────┤
+│ num_classes       │ 12                         │
+├───────────────────┼────────────────────────────┤
+│ depth             │ 0.33                       │
+├───────────────────┼────────────────────────────┤
+│ width             │ 0.25                       │
+├───────────────────┼────────────────────────────┤
+│ act               │ 'silu'                     │
+├───────────────────┼────────────────────────────┤
+│ data_num_workers  │ 4                          │
+├───────────────────┼────────────────────────────┤
+│ input_size        │ (416, 416)                 │
+├───────────────────┼────────────────────────────┤
+│ multiscale_range  │ 5                          │
+├───────────────────┼────────────────────────────┤
+│ data_dir          │ '/local_datasets/VisDrone' │
+├───────────────────┼────────────────────────────┤
+│ train_ann         │ 'train2017.json'           │
+├───────────────────┼────────────────────────────┤
+│ val_ann           │ 'val2017.json'             │
+├───────────────────┼────────────────────────────┤
+│ test_ann          │ 'val2017.json'             │
+├───────────────────┼────────────────────────────┤
+│ mosaic_prob       │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ mixup_prob        │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ hsv_prob          │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ flip_prob         │ 0.5                        │
+├───────────────────┼────────────────────────────┤
+│ degrees           │ 10.0                       │
+├───────────────────┼────────────────────────────┤
+│ translate         │ 0.1                        │
+├───────────────────┼────────────────────────────┤
+│ mosaic_scale      │ (0.5, 1.5)                 │
+├───────────────────┼────────────────────────────┤
+│ enable_mixup      │ False                      │
+├───────────────────┼────────────────────────────┤
+│ mixup_scale       │ (0.5, 1.5)                 │
+├───────────────────┼────────────────────────────┤
+│ shear             │ 2.0                        │
+├───────────────────┼────────────────────────────┤
+│ warmup_epochs     │ 5                          │
+├───────────────────┼────────────────────────────┤
+│ max_epoch         │ 300                        │
+├───────────────────┼────────────────────────────┤
+│ warmup_lr         │ 0                          │
+├───────────────────┼────────────────────────────┤
+│ min_lr_ratio      │ 0.05                       │
+├───────────────────┼────────────────────────────┤
+│ basic_lr_per_img  │ 0.00015625                 │
+├───────────────────┼────────────────────────────┤
+│ scheduler         │ 'yoloxwarmcos'             │
+├───────────────────┼────────────────────────────┤
+│ no_aug_epochs     │ 15                         │
+├───────────────────┼────────────────────────────┤
+│ ema               │ True                       │
+├───────────────────┼────────────────────────────┤
+│ weight_decay      │ 0.0005                     │
+├───────────────────┼────────────────────────────┤
+│ momentum          │ 0.9                        │
+├───────────────────┼────────────────────────────┤
+│ save_history_ckpt │ True                       │
+├───────────────────┼────────────────────────────┤
+│ exp_name          │ 'visdrone_nano'            │
+├───────────────────┼────────────────────────────┤
+│ test_size         │ (416, 416)                 │
+├───────────────────┼────────────────────────────┤
+│ test_conf         │ 0.01                       │
+├───────────────────┼────────────────────────────┤
+│ nmsthre           │ 0.65                       │
+├───────────────────┼────────────────────────────┤
+│ random_size       │ (10, 20)                   │
+╘═══════════════════╧════════════════════════════╛
+2022-11-01 20:58:07 | INFO     | yolox.core.trainer:136 - Model Summary: Params: 0.90M, Gflops: 1.08
+2022-11-01 20:58:09 | INFO     | yolox.core.trainer:311 - loading checkpoint for fine tuning
+2022-11-01 20:58:09 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([12, 64, 1, 1]).
+2022-11-01 20:58:09 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([12]).
+2022-11-01 20:58:09 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([12, 64, 1, 1]).
+2022-11-01 20:58:09 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([12]).
+2022-11-01 20:58:09 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([12, 64, 1, 1]).
+2022-11-01 20:58:09 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([12]).
+2022-11-01 20:58:09 | INFO     | yolox.data.datasets.coco:64 - loading annotations into memory...
+2022-11-01 20:58:11 | INFO     | yolox.data.datasets.coco:64 - Done (t=1.93s)
+2022-11-01 20:58:11 | INFO     | pycocotools.coco:86 - creating index...
+2022-11-01 20:58:11 | INFO     | pycocotools.coco:86 - index created!
+2022-11-01 20:58:22 | WARNING  | yolox.data.datasets.coco:88 - 
+********************************************************************************
+You are using cached images in RAM to accelerate training.
+This requires large system RAM.
+Make sure you have 200G+ RAM and 136G available disk space for training COCO.
+********************************************************************************
+
+2022-11-01 20:58:22 | INFO     | yolox.data.datasets.coco:99 - Caching images for the first time. This might take about 20 minutes for COCO
+2022-11-01 20:59:07 | INFO     | yolox.data.datasets.coco:128 - Loading cached imgs...
+2022-11-01 20:59:07 | INFO     | yolox.core.trainer:155 - init prefetcher, this might take one minute or less...
+2022-11-01 20:59:10 | INFO     | yolox.data.datasets.coco:64 - loading annotations into memory...
+2022-11-01 20:59:11 | INFO     | yolox.data.datasets.coco:64 - Done (t=1.17s)
+2022-11-01 20:59:11 | INFO     | pycocotools.coco:86 - creating index...
+2022-11-01 20:59:11 | INFO     | pycocotools.coco:86 - index created!
+2022-11-01 20:59:13 | INFO     | yolox.core.trainer:191 - Training start...
+2022-11-01 20:59:13 | INFO     | yolox.core.trainer:192 - 
+YOLOX(
+  (backbone): YOLOPAFPN(
+    (backbone): CSPDarknet(
+      (stem): Focus(
+        (conv): BaseConv(
+          (conv): Conv2d(12, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+          (act): SiLU(inplace=True)
+        )
+      )
+      (dark2): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(16, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=16, bias=False)
+            (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(16, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2d(32, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): BaseConv(
+            (conv): Conv2d(32, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv3): BaseConv(
+            (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(16, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=16, bias=False)
+                  (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(16, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+          )
+        )
+      )
+      (dark3): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=32, bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): BaseConv(
+            (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv3): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+            (1): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+            (2): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+          )
+        )
+      )
+      (dark4): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): BaseConv(
+            (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv3): BaseConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+            (1): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+            (2): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+          )
+        )
+      )
+      (dark5): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=128, bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): SPPBottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (m): ModuleList(
+            (0): MaxPool2d(kernel_size=5, stride=1, padding=2, dilation=1, ceil_mode=False)
+            (1): MaxPool2d(kernel_size=9, stride=1, padding=4, dilation=1, ceil_mode=False)
+            (2): MaxPool2d(kernel_size=13, stride=1, padding=6, dilation=1, ceil_mode=False)
+          )
+          (conv2): BaseConv(
+            (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (2): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): BaseConv(
+            (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv3): BaseConv(
+            (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+                  (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+    (upsample): Upsample(scale_factor=2.0, mode=nearest)
+    (lateral_conv0): BaseConv(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+      (act): SiLU(inplace=True)
+    )
+    (C3_p4): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv2): BaseConv(
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv3): BaseConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): DWConv(
+            (dconv): BaseConv(
+              (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+              (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+            (pconv): BaseConv(
+              (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+          )
+        )
+      )
+    )
+    (reduce_conv1): BaseConv(
+      (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+      (act): SiLU(inplace=True)
+    )
+    (C3_p3): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv2): BaseConv(
+        (conv): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv3): BaseConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): DWConv(
+            (dconv): BaseConv(
+              (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+              (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+            (pconv): BaseConv(
+              (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+          )
+        )
+      )
+    )
+    (bu_conv2): DWConv(
+      (dconv): BaseConv(
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64, bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (pconv): BaseConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+    )
+    (C3_n3): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv2): BaseConv(
+        (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv3): BaseConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): DWConv(
+            (dconv): BaseConv(
+              (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+              (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+            (pconv): BaseConv(
+              (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+          )
+        )
+      )
+    )
+    (bu_conv1): DWConv(
+      (dconv): BaseConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=128, bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (pconv): BaseConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+    )
+    (C3_n4): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv2): BaseConv(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv3): BaseConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): DWConv(
+            (dconv): BaseConv(
+              (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+              (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+            (pconv): BaseConv(
+              (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+          )
+        )
+      )
+    )
+  )
+  (head): YOLOXHead(
+    (cls_convs): ModuleList(
+      (0): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+      (1): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+      (2): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+    )
+    (reg_convs): ModuleList(
+      (0): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+      (1): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+      (2): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+    )
+    (cls_preds): ModuleList(
+      (0): Conv2d(64, 12, kernel_size=(1, 1), stride=(1, 1))
+      (1): Conv2d(64, 12, kernel_size=(1, 1), stride=(1, 1))
+      (2): Conv2d(64, 12, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (reg_preds): ModuleList(
+      (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+      (1): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+      (2): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (obj_preds): ModuleList(
+      (0): Conv2d(64, 1, kernel_size=(1, 1), stride=(1, 1))
+      (1): Conv2d(64, 1, kernel_size=(1, 1), stride=(1, 1))
+      (2): Conv2d(64, 1, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (stems): ModuleList(
+      (0): BaseConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (1): BaseConv(
+        (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (2): BaseConv(
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+    )
+    (l1_loss): L1Loss()
+    (bcewithlog_loss): BCEWithLogitsLoss()
+    (iou_loss): IOUloss()
+  )
+)
+2022-11-01 20:59:13 | INFO     | yolox.core.trainer:203 - ---> start train epoch1
+2022-11-01 20:59:13 | INFO     | yolox.core.trainer:195 - Training of experiment is done and the best AP is 0.00
+2022-11-01 20:59:13 | ERROR    | yolox.core.launch:98 - An error has been caught in function 'launch', process 'MainProcess' (686221), thread 'MainThread' (139669465973568):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 134, in <module>
+    launch(
+    └ <function launch at 0x7f06d2004160>
+
+> File "/data/happyhoo97/repos/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f06cd174820>
+
+  File "tools/train.py", line 118, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f06bd33a160>
+    └ <yolox.core.trainer.Trainer object at 0x7f06bd3428b0>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 76, in train
+    self.train_in_epoch()
+    │    └ <function Trainer.train_in_epoch at 0x7f06bd33a820>
+    └ <yolox.core.trainer.Trainer object at 0x7f06bd3428b0>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 85, in train_in_epoch
+    self.train_in_iter()
+    │    └ <function Trainer.train_in_iter at 0x7f06bd33a8b0>
+    └ <yolox.core.trainer.Trainer object at 0x7f06bd3428b0>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 91, in train_in_iter
+    self.train_one_iter()
+    │    └ <function Trainer.train_one_iter at 0x7f06bd33a940>
+    └ <yolox.core.trainer.Trainer object at 0x7f06bd3428b0>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 97, in train_one_iter
+    inps, targets = self.prefetcher.next()
+                    │    │          └ <function DataPrefetcher.next at 0x7f06bd3ff0d0>
+                    │    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f06b46f3640>
+                    └ <yolox.core.trainer.Trainer object at 0x7f06bd3428b0>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/data/data_prefetcher.py", line 43, in next
+    self.preload()
+    │    └ <function DataPrefetcher.preload at 0x7f06bd3ff040>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f06b46f3640>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/data/data_prefetcher.py", line 32, in preload
+    self.input_cuda()
+    │    └ <bound method DataPrefetcher._input_cuda_for_image of <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f06b46f3640>>
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f06b46f3640>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/data/data_prefetcher.py", line 47, in _input_cuda_for_image
+    self.next_input = self.next_input.cuda(non_blocking=True)
+    │    │            │    │          └ <method 'cuda' of 'torch._C._TensorBase' objects>
+    │    │            │    └ tensor([[[[113., 113., 113.,  ...,  16.,  16.,  14.],
+    │    │            │                [113., 113., 113.,  ...,  18.,  16.,  14.],
+    │    │            │                [113., ...
+    │    │            └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f06b46f3640>
+    │    └ tensor([[[[113., 113., 113.,  ...,  16.,  16.,  14.],
+    │                [113., 113., 113.,  ...,  18.,  16.,  14.],
+    │                [113., ...
+    └ <yolox.data.data_prefetcher.DataPrefetcher object at 0x7f06b46f3640>
+
+RuntimeError: CUDA out of memory. Tried to allocate 128.00 MiB (GPU 0; 23.70 GiB total capacity; 134.19 MiB already allocated; 20.69 MiB free; 138.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+  0%|          | 0/6471 [00:00<?, ?it/s]  0%|          | 1/6471 [00:00<10:52,  9.91it/s]  0%|          | 19/6471 [00:00<01:01, 105.08it/s]  1%|          | 39/6471 [00:00<00:52, 122.76it/s]  1%|          | 55/6471 [00:00<00:52, 121.06it/s]  1%|1         | 78/6471 [00:00<00:41, 153.44it/s]  1%|1         | 94/6471 [00:00<00:42, 151.14it/s]  2%|1         | 115/6471 [00:00<00:42, 150.91it/s]  2%|2         | 131/6471 [00:00<00:45, 139.58it/s]  2%|2         | 147/6471 [00:01<00:54, 116.95it/s]  3%|2         | 178/6471 [00:01<00:42, 149.37it/s]  3%|3         | 199/6471 [00:01<00:38, 161.32it/s]  3%|3         | 216/6471 [00:01<00:39, 158.01it/s]  4%|3         | 233/6471 [00:01<00:41, 150.32it/s]  4%|3         | 252/6471 [00:01<00:41, 151.60it/s]  4%|4         | 268/6471 [00:01<00:40, 152.28it/s]  4%|4         | 284/6471 [00:01<00:41, 147.33it/s]  5%|4         | 299/6471 [00:02<00:44, 137.91it/s]  5%|4         | 319/6471 [00:02<00:42, 144.07it/s]  5%|5         | 336/6471 [00:02<00:45, 133.82it/s]  5%|5         | 355/6471 [00:02<00:41, 147.46it/s]  6%|5         | 375/6471 [00:02<00:37, 161.12it/s]  6%|6         | 392/6471 [00:02<00:37, 162.95it/s]  6%|6         | 409/6471 [00:02<00:38, 157.19it/s]  7%|6         | 425/6471 [00:02<00:40, 148.03it/s]  7%|6         | 441/6471 [00:03<00:45, 132.71it/s]  7%|7         | 458/6471 [00:03<00:44, 134.29it/s]  7%|7         | 472/6471 [00:03<00:46, 127.76it/s]  8%|7         | 496/6471 [00:03<00:38, 156.31it/s]  8%|7         | 513/6471 [00:03<00:44, 134.10it/s]  8%|8         | 528/6471 [00:03<00:45, 129.73it/s]  8%|8         | 542/6471 [00:03<00:48, 122.89it/s]  9%|8         | 563/6471 [00:03<00:43, 136.31it/s]  9%|8         | 578/6471 [00:04<00:42, 139.27it/s]  9%|9         | 593/6471 [00:04<00:43, 136.52it/s]  9%|9         | 610/6471 [00:04<00:41, 142.57it/s] 10%|9         | 625/6471 [00:04<00:44, 129.94it/s] 10%|9         | 639/6471 [00:04<00:46, 124.25it/s] 10%|#         | 654/6471 [00:04<00:47, 122.50it/s] 10%|#         | 678/6471 [00:04<00:41, 141.16it/s] 11%|#         | 693/6471 [00:04<00:43, 132.07it/s] 11%|#1        | 718/6471 [00:05<00:37, 154.28it/s] 11%|#1        | 734/6471 [00:05<00:40, 142.75it/s] 12%|#1        | 749/6471 [00:05<00:39, 144.36it/s] 12%|#1        | 767/6471 [00:05<00:38, 149.35it/s] 12%|#2        | 784/6471 [00:05<00:38, 149.51it/s] 12%|#2        | 803/6471 [00:05<00:36, 153.60it/s] 13%|#2        | 819/6471 [00:05<00:38, 147.32it/s] 13%|#2        | 835/6471 [00:05<00:39, 141.05it/s] 13%|#3        | 854/6471 [00:06<00:37, 151.65it/s] 13%|#3        | 870/6471 [00:06<00:44, 127.07it/s] 14%|#3        | 891/6471 [00:06<00:40, 137.19it/s] 14%|#4        | 913/6471 [00:06<00:37, 149.33it/s] 14%|#4        | 931/6471 [00:06<00:39, 141.01it/s] 15%|#4        | 952/6471 [00:06<00:36, 151.17it/s] 15%|#5        | 973/6471 [00:06<00:38, 141.51it/s] 15%|#5        | 994/6471 [00:07<00:37, 145.28it/s] 16%|#5        | 1009/6471 [00:07<00:41, 132.12it/s] 16%|#5        | 1024/6471 [00:07<00:40, 135.48it/s] 16%|#6        | 1047/6471 [00:07<00:34, 157.87it/s] 16%|#6        | 1067/6471 [00:07<00:32, 168.50it/s] 17%|#6        | 1085/6471 [00:07<00:42, 127.93it/s] 17%|#6        | 1100/6471 [00:07<00:41, 130.29it/s] 17%|#7        | 1125/6471 [00:07<00:33, 158.60it/s] 18%|#7        | 1143/6471 [00:08<00:36, 147.47it/s] 18%|#7        | 1159/6471 [00:08<00:39, 134.53it/s] 18%|#8        | 1176/6471 [00:08<00:38, 136.39it/s] 18%|#8        | 1191/6471 [00:08<00:41, 126.82it/s] 19%|#8        | 1210/6471 [00:08<00:37, 138.70it/s] 19%|#8        | 1225/6471 [00:08<00:38, 136.99it/s] 19%|#9        | 1247/6471 [00:08<00:36, 144.98it/s] 20%|#9        | 1266/6471 [00:08<00:33, 156.13it/s] 20%|#9        | 1282/6471 [00:09<00:34, 151.74it/s] 20%|##        | 1298/6471 [00:09<00:33, 152.61it/s] 20%|##        | 1314/6471 [00:09<00:36, 140.25it/s] 21%|##        | 1329/6471 [00:09<00:38, 133.38it/s] 21%|##        | 1345/6471 [00:09<00:40, 127.95it/s] 21%|##1       | 1365/6471 [00:09<00:38, 131.54it/s] 21%|##1       | 1380/6471 [00:09<00:39, 128.27it/s] 22%|##1       | 1399/6471 [00:09<00:41, 122.08it/s] 22%|##2       | 1429/6471 [00:10<00:36, 139.33it/s] 22%|##2       | 1448/6471 [00:10<00:33, 149.37it/s] 23%|##2       | 1470/6471 [00:10<00:30, 162.73it/s] 23%|##2       | 1487/6471 [00:10<00:34, 146.29it/s] 23%|##3       | 1503/6471 [00:10<00:34, 146.06it/s] 23%|##3       | 1518/6471 [00:10<00:34, 144.45it/s] 24%|##3       | 1533/6471 [00:10<00:34, 141.82it/s] 24%|##3       | 1548/6471 [00:10<00:37, 129.79it/s] 24%|##4       | 1566/6471 [00:11<00:35, 136.65it/s] 25%|##4       | 1587/6471 [00:11<00:34, 142.02it/s] 25%|##4       | 1613/6471 [00:11<00:32, 147.32it/s] 25%|##5       | 1639/6471 [00:11<00:28, 169.23it/s] 26%|##5       | 1657/6471 [00:11<00:31, 153.98it/s] 26%|##5       | 1673/6471 [00:11<00:30, 155.08it/s] 26%|##6       | 1689/6471 [00:11<00:31, 149.81it/s] 26%|##6       | 1705/6471 [00:11<00:31, 149.15it/s] 27%|##6       | 1721/6471 [00:12<00:32, 146.10it/s] 27%|##6       | 1736/6471 [00:12<00:33, 141.44it/s] 27%|##7       | 1754/6471 [00:12<00:35, 134.42it/s] 27%|##7       | 1770/6471 [00:12<00:34, 137.17it/s] 28%|##7       | 1784/6471 [00:12<00:37, 123.77it/s] 28%|##7       | 1809/6471 [00:12<00:30, 152.78it/s] 28%|##8       | 1825/6471 [00:12<00:30, 153.02it/s] 28%|##8       | 1841/6471 [00:12<00:30, 150.60it/s] 29%|##8       | 1857/6471 [00:13<00:32, 144.16it/s] 29%|##8       | 1875/6471 [00:13<00:30, 153.14it/s] 29%|##9       | 1891/6471 [00:13<00:30, 148.27it/s] 29%|##9       | 1907/6471 [00:13<00:30, 147.98it/s] 30%|##9       | 1922/6471 [00:13<00:32, 138.04it/s] 30%|##9       | 1939/6471 [00:13<00:31, 142.39it/s] 30%|###       | 1958/6471 [00:13<00:29, 154.98it/s] 31%|###       | 1974/6471 [00:13<00:29, 151.71it/s] 31%|###       | 1990/6471 [00:14<00:33, 132.09it/s] 31%|###       | 2004/6471 [00:14<00:34, 128.00it/s] 31%|###1      | 2018/6471 [00:14<00:34, 130.70it/s] 32%|###1      | 2042/6471 [00:14<00:35, 126.46it/s] 32%|###1      | 2065/6471 [00:14<00:30, 146.51it/s] 32%|###2      | 2082/6471 [00:14<00:28, 152.13it/s] 32%|###2      | 2098/6471 [00:14<00:28, 153.17it/s] 33%|###2      | 2118/6471 [00:14<00:28, 153.69it/s] 33%|###3      | 2138/6471 [00:15<00:29, 146.81it/s] 33%|###3      | 2156/6471 [00:15<00:28, 149.94it/s] 34%|###3      | 2172/6471 [00:15<00:32, 132.58it/s] 34%|###3      | 2192/6471 [00:15<00:28, 148.12it/s] 34%|###4      | 2208/6471 [00:15<00:29, 144.83it/s] 34%|###4      | 2227/6471 [00:15<00:27, 156.50it/s] 35%|###4      | 2244/6471 [00:15<00:31, 133.83it/s] 35%|###4      | 2259/6471 [00:15<00:31, 132.51it/s] 35%|###5      | 2279/6471 [00:16<00:32, 127.06it/s] 36%|###5      | 2302/6471 [00:16<00:28, 145.68it/s] 36%|###5      | 2318/6471 [00:16<00:31, 133.05it/s] 36%|###6      | 2335/6471 [00:16<00:34, 119.53it/s] 36%|###6      | 2355/6471 [00:16<00:29, 137.31it/s] 37%|###6      | 2376/6471 [00:16<00:27, 147.95it/s] 37%|###6      | 2394/6471 [00:16<00:30, 132.46it/s] 37%|###7      | 2419/6471 [00:17<00:29, 136.51it/s] 38%|###7      | 2439/6471 [00:17<00:28, 139.48it/s] 38%|###7      | 2457/6471 [00:17<00:28, 143.27it/s] 38%|###8      | 2480/6471 [00:17<00:26, 153.24it/s] 39%|###8      | 2496/6471 [00:17<00:27, 146.86it/s] 39%|###8      | 2511/6471 [00:17<00:26, 147.55it/s] 39%|###9      | 2527/6471 [00:17<00:27, 144.59it/s] 39%|###9      | 2553/6471 [00:17<00:27, 143.15it/s] 40%|###9      | 2574/6471 [00:18<00:26, 146.03it/s] 40%|####      | 2595/6471 [00:18<00:25, 150.70it/s] 40%|####      | 2619/6471 [00:18<00:23, 163.22it/s] 41%|####      | 2636/6471 [00:18<00:23, 164.06it/s] 41%|####      | 2653/6471 [00:18<00:26, 144.00it/s] 41%|####1     | 2668/6471 [00:18<00:30, 122.83it/s] 42%|####1     | 2686/6471 [00:18<00:28, 134.52it/s] 42%|####1     | 2705/6471 [00:19<00:26, 141.40it/s] 42%|####2     | 2723/6471 [00:19<00:28, 130.64it/s] 42%|####2     | 2750/6471 [00:19<00:22, 163.24it/s] 43%|####2     | 2768/6471 [00:19<00:25, 147.82it/s] 43%|####3     | 2784/6471 [00:19<00:25, 145.83it/s] 43%|####3     | 2800/6471 [00:19<00:29, 126.03it/s] 44%|####3     | 2829/6471 [00:19<00:22, 162.72it/s] 44%|####3     | 2847/6471 [00:20<00:24, 145.34it/s] 44%|####4     | 2868/6471 [00:20<00:25, 140.49it/s] 45%|####4     | 2889/6471 [00:20<00:24, 144.44it/s] 45%|####4     | 2905/6471 [00:20<00:24, 142.77it/s] 45%|####5     | 2920/6471 [00:20<00:25, 136.98it/s] 45%|####5     | 2936/6471 [00:20<00:25, 140.32it/s] 46%|####5     | 2953/6471 [00:20<00:25, 136.28it/s] 46%|####5     | 2976/6471 [00:20<00:22, 157.92it/s] 46%|####6     | 2993/6471 [00:20<00:21, 160.47it/s] 47%|####6     | 3010/6471 [00:21<00:24, 141.34it/s] 47%|####6     | 3025/6471 [00:21<00:24, 141.15it/s] 47%|####6     | 3040/6471 [00:21<00:24, 140.77it/s] 47%|####7     | 3059/6471 [00:21<00:22, 150.45it/s] 48%|####7     | 3076/6471 [00:21<00:22, 153.96it/s] 48%|####7     | 3094/6471 [00:21<00:21, 155.31it/s] 48%|####8     | 3110/6471 [00:21<00:26, 126.99it/s] 48%|####8     | 3124/6471 [00:22<00:31, 106.07it/s] 48%|####8     | 3136/6471 [00:22<00:31, 105.79it/s] 49%|####8     | 3151/6471 [00:22<00:32, 102.86it/s] 49%|####8     | 3168/6471 [00:22<00:28, 114.41it/s] 49%|####9     | 3188/6471 [00:22<00:25, 129.23it/s] 49%|####9     | 3202/6471 [00:22<00:26, 123.94it/s] 50%|####9     | 3227/6471 [00:22<00:21, 153.28it/s] 50%|#####     | 3244/6471 [00:22<00:22, 144.38it/s] 50%|#####     | 3264/6471 [00:23<00:21, 150.35it/s] 51%|#####     | 3280/6471 [00:23<00:22, 143.16it/s] 51%|#####     | 3295/6471 [00:23<00:25, 123.86it/s] 51%|#####1    | 3308/6471 [00:23<00:26, 121.31it/s] 52%|#####1    | 3336/6471 [00:23<00:21, 142.87it/s] 52%|#####2    | 3368/6471 [00:23<00:17, 175.91it/s] 52%|#####2    | 3386/6471 [00:23<00:19, 154.87it/s] 53%|#####2    | 3408/6471 [00:24<00:20, 147.77it/s] 53%|#####2    | 3425/6471 [00:24<00:20, 151.90it/s] 53%|#####3    | 3448/6471 [00:24<00:21, 142.83it/s] 54%|#####3    | 3466/6471 [00:24<00:21, 141.43it/s] 54%|#####3    | 3491/6471 [00:24<00:19, 152.12it/s] 54%|#####4    | 3507/6471 [00:24<00:20, 146.73it/s] 55%|#####4    | 3528/6471 [00:24<00:18, 161.76it/s] 55%|#####4    | 3545/6471 [00:24<00:19, 153.61it/s] 55%|#####5    | 3561/6471 [00:25<00:20, 143.28it/s] 55%|#####5    | 3577/6471 [00:25<00:19, 145.91it/s] 56%|#####5    | 3592/6471 [00:25<00:19, 145.91it/s] 56%|#####5    | 3608/6471 [00:25<00:23, 124.03it/s] 56%|#####6    | 3629/6471 [00:25<00:20, 137.15it/s] 56%|#####6    | 3644/6471 [00:25<00:20, 138.67it/s] 57%|#####6    | 3667/6471 [00:25<00:17, 162.23it/s] 57%|#####6    | 3684/6471 [00:25<00:20, 139.16it/s] 57%|#####7    | 3699/6471 [00:26<00:20, 136.79it/s] 57%|#####7    | 3720/6471 [00:26<00:19, 138.84it/s] 58%|#####7    | 3736/6471 [00:26<00:19, 143.92it/s] 58%|#####7    | 3751/6471 [00:26<00:20, 133.77it/s] 58%|#####8    | 3772/6471 [00:26<00:20, 129.09it/s] 59%|#####8    | 3799/6471 [00:26<00:17, 149.31it/s] 59%|#####9    | 3819/6471 [00:26<00:16, 160.28it/s] 59%|#####9    | 3836/6471 [00:26<00:16, 157.73it/s] 60%|#####9    | 3853/6471 [00:27<00:17, 149.35it/s] 60%|#####9    | 3873/6471 [00:27<00:18, 142.50it/s] 60%|######    | 3895/6471 [00:27<00:17, 150.71it/s] 60%|######    | 3913/6471 [00:27<00:18, 136.53it/s] 61%|######    | 3939/6471 [00:27<00:15, 158.73it/s] 61%|######1   | 3956/6471 [00:27<00:18, 134.19it/s] 61%|######1   | 3972/6471 [00:27<00:18, 134.40it/s] 62%|######1   | 3999/6471 [00:28<00:16, 150.52it/s] 62%|######2   | 4018/6471 [00:28<00:15, 157.01it/s] 62%|######2   | 4035/6471 [00:28<00:15, 160.02it/s] 63%|######2   | 4052/6471 [00:28<00:15, 160.40it/s] 63%|######2   | 4069/6471 [00:28<00:15, 157.68it/s] 63%|######3   | 4086/6471 [00:28<00:14, 159.14it/s] 63%|######3   | 4103/6471 [00:28<00:15, 155.26it/s] 64%|######3   | 4119/6471 [00:28<00:16, 143.45it/s] 64%|######3   | 4136/6471 [00:29<00:17, 131.91it/s] 64%|######4   | 4157/6471 [00:29<00:15, 146.28it/s] 64%|######4   | 4172/6471 [00:29<00:16, 140.99it/s] 65%|######4   | 4194/6471 [00:29<00:18, 123.95it/s] 65%|######5   | 4220/6471 [00:29<00:15, 145.91it/s] 65%|######5   | 4236/6471 [00:29<00:15, 144.59it/s] 66%|######5   | 4255/6471 [00:29<00:14, 154.04it/s] 66%|######6   | 4272/6471 [00:29<00:13, 157.54it/s] 66%|######6   | 4290/6471 [00:30<00:15, 144.38it/s] 67%|######6   | 4307/6471 [00:30<00:15, 141.12it/s] 67%|######6   | 4326/6471 [00:30<00:14, 151.23it/s] 67%|######7   | 4342/6471 [00:30<00:15, 135.81it/s] 67%|######7   | 4361/6471 [00:30<00:14, 142.18it/s] 68%|######7   | 4378/6471 [00:30<00:14, 145.35it/s] 68%|######7   | 4397/6471 [00:30<00:13, 153.15it/s] 68%|######8   | 4413/6471 [00:31<00:15, 130.14it/s] 68%|######8   | 4432/6471 [00:31<00:14, 139.00it/s] 69%|######8   | 4447/6471 [00:31<00:15, 129.94it/s] 69%|######8   | 4462/6471 [00:31<00:15, 131.79it/s] 69%|######9   | 4482/6471 [00:31<00:13, 148.93it/s] 70%|######9   | 4500/6471 [00:31<00:12, 153.42it/s] 70%|######9   | 4516/6471 [00:31<00:14, 137.50it/s] 70%|#######   | 4541/6471 [00:31<00:11, 164.89it/s] 70%|#######   | 4559/6471 [00:32<00:13, 137.87it/s] 71%|#######   | 4585/6471 [00:32<00:11, 164.31it/s] 71%|#######1  | 4603/6471 [00:32<00:12, 144.23it/s] 71%|#######1  | 4626/6471 [00:32<00:12, 144.26it/s] 72%|#######1  | 4649/6471 [00:32<00:11, 156.13it/s] 72%|#######2  | 4666/6471 [00:32<00:13, 138.60it/s] 72%|#######2  | 4684/6471 [00:32<00:12, 138.01it/s] 73%|#######2  | 4700/6471 [00:32<00:12, 142.86it/s] 73%|#######2  | 4715/6471 [00:33<00:12, 141.35it/s] 73%|#######3  | 4730/6471 [00:33<00:13, 129.91it/s] 73%|#######3  | 4744/6471 [00:33<00:13, 124.91it/s] 74%|#######3  | 4768/6471 [00:33<00:11, 142.60it/s] 74%|#######3  | 4786/6471 [00:33<00:11, 150.19it/s] 74%|#######4  | 4803/6471 [00:33<00:11, 151.63it/s] 74%|#######4  | 4819/6471 [00:33<00:10, 150.55it/s] 75%|#######4  | 4837/6471 [00:33<00:11, 136.50it/s] 75%|#######4  | 4852/6471 [00:34<00:12, 130.84it/s] 75%|#######5  | 4873/6471 [00:34<00:10, 148.14it/s] 76%|#######5  | 4889/6471 [00:34<00:10, 148.68it/s] 76%|#######5  | 4910/6471 [00:34<00:09, 161.35it/s] 76%|#######6  | 4927/6471 [00:34<00:09, 154.85it/s] 76%|#######6  | 4943/6471 [00:34<00:10, 150.72it/s] 77%|#######6  | 4959/6471 [00:34<00:11, 134.74it/s] 77%|#######6  | 4977/6471 [00:34<00:10, 143.85it/s] 77%|#######7  | 4992/6471 [00:35<00:11, 133.68it/s] 77%|#######7  | 5006/6471 [00:35<00:11, 127.43it/s] 78%|#######7  | 5021/6471 [00:35<00:11, 125.74it/s] 78%|#######7  | 5042/6471 [00:35<00:10, 132.09it/s] 78%|#######8  | 5059/6471 [00:35<00:10, 131.39it/s] 79%|#######8  | 5087/6471 [00:35<00:08, 154.44it/s] 79%|#######8  | 5103/6471 [00:35<00:08, 155.47it/s] 79%|#######9  | 5123/6471 [00:35<00:08, 160.40it/s] 79%|#######9  | 5140/6471 [00:36<00:09, 137.23it/s] 80%|#######9  | 5155/6471 [00:36<00:09, 132.19it/s] 80%|########  | 5178/6471 [00:36<00:08, 150.82it/s] 80%|########  | 5194/6471 [00:36<00:09, 141.19it/s] 80%|########  | 5209/6471 [00:36<00:08, 140.96it/s] 81%|########  | 5225/6471 [00:36<00:09, 128.16it/s] 81%|########1 | 5245/6471 [00:36<00:09, 134.34it/s] 81%|########1 | 5266/6471 [00:36<00:08, 135.49it/s] 82%|########1 | 5288/6471 [00:37<00:08, 145.46it/s] 82%|########1 | 5304/6471 [00:37<00:08, 142.06it/s] 82%|########2 | 5323/6471 [00:37<00:08, 142.09it/s] 83%|########2 | 5343/6471 [00:37<00:07, 152.80it/s] 83%|########2 | 5359/6471 [00:37<00:07, 148.91it/s] 83%|########3 | 5375/6471 [00:37<00:07, 145.20it/s] 83%|########3 | 5393/6471 [00:37<00:06, 154.18it/s] 84%|########3 | 5409/6471 [00:37<00:07, 147.80it/s] 84%|########3 | 5426/6471 [00:38<00:07, 147.63it/s] 84%|########4 | 5441/6471 [00:38<00:07, 134.57it/s] 84%|########4 | 5457/6471 [00:38<00:07, 139.97it/s] 85%|########4 | 5472/6471 [00:38<00:08, 124.85it/s] 85%|########4 | 5495/6471 [00:38<00:06, 147.31it/s] 85%|########5 | 5511/6471 [00:38<00:07, 130.17it/s] 85%|########5 | 5527/6471 [00:38<00:06, 136.87it/s] 86%|########5 | 5548/6471 [00:38<00:06, 147.78it/s] 86%|########5 | 5565/6471 [00:39<00:06, 141.10it/s] 86%|########6 | 5580/6471 [00:39<00:06, 138.64it/s] 86%|########6 | 5595/6471 [00:39<00:06, 136.77it/s] 87%|########6 | 5611/6471 [00:39<00:06, 132.50it/s] 87%|########6 | 5625/6471 [00:39<00:06, 123.86it/s] 87%|########7 | 5651/6471 [00:39<00:06, 131.09it/s] 88%|########7 | 5671/6471 [00:39<00:05, 142.09it/s] 88%|########7 | 5687/6471 [00:39<00:05, 135.49it/s] 88%|########8 | 5709/6471 [00:40<00:05, 148.80it/s] 88%|########8 | 5725/6471 [00:40<00:05, 146.93it/s] 89%|########8 | 5740/6471 [00:40<00:05, 145.23it/s] 89%|########8 | 5758/6471 [00:40<00:05, 140.75it/s] 89%|########9 | 5773/6471 [00:40<00:05, 127.24it/s] 90%|########9 | 5797/6471 [00:40<00:04, 147.49it/s] 90%|########9 | 5814/6471 [00:40<00:04, 152.39it/s] 90%|######### | 5830/6471 [00:40<00:04, 137.46it/s] 90%|######### | 5845/6471 [00:41<00:05, 124.24it/s] 91%|######### | 5864/6471 [00:41<00:04, 139.97it/s] 91%|######### | 5879/6471 [00:41<00:04, 140.65it/s] 91%|#########1| 5894/6471 [00:41<00:04, 139.35it/s] 91%|#########1| 5909/6471 [00:41<00:04, 133.44it/s] 92%|#########1| 5929/6471 [00:41<00:03, 138.04it/s] 92%|#########1| 5943/6471 [00:41<00:03, 133.43it/s] 92%|#########2| 5962/6471 [00:41<00:03, 131.98it/s] 92%|#########2| 5985/6471 [00:42<00:03, 129.80it/s] 93%|#########2| 6002/6471 [00:42<00:03, 128.62it/s] 93%|#########3| 6026/6471 [00:42<00:03, 137.88it/s] 93%|#########3| 6049/6471 [00:42<00:02, 148.83it/s] 94%|#########3| 6067/6471 [00:42<00:02, 146.34it/s] 94%|#########3| 6082/6471 [00:42<00:02, 145.18it/s] 94%|#########4| 6099/6471 [00:42<00:02, 143.56it/s] 95%|#########4| 6117/6471 [00:43<00:02, 143.72it/s] 95%|#########4| 6133/6471 [00:43<00:02, 143.39it/s] 95%|#########5| 6150/6471 [00:43<00:02, 140.47it/s] 95%|#########5| 6169/6471 [00:43<00:01, 151.38it/s] 96%|#########5| 6185/6471 [00:43<00:02, 132.90it/s] 96%|#########5| 6200/6471 [00:43<00:02, 132.75it/s] 96%|#########6| 6215/6471 [00:43<00:01, 135.14it/s] 96%|#########6| 6234/6471 [00:43<00:01, 148.24it/s] 97%|#########6| 6250/6471 [00:43<00:01, 150.89it/s] 97%|#########6| 6267/6471 [00:44<00:01, 150.38it/s] 97%|#########7| 6283/6471 [00:44<00:01, 146.32it/s] 97%|#########7| 6301/6471 [00:44<00:01, 138.39it/s] 98%|#########7| 6319/6471 [00:44<00:01, 129.52it/s] 98%|#########8| 6342/6471 [00:44<00:00, 152.05it/s] 98%|#########8| 6358/6471 [00:44<00:00, 147.03it/s] 99%|#########8| 6374/6471 [00:44<00:00, 145.21it/s] 99%|#########8| 6389/6471 [00:44<00:00, 132.50it/s] 99%|#########9| 6409/6471 [00:45<00:00, 144.16it/s] 99%|#########9| 6424/6471 [00:45<00:00, 117.64it/s]100%|#########9| 6452/6471 [00:45<00:00, 130.99it/s]100%|##########| 6471/6471 [00:45<00:00, 142.15it/s]
+Exception in thread Thread-13:
+Traceback (most recent call last):
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/torch/utils/data/_utils/pin_memory.py", line 28, in _pin_memory_loop
+    r = in_queue.get(timeout=MP_STATUS_CHECK_INTERVAL)
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/multiprocessing/queues.py", line 116, in get
+    return _ForkingPickler.loads(res)
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/torch/multiprocessing/reductions.py", line 297, in rebuild_storage_fd
+    fd = df.detach()
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/multiprocessing/resource_sharer.py", line 57, in detach
+    with _resource_sharer.get_connection(self._id) as conn:
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/multiprocessing/resource_sharer.py", line 87, in get_connection
+    c = Client(address, authkey=process.current_process().authkey)
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/multiprocessing/connection.py", line 508, in Client
+    answer_challenge(c, authkey)
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/multiprocessing/connection.py", line 752, in answer_challenge
+    message = connection.recv_bytes(256)         # reject large message
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/multiprocessing/connection.py", line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/multiprocessing/connection.py", line 414, in _recv_bytes
+    buf = self._recv(4)
+  File "/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/multiprocessing/connection.py", line 379, in _recv
+    chunk = read(handle, remaining)
+ConnectionResetError: [Errno 104] Connection reset by peer
+done

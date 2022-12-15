@@ -1,0 +1,13 @@
+20221202-035341
+0.10325193405151367
+898509
+conv
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 251, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 217, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 176, in init_weights_from_loose_model
+    prune_mask_dict[a[int(i)]].cpu().numpy())))
+ValueError: invalid literal for int() with base 10: 'conv'
+done

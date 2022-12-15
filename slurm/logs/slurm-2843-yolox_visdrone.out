@@ -1,0 +1,53 @@
+20221209-023820
+==== Generate pruning schema ====
+2022-12-09 02:38:22.798 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.6]
+2022-12-09 02:38:22.876 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.7]
+2022-12-09 02:38:22.935 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.8]
+2022-12-09 02:38:22.995 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.9]
+==== Sparsity training ====
+2022-12-09 02:38:25.083 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (38870), thread 'MainThread' (140047303201984):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 141, in <module>
+    args=(exp, args),
+          │    └ Namespace(batch_size=64, cache=False, ckpt=None, devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/network_slim/y...
+          └ ╒══════════════════════════════════════════╤════════════════════════════╕
+            │ keys                                     │ values...
+
+> File "/data/happyhoo97/repos/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒══════════════════════════════════════════╤════════════════════════════╕
+    │            │ keys                                     │ value...
+    └ <function main at 0x7f5f4cbffd40>
+
+  File "tools/train.py", line 117, in main
+    trainer = exp.get_trainer(args)
+              │               └ Namespace(batch_size=64, cache=False, ckpt=None, devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/network_slim/y...
+              └ ╒══════════════════════════════════════════╤════════════════════════════╕
+                │ keys                                     │ values...
+
+AttributeError: 'Exp' object has no attribute 'get_trainer'
+==== Network Slimming ====
+2022-12-09 02:38:27.180 | ERROR    | yolox.core.launch:launch:98 - An error has been caught in function 'launch', process 'MainProcess' (38891), thread 'MainThread' (140184140121280):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 141, in <module>
+    args=(exp, args),
+          │    └ Namespace(batch_size=64, cache=False, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/latest_ckpt.pth', devices=1, dist_bac...
+          └ ╒══════════════════════════════════════════╤══════════════════════════════════════════════════════════════════════╕
+            │ keys   ...
+
+> File "/data/happyhoo97/repos/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒══════════════════════════════════════════╤══════════════════════════════════════════════════════════════════════╕
+    │            │ keys  ...
+    └ <function main at 0x7f7f28ddad40>
+
+  File "tools/train.py", line 117, in main
+    trainer = exp.get_trainer(args)
+              │               └ Namespace(batch_size=64, cache=False, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/latest_ckpt.pth', devices=1, dist_bac...
+              └ ╒══════════════════════════════════════════╤══════════════════════════════════════════════════════════════════════╕
+                │ keys   ...
+
+AttributeError: 'Exp' object has no attribute 'get_trainer'
+done

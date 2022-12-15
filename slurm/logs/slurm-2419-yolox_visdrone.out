@@ -1,0 +1,16 @@
+20221202-033743
+0.0970754623413086
+898509
+[ 1  2  4  6  7  8  9 10 12]
+torch.Size([16, 1, 3, 3])
+[ 4  9 10 11 12 13 14 15]
+torch.Size([9, 1, 3, 3])
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 251, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 217, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 137, in init_weights_from_loose_model
+    w = w[out_idx, :, :, :].clone()
+IndexError: index 9 is out of bounds for dimension 0 with size 9
+done

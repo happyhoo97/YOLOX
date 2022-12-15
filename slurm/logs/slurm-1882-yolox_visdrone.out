@@ -1,0 +1,12 @@
+20221125-131417
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 6, in <module>
+    from tools.train import make_parser
+  File "/data/happyhoo97/repos/YOLOX/tools/train.py", line 20, in <module>
+    from prun_train.my_train import MY_Trainer_Loose
+  File "/data/happyhoo97/repos/YOLOX/prun_train/__init__.py", line 2, in <module>
+    from .prune_model import yolox_prun, YOLOXHead_prune,Bottleneck_prune
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 4, in <module>
+    from yolox.models.network_blocks import DWconv, Focus
+ImportError: cannot import name 'DWconv' from 'yolox.models.network_blocks' (/data/happyhoo97/repos/YOLOX/yolox/models/network_blocks.py)
+done

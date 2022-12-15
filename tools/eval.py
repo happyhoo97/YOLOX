@@ -14,14 +14,7 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 
 from yolox.core import launch
 from yolox.exp import get_exp
-from yolox.utils import (
-    configure_module,
-    configure_nccl,
-    fuse_model,
-    get_local_rank,
-    get_model_info,
-    setup_logger
-)
+from yolox.utils import configure_nccl,configure_module, fuse_model, get_local_rank, get_model_info, setup_logger, restore_pruning_result
 
 
 def make_parser():
@@ -54,7 +47,7 @@ def make_parser():
         "--exp_file",
         default=None,
         type=str,
-        help="please input your experiment description file",
+        help="pls input your expriment description file",
     )
     parser.add_argument("-c", "--ckpt", default=None, type=str, help="ckpt for eval")
     parser.add_argument("--conf", default=None, type=float, help="test conf")
@@ -165,6 +158,8 @@ def main(exp, args, num_gpu):
         logger.info("loading checkpoint from {}".format(ckpt_file))
         loc = "cuda:{}".format(rank)
         ckpt = torch.load(ckpt_file, map_location=loc)
+        if exp.run_network_slim:
+            model = restore_pruning_result(model, ckpt)
         model.load_state_dict(ckpt["model"])
         logger.info("loaded checkpoint done.")
 

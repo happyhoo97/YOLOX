@@ -1,0 +1,110 @@
+extracting the dataset from NAS ...
+done
+/var/spool/slurm/d/job02888/slurm_script: line 22: $'\necho \'setup yolox environment ...\'\npip3 install -v -e .  # or  python3 setup.py develop\necho \'done\'\n': command not found
+20221209-130146
+2022-12-09 13:01:47.984 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000001_02999_d_0000005.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:01:48.216 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:01:48.218 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 279, in main
+    ckpt = torch.load(ckpt_file, map_location="cpu")
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+IsADirectoryError: [Errno 21] Is a directory: './YOLOX_outputs/yolox_s_slim_sparsity_train/'
+2022-12-09 13:01:49.890 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000153_01601_d_0000001.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:01:50.108 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:01:50.110 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 279, in main
+    ckpt = torch.load(ckpt_file, map_location="cpu")
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+IsADirectoryError: [Errno 21] Is a directory: './YOLOX_outputs/yolox_s_slim_sparsity_train/'
+2022-12-09 13:01:51.819 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000244_00001_d_0000001.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:01:52.014 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:01:52.015 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 279, in main
+    ckpt = torch.load(ckpt_file, map_location="cpu")
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+IsADirectoryError: [Errno 21] Is a directory: './YOLOX_outputs/yolox_s_slim_sparsity_train/'
+2022-12-09 13:01:53.701 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000276_04401_d_0000529.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:01:53.922 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:01:53.924 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 279, in main
+    ckpt = torch.load(ckpt_file, map_location="cpu")
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+IsADirectoryError: [Errno 21] Is a directory: './YOLOX_outputs/yolox_s_slim_sparsity_train/'
+2022-12-09 13:01:55.567 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000289_02401_d_0000823.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:01:55.775 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:01:55.777 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 279, in main
+    ckpt = torch.load(ckpt_file, map_location="cpu")
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+IsADirectoryError: [Errno 21] Is a directory: './YOLOX_outputs/yolox_s_slim_sparsity_train/'
+2022-12-09 13:01:57.477 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000313_07001_d_0000471.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:01:57.688 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:01:57.689 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 279, in main
+    ckpt = torch.load(ckpt_file, map_location="cpu")
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+IsADirectoryError: [Errno 21] Is a directory: './YOLOX_outputs/yolox_s_slim_sparsity_train/'
+2022-12-09 13:01:59.392 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000335_04117_d_0000064.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:01:59.593 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:01:59.594 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 279, in main
+    ckpt = torch.load(ckpt_file, map_location="cpu")
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+IsADirectoryError: [Errno 21] Is a directory: './YOLOX_outputs/yolox_s_slim_sparsity_train/'
+done

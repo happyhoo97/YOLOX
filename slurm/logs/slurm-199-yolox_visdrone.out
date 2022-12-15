@@ -1,0 +1,15 @@
+extracting the dataset from NAS ...
+done
+/var/spool/slurm/d/job00199/slurm_script: line 22: $'\necho \'setup yolox environment ...\'\npip3 install -v -e .  # or  python3 setup.py develop\necho \'done\'\n': command not found
+20221101-225456
+Traceback (most recent call last):
+  File "tools/train.py", line 13, in <module>
+    from yolox.core import launch
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/__init__.py", line 6, in <module>
+    from .trainer import Trainer
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 12, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/utils/tensorboard/__init__.py", line 1, in <module>
+    import tensorboard
+ModuleNotFoundError: No module named 'tensorboard'
+done

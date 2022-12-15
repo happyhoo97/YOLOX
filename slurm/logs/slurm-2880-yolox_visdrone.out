@@ -1,0 +1,13 @@
+extracting the dataset from NAS ...
+done
+/var/spool/slurm/d/job02880/slurm_script: line 22: $'\necho \'setup yolox environment ...\'\npip3 install -v -e .  # or  python3 setup.py develop\necho \'done\'\n': command not found
+20221209-124331
+Traceback (most recent call last):
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/data/happyhoo97/repos/YOLOX/tools/eval.py", line 195, in <module>
+    configure_module()
+NameError: name 'configure_module' is not defined
+done

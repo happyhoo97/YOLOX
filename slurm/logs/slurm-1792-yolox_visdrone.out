@@ -1,0 +1,1411 @@
+extracting the dataset from NAS ...
+done
+/var/spool/slurm/d/job01792/slurm_script: line 22: $'\necho \'setup yolox environment ...\'\npip3 install -v -e .  # or  python3 setup.py develop\necho \'done\'\n': command not found
+20221124-221425
+2022-11-24 22:14:27 | INFO     | yolox.core.trainer:130 - args: Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_s.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=True, logger='tensorboard', machine_rank=0, name=None, num_machines=1, occupy=False, opts=[], resume=False, start_epoch=None)
+2022-11-24 22:14:27 | INFO     | yolox.core.trainer:131 - exp value:
+╒═══════════════════╤════════════════════════════╕
+│ keys              │ values                     │
+╞═══════════════════╪════════════════════════════╡
+│ seed              │ None                       │
+├───────────────────┼────────────────────────────┤
+│ output_dir        │ './YOLOX_outputs'          │
+├───────────────────┼────────────────────────────┤
+│ print_interval    │ 10                         │
+├───────────────────┼────────────────────────────┤
+│ eval_interval     │ 10                         │
+├───────────────────┼────────────────────────────┤
+│ num_classes       │ 10                         │
+├───────────────────┼────────────────────────────┤
+│ depth             │ 0.33                       │
+├───────────────────┼────────────────────────────┤
+│ width             │ 0.25                       │
+├───────────────────┼────────────────────────────┤
+│ act               │ 'silu'                     │
+├───────────────────┼────────────────────────────┤
+│ data_num_workers  │ 0                          │
+├───────────────────┼────────────────────────────┤
+│ input_size        │ (832, 832)                 │
+├───────────────────┼────────────────────────────┤
+│ multiscale_range  │ 5                          │
+├───────────────────┼────────────────────────────┤
+│ data_dir          │ '/local_datasets/VisDrone' │
+├───────────────────┼────────────────────────────┤
+│ train_ann         │ 'train2017.json'           │
+├───────────────────┼────────────────────────────┤
+│ val_ann           │ 'val2017.json'             │
+├───────────────────┼────────────────────────────┤
+│ test_ann          │ 'test2017.json'            │
+├───────────────────┼────────────────────────────┤
+│ mosaic_prob       │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ mixup_prob        │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ hsv_prob          │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ flip_prob         │ 0.5                        │
+├───────────────────┼────────────────────────────┤
+│ degrees           │ 10.0                       │
+├───────────────────┼────────────────────────────┤
+│ translate         │ 0.1                        │
+├───────────────────┼────────────────────────────┤
+│ mosaic_scale      │ (0.5, 1.5)                 │
+├───────────────────┼────────────────────────────┤
+│ enable_mixup      │ False                      │
+├───────────────────┼────────────────────────────┤
+│ mixup_scale       │ (0.5, 1.5)                 │
+├───────────────────┼────────────────────────────┤
+│ shear             │ 2.0                        │
+├───────────────────┼────────────────────────────┤
+│ warmup_epochs     │ 5                          │
+├───────────────────┼────────────────────────────┤
+│ max_epoch         │ 1                          │
+├───────────────────┼────────────────────────────┤
+│ warmup_lr         │ 0                          │
+├───────────────────┼────────────────────────────┤
+│ min_lr_ratio      │ 0.05                       │
+├───────────────────┼────────────────────────────┤
+│ basic_lr_per_img  │ 0.00015625                 │
+├───────────────────┼────────────────────────────┤
+│ scheduler         │ 'yoloxwarmcos'             │
+├───────────────────┼────────────────────────────┤
+│ no_aug_epochs     │ 1                          │
+├───────────────────┼────────────────────────────┤
+│ ema               │ True                       │
+├───────────────────┼────────────────────────────┤
+│ weight_decay      │ 0.0005                     │
+├───────────────────┼────────────────────────────┤
+│ momentum          │ 0.9                        │
+├───────────────────┼────────────────────────────┤
+│ save_history_ckpt │ True                       │
+├───────────────────┼────────────────────────────┤
+│ exp_name          │ 'visdrone_nano'            │
+├───────────────────┼────────────────────────────┤
+│ test_size         │ (832, 832)                 │
+├───────────────────┼────────────────────────────┤
+│ test_conf         │ 0.01                       │
+├───────────────────┼────────────────────────────┤
+│ nmsthre           │ 0.65                       │
+├───────────────────┼────────────────────────────┤
+│ random_size       │ (10, 20)                   │
+╘═══════════════════╧════════════════════════════╛
+2022-11-24 22:14:27 | INFO     | yolox.core.trainer:137 - Model Summary: Params: 0.90M, Gflops: 4.32
+2022-11-24 22:14:29 | INFO     | yolox.core.trainer:311 - loading checkpoint for fine tuning
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.conv.weight in checkpoint is torch.Size([32, 12, 3, 3]), while shape of backbone.backbone.stem.conv.conv.weight in model is torch.Size([16, 12, 3, 3]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.stem.conv.bn.weight in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.stem.conv.bn.bias in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.stem.conv.bn.running_mean in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.stem.conv.bn.running_var in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.conv.weight in checkpoint is torch.Size([32, 64, 1, 1]), while shape of backbone.backbone.dark2.1.conv1.conv.weight in model is torch.Size([16, 32, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv1.bn.weight in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv1.bn.bias in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv1.bn.running_mean in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv1.bn.running_var in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.conv.weight in checkpoint is torch.Size([32, 64, 1, 1]), while shape of backbone.backbone.dark2.1.conv2.conv.weight in model is torch.Size([16, 32, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv2.bn.weight in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv2.bn.bias in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv2.bn.running_mean in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv2.bn.running_var in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark2.1.conv3.conv.weight in model is torch.Size([32, 32, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark2.1.conv3.bn.weight in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark2.1.conv3.bn.bias in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark2.1.conv3.bn.running_mean in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark2.1.conv3.bn.running_var in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.conv.weight in checkpoint is torch.Size([32, 32, 1, 1]), while shape of backbone.backbone.dark2.1.m.0.conv1.conv.weight in model is torch.Size([16, 16, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.weight in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.bias in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_mean in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_var in model is torch.Size([16]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.backbone.dark3.1.conv1.conv.weight in model is torch.Size([32, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv1.bn.weight in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv1.bn.bias in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv1.bn.running_mean in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv1.bn.running_var in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.backbone.dark3.1.conv2.conv.weight in model is torch.Size([32, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv2.bn.weight in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv2.bn.bias in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv2.bn.running_mean in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv2.bn.running_var in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.backbone.dark3.1.conv3.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark3.1.conv3.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark3.1.conv3.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark3.1.conv3.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark3.1.conv3.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark3.1.m.0.conv1.conv.weight in model is torch.Size([32, 32, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.weight in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.bias in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_mean in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_var in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark3.1.m.1.conv1.conv.weight in model is torch.Size([32, 32, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.weight in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.bias in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_mean in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_var in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark3.1.m.2.conv1.conv.weight in model is torch.Size([32, 32, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.weight in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.bias in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_mean in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_var in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.backbone.dark4.1.conv1.conv.weight in model is torch.Size([64, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv1.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv1.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv1.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv1.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.backbone.dark4.1.conv2.conv.weight in model is torch.Size([64, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv2.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv2.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv2.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv2.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.conv.weight in checkpoint is torch.Size([256, 256, 1, 1]), while shape of backbone.backbone.dark4.1.conv3.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark4.1.conv3.bn.weight in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark4.1.conv3.bn.bias in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark4.1.conv3.bn.running_mean in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark4.1.conv3.bn.running_var in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.backbone.dark4.1.m.0.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.backbone.dark4.1.m.1.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.backbone.dark4.1.m.2.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.conv.weight in checkpoint is torch.Size([256, 512, 1, 1]), while shape of backbone.backbone.dark5.1.conv1.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv1.bn.weight in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv1.bn.bias in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv1.bn.running_mean in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv1.bn.running_var in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.conv.weight in checkpoint is torch.Size([512, 1024, 1, 1]), while shape of backbone.backbone.dark5.1.conv2.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.weight in checkpoint is torch.Size([512]), while shape of backbone.backbone.dark5.1.conv2.bn.weight in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.bias in checkpoint is torch.Size([512]), while shape of backbone.backbone.dark5.1.conv2.bn.bias in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.running_mean in checkpoint is torch.Size([512]), while shape of backbone.backbone.dark5.1.conv2.bn.running_mean in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.running_var in checkpoint is torch.Size([512]), while shape of backbone.backbone.dark5.1.conv2.bn.running_var in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.conv.weight in checkpoint is torch.Size([256, 512, 1, 1]), while shape of backbone.backbone.dark5.2.conv1.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv1.bn.weight in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv1.bn.bias in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv1.bn.running_mean in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv1.bn.running_var in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.conv.weight in checkpoint is torch.Size([256, 512, 1, 1]), while shape of backbone.backbone.dark5.2.conv2.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv2.bn.weight in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv2.bn.bias in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv2.bn.running_mean in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv2.bn.running_var in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.conv.weight in checkpoint is torch.Size([512, 512, 1, 1]), while shape of backbone.backbone.dark5.2.conv3.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.weight in checkpoint is torch.Size([512]), while shape of backbone.backbone.dark5.2.conv3.bn.weight in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.bias in checkpoint is torch.Size([512]), while shape of backbone.backbone.dark5.2.conv3.bn.bias in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.running_mean in checkpoint is torch.Size([512]), while shape of backbone.backbone.dark5.2.conv3.bn.running_mean in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.running_var in checkpoint is torch.Size([512]), while shape of backbone.backbone.dark5.2.conv3.bn.running_var in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.conv.weight in checkpoint is torch.Size([256, 256, 1, 1]), while shape of backbone.backbone.dark5.2.m.0.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.weight in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.bias in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_mean in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_var in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.conv.weight in checkpoint is torch.Size([256, 512, 1, 1]), while shape of backbone.lateral_conv0.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.lateral_conv0.bn.weight in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.lateral_conv0.bn.bias in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.lateral_conv0.bn.running_mean in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.lateral_conv0.bn.running_var in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.conv.weight in checkpoint is torch.Size([128, 512, 1, 1]), while shape of backbone.C3_p4.conv1.conv.weight in model is torch.Size([64, 256, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv1.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv1.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv1.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv1.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.conv.weight in checkpoint is torch.Size([128, 512, 1, 1]), while shape of backbone.C3_p4.conv2.conv.weight in model is torch.Size([64, 256, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv2.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv2.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv2.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv2.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.conv.weight in checkpoint is torch.Size([256, 256, 1, 1]), while shape of backbone.C3_p4.conv3.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.C3_p4.conv3.bn.weight in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.C3_p4.conv3.bn.bias in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.C3_p4.conv3.bn.running_mean in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.C3_p4.conv3.bn.running_var in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.C3_p4.m.0.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.m.0.conv1.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.m.0.conv1.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.m.0.conv1.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.m.0.conv1.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.reduce_conv1.conv.weight in model is torch.Size([64, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.reduce_conv1.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.reduce_conv1.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.reduce_conv1.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.reduce_conv1.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.conv.weight in checkpoint is torch.Size([64, 256, 1, 1]), while shape of backbone.C3_p3.conv1.conv.weight in model is torch.Size([32, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv1.bn.weight in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv1.bn.bias in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv1.bn.running_mean in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv1.bn.running_var in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.conv.weight in checkpoint is torch.Size([64, 256, 1, 1]), while shape of backbone.C3_p3.conv2.conv.weight in model is torch.Size([32, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv2.bn.weight in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv2.bn.bias in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv2.bn.running_mean in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv2.bn.running_var in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.C3_p3.conv3.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_p3.conv3.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_p3.conv3.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_p3.conv3.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_p3.conv3.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.C3_p3.m.0.conv1.conv.weight in model is torch.Size([32, 32, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.m.0.conv1.bn.weight in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.m.0.conv1.bn.bias in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.m.0.conv1.bn.running_mean in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.m.0.conv1.bn.running_var in model is torch.Size([32]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.C3_n3.conv1.conv.weight in model is torch.Size([64, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv1.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv1.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv1.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv1.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.C3_n3.conv2.conv.weight in model is torch.Size([64, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv2.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv2.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv2.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv2.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.conv.weight in checkpoint is torch.Size([256, 256, 1, 1]), while shape of backbone.C3_n3.conv3.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.C3_n3.conv3.bn.weight in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.C3_n3.conv3.bn.bias in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.C3_n3.conv3.bn.running_mean in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.C3_n3.conv3.bn.running_var in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.C3_n3.m.0.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.m.0.conv1.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.m.0.conv1.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.m.0.conv1.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.m.0.conv1.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.conv.weight in checkpoint is torch.Size([256, 512, 1, 1]), while shape of backbone.C3_n4.conv1.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv1.bn.weight in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv1.bn.bias in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv1.bn.running_mean in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv1.bn.running_var in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.conv.weight in checkpoint is torch.Size([256, 512, 1, 1]), while shape of backbone.C3_n4.conv2.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv2.bn.weight in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv2.bn.bias in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv2.bn.running_mean in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv2.bn.running_var in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.conv.weight in checkpoint is torch.Size([512, 512, 1, 1]), while shape of backbone.C3_n4.conv3.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.weight in checkpoint is torch.Size([512]), while shape of backbone.C3_n4.conv3.bn.weight in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.bias in checkpoint is torch.Size([512]), while shape of backbone.C3_n4.conv3.bn.bias in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.running_mean in checkpoint is torch.Size([512]), while shape of backbone.C3_n4.conv3.bn.running_mean in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.running_var in checkpoint is torch.Size([512]), while shape of backbone.C3_n4.conv3.bn.running_var in model is torch.Size([256]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.conv.weight in checkpoint is torch.Size([256, 256, 1, 1]), while shape of backbone.C3_n4.m.0.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.m.0.conv1.bn.weight in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.m.0.conv1.bn.bias in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.m.0.conv1.bn.running_mean in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.m.0.conv1.bn.running_var in model is torch.Size([128]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.dconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.dconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.dconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.dconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.dconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.dconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.pconv.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.pconv.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.pconv.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.pconv.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.pconv.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.pconv.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 128, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([10, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([10]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 128, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([10, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([10]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 128, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([10, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([10]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.reg_preds.0.weight in checkpoint is torch.Size([4, 128, 1, 1]), while shape of head.reg_preds.0.weight in model is torch.Size([4, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.reg_preds.1.weight in checkpoint is torch.Size([4, 128, 1, 1]), while shape of head.reg_preds.1.weight in model is torch.Size([4, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.reg_preds.2.weight in checkpoint is torch.Size([4, 128, 1, 1]), while shape of head.reg_preds.2.weight in model is torch.Size([4, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.obj_preds.0.weight in checkpoint is torch.Size([1, 128, 1, 1]), while shape of head.obj_preds.0.weight in model is torch.Size([1, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.obj_preds.1.weight in checkpoint is torch.Size([1, 128, 1, 1]), while shape of head.obj_preds.1.weight in model is torch.Size([1, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.obj_preds.2.weight in checkpoint is torch.Size([1, 128, 1, 1]), while shape of head.obj_preds.2.weight in model is torch.Size([1, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of head.stems.0.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.weight in checkpoint is torch.Size([128]), while shape of head.stems.0.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.bias in checkpoint is torch.Size([128]), while shape of head.stems.0.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.running_mean in checkpoint is torch.Size([128]), while shape of head.stems.0.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.running_var in checkpoint is torch.Size([128]), while shape of head.stems.0.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of head.stems.1.conv.weight in model is torch.Size([64, 128, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.weight in checkpoint is torch.Size([128]), while shape of head.stems.1.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.bias in checkpoint is torch.Size([128]), while shape of head.stems.1.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.running_mean in checkpoint is torch.Size([128]), while shape of head.stems.1.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.running_var in checkpoint is torch.Size([128]), while shape of head.stems.1.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.conv.weight in checkpoint is torch.Size([128, 512, 1, 1]), while shape of head.stems.2.conv.weight in model is torch.Size([64, 256, 1, 1]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.weight in checkpoint is torch.Size([128]), while shape of head.stems.2.bn.weight in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.bias in checkpoint is torch.Size([128]), while shape of head.stems.2.bn.bias in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.running_mean in checkpoint is torch.Size([128]), while shape of head.stems.2.bn.running_mean in model is torch.Size([64]).
+2022-11-24 22:14:29 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.running_var in checkpoint is torch.Size([128]), while shape of head.stems.2.bn.running_var in model is torch.Size([64]).
+2022-11-24 22:14:29 | INFO     | yolox.data.datasets.coco:65 - loading annotations into memory...
+2022-11-24 22:14:31 | INFO     | yolox.data.datasets.coco:65 - Done (t=1.25s)
+2022-11-24 22:14:31 | INFO     | pycocotools.coco:86 - creating index...
+2022-11-24 22:14:31 | INFO     | pycocotools.coco:86 - index created!
+2022-11-24 22:14:40 | WARNING  | yolox.data.datasets.coco:90 - 
+********************************************************************************
+You are using cached images in RAM to accelerate training.
+This requires large system RAM.
+Make sure you have 200G+ RAM and 136G available disk space for training COCO.
+********************************************************************************
+
+2022-11-24 22:14:40 | WARNING  | yolox.data.datasets.coco:124 - You are using cached imgs! Make sure your dataset is not changed!!
+Everytime the self.input_size is changed in your exp file, you need to delete
+the cached data and re-generate them.
+
+2022-11-24 22:14:40 | INFO     | yolox.data.datasets.coco:129 - Loading cached imgs...
+2022-11-24 22:14:40 | INFO     | yolox.core.trainer:155 - init prefetcher, this might take one minute or less...
+2022-11-24 22:14:42 | INFO     | yolox.data.datasets.coco:65 - loading annotations into memory...
+2022-11-24 22:14:42 | INFO     | yolox.data.datasets.coco:65 - Done (t=0.08s)
+2022-11-24 22:14:42 | INFO     | pycocotools.coco:86 - creating index...
+2022-11-24 22:14:42 | INFO     | pycocotools.coco:86 - index created!
+2022-11-24 22:14:43 | INFO     | yolox.core.trainer:191 - Training start...
+2022-11-24 22:14:43 | INFO     | yolox.core.trainer:192 - 
+YOLOX(
+  (backbone): YOLOPAFPN(
+    (backbone): CSPDarknet(
+      (stem): Focus(
+        (conv): BaseConv(
+          (conv): Conv2d(12, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+          (act): SiLU(inplace=True)
+        )
+      )
+      (dark2): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(16, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=16, bias=False)
+            (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(16, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2d(32, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): BaseConv(
+            (conv): Conv2d(32, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv3): BaseConv(
+            (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(16, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=16, bias=False)
+                  (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(16, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(16, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+          )
+        )
+      )
+      (dark3): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=32, bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): BaseConv(
+            (conv): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv3): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+            (1): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+            (2): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+          )
+        )
+      )
+      (dark4): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): BaseConv(
+            (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv3): BaseConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+            (1): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+            (2): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+          )
+        )
+      )
+      (dark5): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=128, bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): SPPBottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (m): ModuleList(
+            (0): MaxPool2d(kernel_size=5, stride=1, padding=2, dilation=1, ceil_mode=False)
+            (1): MaxPool2d(kernel_size=9, stride=1, padding=4, dilation=1, ceil_mode=False)
+            (2): MaxPool2d(kernel_size=13, stride=1, padding=6, dilation=1, ceil_mode=False)
+          )
+          (conv2): BaseConv(
+            (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (2): CSPLayer(
+          (conv1): BaseConv(
+            (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): BaseConv(
+            (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv3): BaseConv(
+            (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(256, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (m): Sequential(
+            (0): Bottleneck(
+              (conv1): BaseConv(
+                (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                (act): SiLU(inplace=True)
+              )
+              (conv2): DWConv(
+                (dconv): BaseConv(
+                  (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+                  (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+                (pconv): BaseConv(
+                  (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+                  (act): SiLU(inplace=True)
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+    (upsample): Upsample(scale_factor=2.0, mode=nearest)
+    (lateral_conv0): BaseConv(
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+      (act): SiLU(inplace=True)
+    )
+    (C3_p4): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv2): BaseConv(
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv3): BaseConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): DWConv(
+            (dconv): BaseConv(
+              (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+              (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+            (pconv): BaseConv(
+              (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+          )
+        )
+      )
+    )
+    (reduce_conv1): BaseConv(
+      (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+      (act): SiLU(inplace=True)
+    )
+    (C3_p3): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv2): BaseConv(
+        (conv): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv3): BaseConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): DWConv(
+            (dconv): BaseConv(
+              (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+              (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+            (pconv): BaseConv(
+              (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(32, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+          )
+        )
+      )
+    )
+    (bu_conv2): DWConv(
+      (dconv): BaseConv(
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64, bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (pconv): BaseConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+    )
+    (C3_n3): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv2): BaseConv(
+        (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv3): BaseConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): DWConv(
+            (dconv): BaseConv(
+              (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+              (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+            (pconv): BaseConv(
+              (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+          )
+        )
+      )
+    )
+    (bu_conv1): DWConv(
+      (dconv): BaseConv(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=128, bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (pconv): BaseConv(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+    )
+    (C3_n4): CSPLayer(
+      (conv1): BaseConv(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv2): BaseConv(
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (conv3): BaseConv(
+        (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (m): Sequential(
+        (0): Bottleneck(
+          (conv1): BaseConv(
+            (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (conv2): DWConv(
+            (dconv): BaseConv(
+              (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+              (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+            (pconv): BaseConv(
+              (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNorm2d(128, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+              (act): SiLU(inplace=True)
+            )
+          )
+        )
+      )
+    )
+  )
+  (head): YOLOXHead(
+    (cls_convs): ModuleList(
+      (0): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+      (1): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+      (2): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+    )
+    (reg_convs): ModuleList(
+      (0): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+      (1): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+      (2): Sequential(
+        (0): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+        (1): DWConv(
+          (dconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+          (pconv): BaseConv(
+            (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+            (act): SiLU(inplace=True)
+          )
+        )
+      )
+    )
+    (cls_preds): ModuleList(
+      (0): Conv2d(64, 10, kernel_size=(1, 1), stride=(1, 1))
+      (1): Conv2d(64, 10, kernel_size=(1, 1), stride=(1, 1))
+      (2): Conv2d(64, 10, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (reg_preds): ModuleList(
+      (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+      (1): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+      (2): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (obj_preds): ModuleList(
+      (0): Conv2d(64, 1, kernel_size=(1, 1), stride=(1, 1))
+      (1): Conv2d(64, 1, kernel_size=(1, 1), stride=(1, 1))
+      (2): Conv2d(64, 1, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (stems): ModuleList(
+      (0): BaseConv(
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (1): BaseConv(
+        (conv): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+      (2): BaseConv(
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.03, affine=True, track_running_stats=True)
+        (act): SiLU(inplace=True)
+      )
+    )
+    (l1_loss): L1Loss()
+    (bcewithlog_loss): BCEWithLogitsLoss()
+    (iou_loss): IOUloss()
+  )
+)
+2022-11-24 22:14:43 | INFO     | yolox.core.trainer:203 - ---> start train epoch1
+2022-11-24 22:14:43 | INFO     | yolox.core.trainer:206 - --->No mosaic aug now!
+2022-11-24 22:14:43 | INFO     | yolox.core.trainer:208 - --->Add additional L1 loss now!
+2022-11-24 22:15:03 | INFO     | yolox.core.trainer:261 - epoch: 1/1, iter: 10/102, mem: 14202Mb, iter_time: 2.033s, data_time: 1.034s, total_loss: 33.6, iou_loss: 4.2, l1_loss: 2.6, conf_loss: 25.2, cls_loss: 1.7, lr: 3.845e-06, size: 832, ETA: 0:03:07
+slurmstepd: error: *** JOB 1792 ON sw9 CANCELLED AT 2022-11-24T22:15:18 ***

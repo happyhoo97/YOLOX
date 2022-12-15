@@ -1,0 +1,10 @@
+extracting the dataset from NAS ...
+cp: cannot overwrite non-directory '/local_datasets/VisDrone' with directory '/data/datasets/VisDrone'
+done
+/var/spool/slurm/d/job01652/slurm_script: line 22: $'\necho \'setup yolox environment ...\'\npip3 install -v -e .  # or  python3 setup.py develop\necho \'done\'\n': command not found
+20221123-224829
+Traceback (most recent call last):
+  File "tools/train.py", line 23, in <module>
+    from my_train import MY_Trainer_Loose
+ModuleNotFoundError: No module named 'my_train'
+done

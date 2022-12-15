@@ -1,0 +1,15 @@
+20221125-134228
+0.10823392868041992
+898509
+Case 1
+convIn
+12
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 264, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 230, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 132, in init_weights_from_loose_model
+    prune_mask_dict[convIn].cpu().numpy())))
+KeyError: 12
+done

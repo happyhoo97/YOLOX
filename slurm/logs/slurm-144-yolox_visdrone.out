@@ -1,0 +1,246 @@
+extracting the dataset from NAS ...
+done
+setup yolox environment ...
+Using pip 22.1.2 from /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/pip (python 3.8)
+Defaulting to user installation because normal site-packages is not writeable
+Obtaining file:///data/happyhoo97/repos/YOLOX
+  Preparing metadata (setup.py): started
+  Running command python setup.py egg_info
+  running egg_info
+  creating /tmp/pip-pip-egg-info-f5jv54kj/yolox.egg-info
+  writing /tmp/pip-pip-egg-info-f5jv54kj/yolox.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-f5jv54kj/yolox.egg-info/dependency_links.txt
+  writing requirements to /tmp/pip-pip-egg-info-f5jv54kj/yolox.egg-info/requires.txt
+  writing top-level names to /tmp/pip-pip-egg-info-f5jv54kj/yolox.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-f5jv54kj/yolox.egg-info/SOURCES.txt'
+  reading manifest file '/tmp/pip-pip-egg-info-f5jv54kj/yolox.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/torch/utils/cpp_extension.py:411: UserWarning: Attempted to use ninja as the BuildExtension backend but we could not find ninja.. Falling back to using the slow distutils backend.
+    warnings.warn(msg.format('we could not find ninja.'))
+  warning: no files found matching '*.cu' under directory 'yolox'
+  warning: no files found matching '*.cuh' under directory 'yolox'
+  warning: no files found matching '*.cc' under directory 'yolox'
+  adding license file 'LICENSE'
+  writing manifest file '/tmp/pip-pip-egg-info-f5jv54kj/yolox.egg-info/SOURCES.txt'
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: numpy in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (1.23.1)
+Requirement already satisfied: torch>=1.7 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (1.12.1)
+Requirement already satisfied: opencv_python in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (4.6.0.66)
+Requirement already satisfied: loguru in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.6.0)
+Requirement already satisfied: tqdm in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (4.64.1)
+Requirement already satisfied: torchvision in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (0.13.1)
+Requirement already satisfied: thop in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.1.1.post2209072238)
+Requirement already satisfied: ninja in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (1.10.2.4)
+Requirement already satisfied: tabulate in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.9.0)
+Requirement already satisfied: pycocotools>=2.0.2 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (2.0.5)
+Requirement already satisfied: onnx==1.8.1 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (1.8.1)
+Requirement already satisfied: onnxruntime==1.8.0 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (1.8.0)
+Requirement already satisfied: onnx-simplifier==0.3.5 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.3.5)
+Requirement already satisfied: six in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (1.16.0)
+Requirement already satisfied: protobuf in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (3.19.5)
+Requirement already satisfied: typing-extensions>=3.6.2.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (4.3.0)
+Requirement already satisfied: onnxoptimizer>=0.2.5 in /home/happyhoo97/.local/lib/python3.8/site-packages (from onnx-simplifier==0.3.5->yolox==0.3.0) (0.3.1)
+Requirement already satisfied: flatbuffers in /home/happyhoo97/.local/lib/python3.8/site-packages (from onnxruntime==1.8.0->yolox==0.3.0) (22.10.26)
+Requirement already satisfied: matplotlib>=2.1.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from pycocotools>=2.0.2->yolox==0.3.0) (3.5.3)
+Requirement already satisfied: requests in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from torchvision->yolox==0.3.0) (2.28.1)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from torchvision->yolox==0.3.0) (9.2.0)
+Requirement already satisfied: python-dateutil>=2.7 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (2.8.2)
+Requirement already satisfied: fonttools>=4.22.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (4.37.2)
+Requirement already satisfied: kiwisolver>=1.0.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (1.4.4)
+Requirement already satisfied: cycler>=0.10 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (0.11.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (3.0.9)
+Requirement already satisfied: packaging>=20.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (21.3)
+Requirement already satisfied: certifi>=2017.4.17 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (2022.6.15)
+Requirement already satisfied: idna<4,>=2.5 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (3.3)
+Requirement already satisfied: charset-normalizer<3,>=2 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (2.0.4)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (1.26.11)
+Installing collected packages: yolox
+  Attempting uninstall: yolox
+    Found existing installation: yolox 0.3.0
+    Uninstalling yolox-0.3.0:
+      Removing file or directory /home/happyhoo97/.local/lib/python3.8/site-packages/yolox.egg-link
+      Removing pth entries from /home/happyhoo97/.local/lib/python3.8/site-packages/easy-install.pth:
+      Removing entry: /data/happyhoo97/repos/YOLOX
+      Successfully uninstalled yolox-0.3.0
+  Running setup.py develop for yolox
+    Running command python setup.py develop
+    running develop
+    running egg_info
+    writing yolox.egg-info/PKG-INFO
+    writing dependency_links to yolox.egg-info/dependency_links.txt
+    writing requirements to yolox.egg-info/requires.txt
+    writing top-level names to yolox.egg-info/top_level.txt
+    reading manifest file 'yolox.egg-info/SOURCES.txt'
+    reading manifest template 'MANIFEST.in'
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/setuptools/command/easy_install.py:144: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+      warnings.warn(
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+      warnings.warn(
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/torch/utils/cpp_extension.py:411: UserWarning: Attempted to use ninja as the BuildExtension backend but we could not find ninja.. Falling back to using the slow distutils backend.
+      warnings.warn(msg.format('we could not find ninja.'))
+    warning: no files found matching '*.cu' under directory 'yolox'
+    warning: no files found matching '*.cuh' under directory 'yolox'
+    warning: no files found matching '*.cc' under directory 'yolox'
+    adding license file 'LICENSE'
+    writing manifest file 'yolox.egg-info/SOURCES.txt'
+    running build_ext
+    copying build/lib.linux-x86_64-cpython-38/yolox/layers/fast_cocoeval.cpython-38-x86_64-linux-gnu.so -> yolox/layers
+    Creating /home/happyhoo97/.local/lib/python3.8/site-packages/yolox.egg-link (link to .)
+    Adding yolox 0.3.0 to easy-install.pth file
+
+    Installed /data/happyhoo97/repos/YOLOX
+Successfully installed yolox
+done
+20221101-125940
+2022-11-01 12:59:41 | INFO     | yolox.core.trainer:130 - args: Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=True, logger='tensorboard', machine_rank=0, name=None, num_machines=1, occupy=False, opts=[], resume=False, start_epoch=None)
+2022-11-01 12:59:41 | INFO     | yolox.core.trainer:131 - exp value:
+╒═══════════════════╤════════════════════════════╕
+│ keys              │ values                     │
+╞═══════════════════╪════════════════════════════╡
+│ seed              │ None                       │
+├───────────────────┼────────────────────────────┤
+│ output_dir        │ './YOLOX_outputs'          │
+├───────────────────┼────────────────────────────┤
+│ print_interval    │ 10                         │
+├───────────────────┼────────────────────────────┤
+│ eval_interval     │ 10                         │
+├───────────────────┼────────────────────────────┤
+│ num_classes       │ 12                         │
+├───────────────────┼────────────────────────────┤
+│ depth             │ 0.33                       │
+├───────────────────┼────────────────────────────┤
+│ width             │ 0.25                       │
+├───────────────────┼────────────────────────────┤
+│ act               │ 'silu'                     │
+├───────────────────┼────────────────────────────┤
+│ data_num_workers  │ 4                          │
+├───────────────────┼────────────────────────────┤
+│ input_size        │ (416, 416)                 │
+├───────────────────┼────────────────────────────┤
+│ multiscale_range  │ 5                          │
+├───────────────────┼────────────────────────────┤
+│ data_dir          │ '/local_datasets/VisDrone' │
+├───────────────────┼────────────────────────────┤
+│ train_ann         │ 'train2017.json'           │
+├───────────────────┼────────────────────────────┤
+│ val_ann           │ 'val2017.json'             │
+├───────────────────┼────────────────────────────┤
+│ test_ann          │ 'val2017.json'             │
+├───────────────────┼────────────────────────────┤
+│ mosaic_prob       │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ mixup_prob        │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ hsv_prob          │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ flip_prob         │ 0.5                        │
+├───────────────────┼────────────────────────────┤
+│ degrees           │ 10.0                       │
+├───────────────────┼────────────────────────────┤
+│ translate         │ 0.1                        │
+├───────────────────┼────────────────────────────┤
+│ mosaic_scale      │ (0.5, 1.5)                 │
+├───────────────────┼────────────────────────────┤
+│ enable_mixup      │ False                      │
+├───────────────────┼────────────────────────────┤
+│ mixup_scale       │ (0.5, 1.5)                 │
+├───────────────────┼────────────────────────────┤
+│ shear             │ 2.0                        │
+├───────────────────┼────────────────────────────┤
+│ warmup_epochs     │ 5                          │
+├───────────────────┼────────────────────────────┤
+│ max_epoch         │ 300                        │
+├───────────────────┼────────────────────────────┤
+│ warmup_lr         │ 0                          │
+├───────────────────┼────────────────────────────┤
+│ min_lr_ratio      │ 0.05                       │
+├───────────────────┼────────────────────────────┤
+│ basic_lr_per_img  │ 0.00015625                 │
+├───────────────────┼────────────────────────────┤
+│ scheduler         │ 'yoloxwarmcos'             │
+├───────────────────┼────────────────────────────┤
+│ no_aug_epochs     │ 15                         │
+├───────────────────┼────────────────────────────┤
+│ ema               │ True                       │
+├───────────────────┼────────────────────────────┤
+│ weight_decay      │ 0.0005                     │
+├───────────────────┼────────────────────────────┤
+│ momentum          │ 0.9                        │
+├───────────────────┼────────────────────────────┤
+│ save_history_ckpt │ True                       │
+├───────────────────┼────────────────────────────┤
+│ exp_name          │ 'visdrone_nano'            │
+├───────────────────┼────────────────────────────┤
+│ test_size         │ (416, 416)                 │
+├───────────────────┼────────────────────────────┤
+│ test_conf         │ 0.01                       │
+├───────────────────┼────────────────────────────┤
+│ nmsthre           │ 0.65                       │
+├───────────────────┼────────────────────────────┤
+│ random_size       │ (10, 20)                   │
+╘═══════════════════╧════════════════════════════╛
+2022-11-01 12:59:41 | INFO     | yolox.core.trainer:136 - Model Summary: Params: 0.90M, Gflops: 1.08
+2022-11-01 12:59:44 | INFO     | yolox.core.trainer:311 - loading checkpoint for fine tuning
+2022-11-01 12:59:44 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([12, 64, 1, 1]).
+2022-11-01 12:59:44 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([12]).
+2022-11-01 12:59:44 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([12, 64, 1, 1]).
+2022-11-01 12:59:44 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([12]).
+2022-11-01 12:59:44 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([12, 64, 1, 1]).
+2022-11-01 12:59:44 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([12]).
+2022-11-01 12:59:44 | INFO     | yolox.data.datasets.coco:64 - loading annotations into memory...
+2022-11-01 12:59:44 | ERROR    | yolox.core.launch:98 - An error has been caught in function 'launch', process 'MainProcess' (415361), thread 'MainThread' (139797205431104):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 134, in <module>
+    launch(
+    └ <function launch at 0x7f248fddb160>
+
+> File "/data/happyhoo97/repos/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f248af4b820>
+
+  File "tools/train.py", line 118, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f247b111160>
+    └ <yolox.core.trainer.Trainer object at 0x7f247b1198e0>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 74, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f247b1119d0>
+    └ <yolox.core.trainer.Trainer object at 0x7f247b1198e0>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 149, in before_train
+    self.train_loader = self.exp.get_data_loader(
+    │                   │    │   └ <function Exp.get_data_loader at 0x7f247b111310>
+    │                   │    └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │                   └ <yolox.core.trainer.Trainer object at 0x7f247b1198e0>
+    └ <yolox.core.trainer.Trainer object at 0x7f247b1198e0>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/yolox_base.py", line 143, in get_data_loader
+    dataset = COCODataset(
+              └ <class 'yolox.data.datasets.coco.COCODataset'>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/data/datasets/coco.py", line 64, in __init__
+    self.coco = COCO(os.path.join(self.data_dir, "annotations", self.json_file))
+    │           │    │  │    │    │    │                        │    └ 'train2017.json'
+    │           │    │  │    │    │    │                        └ <yolox.data.datasets.coco.COCODataset object at 0x7f24724b4580>
+    │           │    │  │    │    │    └ '/local_datasets/VisDrone'
+    │           │    │  │    │    └ <yolox.data.datasets.coco.COCODataset object at 0x7f24724b4580>
+    │           │    │  │    └ <function join at 0x7f2512868940>
+    │           │    │  └ <module 'posixpath' from '/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/posixpath.py'>
+    │           │    └ <module 'os' from '/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/os.py'>
+    │           └ <class 'pycocotools.coco.COCO'>
+    └ <yolox.data.datasets.coco.COCODataset object at 0x7f24724b4580>
+
+  File "/home/happyhoo97/.local/lib/python3.8/site-packages/pycocotools/coco.py", line 81, in __init__
+    with open(annotation_file, 'r') as f:
+              └ '/local_datasets/VisDrone/annotations/train2017.json'
+
+FileNotFoundError: [Errno 2] No such file or directory: '/local_datasets/VisDrone/annotations/train2017.json'
+Exception ignored in: <function COCODataset.__del__ at 0x7f247b1fedc0>
+Traceback (most recent call last):
+  File "/data/happyhoo97/repos/YOLOX/yolox/data/datasets/coco.py", line 82, in __del__
+    del self.imgs
+AttributeError: imgs
+done

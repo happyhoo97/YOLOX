@@ -1,0 +1,14 @@
+20221125-132640
+0.10546612739562988
+898509
+Case 1
+=== in_idx ===
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 257, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 223, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 141, in init_weights_from_loose_model
+    print(in_idx.items)
+AttributeError: 'numpy.ndarray' object has no attribute 'items'
+done

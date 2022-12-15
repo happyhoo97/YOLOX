@@ -1,0 +1,82 @@
+extracting the dataset from NAS ...
+done
+/var/spool/slurm/d/job02889/slurm_script: line 22: $'\necho \'setup yolox environment ...\'\npip3 install -v -e .  # or  python3 setup.py develop\necho \'done\'\n': command not found
+20221209-130250
+2022-12-09 13:02:52.246 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000001_02999_d_0000005.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:02:52.460 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:02:52.462 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 281, in main
+    model = restore_pruning_result(model, ckpt)
+  File "/data/happyhoo97/repos/YOLOX/yolox/utils/model_utils.py", line 117, in restore_pruning_result
+    "No pruning_result key find in checkpoint. Please run network slimming sparsity train first"
+ValueError: No pruning_result key find in checkpoint. Please run network slimming sparsity train first
+2022-12-09 13:02:54.371 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000153_01601_d_0000001.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:02:54.571 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:02:54.572 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 281, in main
+    model = restore_pruning_result(model, ckpt)
+  File "/data/happyhoo97/repos/YOLOX/yolox/utils/model_utils.py", line 117, in restore_pruning_result
+    "No pruning_result key find in checkpoint. Please run network slimming sparsity train first"
+ValueError: No pruning_result key find in checkpoint. Please run network slimming sparsity train first
+2022-12-09 13:02:56.333 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000244_00001_d_0000001.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:02:56.558 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:02:56.559 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 281, in main
+    model = restore_pruning_result(model, ckpt)
+  File "/data/happyhoo97/repos/YOLOX/yolox/utils/model_utils.py", line 117, in restore_pruning_result
+    "No pruning_result key find in checkpoint. Please run network slimming sparsity train first"
+ValueError: No pruning_result key find in checkpoint. Please run network slimming sparsity train first
+2022-12-09 13:02:58.276 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000276_04401_d_0000529.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:02:58.483 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:02:58.485 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 281, in main
+    model = restore_pruning_result(model, ckpt)
+  File "/data/happyhoo97/repos/YOLOX/yolox/utils/model_utils.py", line 117, in restore_pruning_result
+    "No pruning_result key find in checkpoint. Please run network slimming sparsity train first"
+ValueError: No pruning_result key find in checkpoint. Please run network slimming sparsity train first
+2022-12-09 13:03:00.220 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000289_02401_d_0000823.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:03:00.431 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:03:00.432 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 281, in main
+    model = restore_pruning_result(model, ckpt)
+  File "/data/happyhoo97/repos/YOLOX/yolox/utils/model_utils.py", line 117, in restore_pruning_result
+    "No pruning_result key find in checkpoint. Please run network slimming sparsity train first"
+ValueError: No pruning_result key find in checkpoint. Please run network slimming sparsity train first
+2022-12-09 13:03:02.194 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000313_07001_d_0000471.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:03:02.414 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:03:02.415 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 281, in main
+    model = restore_pruning_result(model, ckpt)
+  File "/data/happyhoo97/repos/YOLOX/yolox/utils/model_utils.py", line 117, in restore_pruning_result
+    "No pruning_result key find in checkpoint. Please run network slimming sparsity train first"
+ValueError: No pruning_result key find in checkpoint. Please run network slimming sparsity train first
+2022-12-09 13:03:04.169 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000335_04117_d_0000064.jpg', save_result=True, trt=False, tsize=640)
+2022-12-09 13:03:04.394 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:03:04.396 | INFO     | __main__:main:278 - loading checkpoint
+Traceback (most recent call last):
+  File "tools/demo.py", line 319, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 281, in main
+    model = restore_pruning_result(model, ckpt)
+  File "/data/happyhoo97/repos/YOLOX/yolox/utils/model_utils.py", line 117, in restore_pruning_result
+    "No pruning_result key find in checkpoint. Please run network slimming sparsity train first"
+ValueError: No pruning_result key find in checkpoint. Please run network slimming sparsity train first
+done

@@ -1,0 +1,482 @@
+extracting the dataset from NAS ...
+done
+setup yolox environment ...
+Using pip 22.1.2 from /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/pip (python 3.8)
+Defaulting to user installation because normal site-packages is not writeable
+Obtaining file:///data/happyhoo97/repos/YOLOX
+  Preparing metadata (setup.py): started
+  Running command python setup.py egg_info
+  running egg_info
+  creating /tmp/pip-pip-egg-info-m2nd7z_i/yolox.egg-info
+  writing /tmp/pip-pip-egg-info-m2nd7z_i/yolox.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-m2nd7z_i/yolox.egg-info/dependency_links.txt
+  writing requirements to /tmp/pip-pip-egg-info-m2nd7z_i/yolox.egg-info/requires.txt
+  writing top-level names to /tmp/pip-pip-egg-info-m2nd7z_i/yolox.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-m2nd7z_i/yolox.egg-info/SOURCES.txt'
+  reading manifest file '/tmp/pip-pip-egg-info-m2nd7z_i/yolox.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/torch/utils/cpp_extension.py:411: UserWarning: Attempted to use ninja as the BuildExtension backend but we could not find ninja.. Falling back to using the slow distutils backend.
+    warnings.warn(msg.format('we could not find ninja.'))
+  warning: no files found matching '*.cu' under directory 'yolox'
+  warning: no files found matching '*.cuh' under directory 'yolox'
+  warning: no files found matching '*.cc' under directory 'yolox'
+  adding license file 'LICENSE'
+  writing manifest file '/tmp/pip-pip-egg-info-m2nd7z_i/yolox.egg-info/SOURCES.txt'
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: numpy in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (1.23.1)
+Requirement already satisfied: torch>=1.7 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (1.12.1)
+Requirement already satisfied: opencv_python in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (4.6.0.66)
+Collecting loguru
+  Downloading loguru-0.6.0-py3-none-any.whl (58 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.3/58.3 kB 4.2 MB/s eta 0:00:00
+Requirement already satisfied: tqdm in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (4.64.1)
+Requirement already satisfied: torchvision in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (0.13.1)
+Collecting thop
+  Downloading thop-0.1.1.post2209072238-py3-none-any.whl (15 kB)
+Collecting ninja
+  Downloading ninja-1.10.2.4-py2.py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.whl (120 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 120.7/120.7 kB 10.5 MB/s eta 0:00:00
+Collecting tabulate
+  Downloading tabulate-0.9.0-py3-none-any.whl (35 kB)
+Collecting pycocotools>=2.0.2
+  Downloading pycocotools-2.0.5.tar.gz (24 kB)
+  Installing build dependencies: started
+  Running command pip subprocess to install build dependencies
+  Collecting cython>=0.27.3
+    Downloading Cython-0.29.32-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (1.9 MB)
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 10.5 MB/s eta 0:00:00
+  Collecting oldest-supported-numpy
+    Downloading oldest_supported_numpy-2022.8.16-py3-none-any.whl (3.9 kB)
+  Collecting setuptools>=43.0.0
+    Downloading setuptools-65.5.0-py3-none-any.whl (1.2 MB)
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 10.5 MB/s eta 0:00:00
+  Collecting wheel
+    Downloading wheel-0.37.1-py2.py3-none-any.whl (35 kB)
+  Collecting numpy==1.17.3
+    Downloading numpy-1.17.3-cp38-cp38-manylinux1_x86_64.whl (20.5 MB)
+       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 20.5/20.5 MB 10.7 MB/s eta 0:00:00
+  Installing collected packages: wheel, setuptools, numpy, cython, oldest-supported-numpy
+  ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+  scipy 1.9.1 requires numpy<1.25.0,>=1.18.5, but you have numpy 1.17.3 which is incompatible.
+  pandas 1.4.4 requires numpy>=1.18.5; platform_machine != "aarch64" and platform_machine != "arm64" and python_version < "3.10", but you have numpy 1.17.3 which is incompatible.
+  Successfully installed cython-0.29.32 numpy-1.17.3 oldest-supported-numpy-2022.8.16 setuptools-65.5.0 wheel-0.37.1
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Running command Getting requirements to build wheel
+  running egg_info
+  writing pycocotools.egg-info/PKG-INFO
+  writing dependency_links to pycocotools.egg-info/dependency_links.txt
+  writing requirements to pycocotools.egg-info/requires.txt
+  writing top-level names to pycocotools.egg-info/top_level.txt
+  reading manifest file 'pycocotools.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  writing manifest file 'pycocotools.egg-info/SOURCES.txt'
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  running dist_info
+  creating /tmp/pip-modern-metadata-k6y_cidc/pycocotools.egg-info
+  writing /tmp/pip-modern-metadata-k6y_cidc/pycocotools.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-modern-metadata-k6y_cidc/pycocotools.egg-info/dependency_links.txt
+  writing requirements to /tmp/pip-modern-metadata-k6y_cidc/pycocotools.egg-info/requires.txt
+  writing top-level names to /tmp/pip-modern-metadata-k6y_cidc/pycocotools.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-modern-metadata-k6y_cidc/pycocotools.egg-info/SOURCES.txt'
+  reading manifest file '/tmp/pip-modern-metadata-k6y_cidc/pycocotools.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  writing manifest file '/tmp/pip-modern-metadata-k6y_cidc/pycocotools.egg-info/SOURCES.txt'
+  creating '/tmp/pip-modern-metadata-k6y_cidc/pycocotools-2.0.5.dist-info'
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting onnx==1.8.1
+  Downloading onnx-1.8.1-cp38-cp38-manylinux2010_x86_64.whl (14.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.5/14.5 MB 10.9 MB/s eta 0:00:00
+Collecting onnxruntime==1.8.0
+  Downloading onnxruntime-1.8.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 10.4 MB/s eta 0:00:00
+Collecting onnx-simplifier==0.3.5
+  Downloading onnx-simplifier-0.3.5.tar.gz (13 kB)
+  Preparing metadata (setup.py): started
+  Running command python setup.py egg_info
+  running egg_info
+  creating /tmp/pip-pip-egg-info-6wasrm0z/onnx_simplifier.egg-info
+  writing /tmp/pip-pip-egg-info-6wasrm0z/onnx_simplifier.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-6wasrm0z/onnx_simplifier.egg-info/dependency_links.txt
+  writing requirements to /tmp/pip-pip-egg-info-6wasrm0z/onnx_simplifier.egg-info/requires.txt
+  writing top-level names to /tmp/pip-pip-egg-info-6wasrm0z/onnx_simplifier.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-6wasrm0z/onnx_simplifier.egg-info/SOURCES.txt'
+  reading manifest file '/tmp/pip-pip-egg-info-6wasrm0z/onnx_simplifier.egg-info/SOURCES.txt'
+  adding license file 'LICENSE'
+  writing manifest file '/tmp/pip-pip-egg-info-6wasrm0z/onnx_simplifier.egg-info/SOURCES.txt'
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: typing-extensions>=3.6.2.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (4.3.0)
+Requirement already satisfied: six in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (1.16.0)
+Requirement already satisfied: protobuf in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (3.19.5)
+Collecting onnxoptimizer>=0.2.5
+  Downloading onnxoptimizer-0.3.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (601 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 601.1/601.1 kB 10.3 MB/s eta 0:00:00
+Collecting flatbuffers
+  Downloading flatbuffers-22.10.26-py2.py3-none-any.whl (26 kB)
+Requirement already satisfied: matplotlib>=2.1.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from pycocotools>=2.0.2->yolox==0.3.0) (3.5.3)
+Requirement already satisfied: requests in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from torchvision->yolox==0.3.0) (2.28.1)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from torchvision->yolox==0.3.0) (9.2.0)
+Requirement already satisfied: packaging>=20.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (21.3)
+Requirement already satisfied: pyparsing>=2.2.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (3.0.9)
+Requirement already satisfied: fonttools>=4.22.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (4.37.2)
+Requirement already satisfied: python-dateutil>=2.7 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (2.8.2)
+Requirement already satisfied: kiwisolver>=1.0.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (1.4.4)
+Requirement already satisfied: cycler>=0.10 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (0.11.0)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (1.26.11)
+Requirement already satisfied: certifi>=2017.4.17 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (2022.6.15)
+Requirement already satisfied: idna<4,>=2.5 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (3.3)
+Requirement already satisfied: charset-normalizer<3,>=2 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (2.0.4)
+Building wheels for collected packages: onnx-simplifier, pycocotools
+  Building wheel for onnx-simplifier (setup.py): started
+  Running command python setup.py bdist_wheel
+  running bdist_wheel
+  running build
+  running build_py
+  creating build
+  creating build/lib
+  creating build/lib/onnxsim
+  copying onnxsim/__main__.py -> build/lib/onnxsim
+  copying onnxsim/__init__.py -> build/lib/onnxsim
+  copying onnxsim/onnx_simplifier.py -> build/lib/onnxsim
+  /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+    warnings.warn(
+  installing to build/bdist.linux-x86_64/wheel
+  running install
+  running install_lib
+  creating build/bdist.linux-x86_64
+  creating build/bdist.linux-x86_64/wheel
+  creating build/bdist.linux-x86_64/wheel/onnxsim
+  copying build/lib/onnxsim/__main__.py -> build/bdist.linux-x86_64/wheel/onnxsim
+  copying build/lib/onnxsim/__init__.py -> build/bdist.linux-x86_64/wheel/onnxsim
+  copying build/lib/onnxsim/onnx_simplifier.py -> build/bdist.linux-x86_64/wheel/onnxsim
+  running install_egg_info
+  running egg_info
+  writing onnx_simplifier.egg-info/PKG-INFO
+  writing dependency_links to onnx_simplifier.egg-info/dependency_links.txt
+  writing requirements to onnx_simplifier.egg-info/requires.txt
+  writing top-level names to onnx_simplifier.egg-info/top_level.txt
+  reading manifest file 'onnx_simplifier.egg-info/SOURCES.txt'
+  adding license file 'LICENSE'
+  writing manifest file 'onnx_simplifier.egg-info/SOURCES.txt'
+  Copying onnx_simplifier.egg-info to build/bdist.linux-x86_64/wheel/onnx_simplifier-0.3.5-py3.8.egg-info
+  running install_scripts
+  adding license file "LICENSE" (matched pattern "LICEN[CS]E*")
+  creating build/bdist.linux-x86_64/wheel/onnx_simplifier-0.3.5.dist-info/WHEEL
+  creating '/tmp/pip-wheel-s59r91a9/onnx_simplifier-0.3.5-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+  adding 'onnxsim/__init__.py'
+  adding 'onnxsim/__main__.py'
+  adding 'onnxsim/onnx_simplifier.py'
+  adding 'onnx_simplifier-0.3.5.dist-info/LICENSE'
+  adding 'onnx_simplifier-0.3.5.dist-info/METADATA'
+  adding 'onnx_simplifier-0.3.5.dist-info/WHEEL'
+  adding 'onnx_simplifier-0.3.5.dist-info/top_level.txt'
+  adding 'onnx_simplifier-0.3.5.dist-info/RECORD'
+  removing build/bdist.linux-x86_64/wheel
+  Building wheel for onnx-simplifier (setup.py): finished with status 'done'
+  Created wheel for onnx-simplifier: filename=onnx_simplifier-0.3.5-py3-none-any.whl size=12862 sha256=24efb14114e009569d15e0d48a7a3454238ad5a409ebccbf102fb63331b7f788
+  Stored in directory: /home/happyhoo97/.cache/pip/wheels/67/41/4b/ab44ea796416a698b22f1445154937a23e2b867211b25d16f5
+  Building wheel for pycocotools (pyproject.toml): started
+  Running command Building wheel for pycocotools (pyproject.toml)
+  running bdist_wheel
+  running build
+  running build_py
+  creating build
+  creating build/lib.linux-x86_64-cpython-38
+  creating build/lib.linux-x86_64-cpython-38/pycocotools
+  copying pycocotools/__init__.py -> build/lib.linux-x86_64-cpython-38/pycocotools
+  copying pycocotools/mask.py -> build/lib.linux-x86_64-cpython-38/pycocotools
+  copying pycocotools/cocoeval.py -> build/lib.linux-x86_64-cpython-38/pycocotools
+  copying pycocotools/coco.py -> build/lib.linux-x86_64-cpython-38/pycocotools
+  running build_ext
+  cythoning pycocotools/_mask.pyx to pycocotools/_mask.c
+  building 'pycocotools._mask' extension
+  creating build/temp.linux-x86_64-cpython-38
+  creating build/temp.linux-x86_64-cpython-38/common
+  creating build/temp.linux-x86_64-cpython-38/pycocotools
+  gcc -pthread -B /data/opt/anaconda3/envs/pytorch1.12.1_p38/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/tmp/pip-build-env-svy6f0zb/overlay/lib/python3.8/site-packages/numpy/core/include -I./common -I/data/opt/anaconda3/envs/pytorch1.12.1_p38/include/python3.8 -c ./common/maskApi.c -o build/temp.linux-x86_64-cpython-38/./common/maskApi.o -Wno-cpp -Wno-unused-function -std=c99
+  ./common/maskApi.c: In function ‘rleToBbox’:
+  ./common/maskApi.c:151:32: warning: unused variable ‘xp’ [-Wunused-variable]
+    151 |     uint h, w, xs, ys, xe, ye, xp, cc; siz j, m;
+        |                                ^~
+  ./common/maskApi.c: In function ‘rleFrPoly’:
+  ./common/maskApi.c:197:3: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+    197 |   for(j=0; j<k; j++) x[j]=(int)(scale*xy[j*2+0]+.5); x[k]=x[0];
+        |   ^~~
+  ./common/maskApi.c:197:54: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+    197 |   for(j=0; j<k; j++) x[j]=(int)(scale*xy[j*2+0]+.5); x[k]=x[0];
+        |                                                      ^
+  ./common/maskApi.c:198:3: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+    198 |   for(j=0; j<k; j++) y[j]=(int)(scale*xy[j*2+1]+.5); y[k]=y[0];
+        |   ^~~
+  ./common/maskApi.c:198:54: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+    198 |   for(j=0; j<k; j++) y[j]=(int)(scale*xy[j*2+1]+.5); y[k]=y[0];
+        |                                                      ^
+  ./common/maskApi.c: In function ‘rleToString’:
+  ./common/maskApi.c:243:7: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+    243 |       if(more) c |= 0x20; c+=48; s[p++]=c;
+        |       ^~
+  ./common/maskApi.c:243:27: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+    243 |       if(more) c |= 0x20; c+=48; s[p++]=c;
+        |                           ^
+  ./common/maskApi.c: In function ‘rleFrString’:
+  ./common/maskApi.c:251:3: warning: this ‘while’ clause does not guard... [-Wmisleading-indentation]
+    251 |   while( s[m] ) m++; cnts=malloc(sizeof(uint)*m); m=0;
+        |   ^~~~~
+  ./common/maskApi.c:251:22: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘while’
+    251 |   while( s[m] ) m++; cnts=malloc(sizeof(uint)*m); m=0;
+        |                      ^~~~
+  ./common/maskApi.c:259:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+    259 |     if(m>2) x+=(long) cnts[m-2]; cnts[m++]=(uint) x;
+        |     ^~
+  ./common/maskApi.c:259:34: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+    259 |     if(m>2) x+=(long) cnts[m-2]; cnts[m++]=(uint) x;
+        |                                  ^~~~
+  gcc -pthread -B /data/opt/anaconda3/envs/pytorch1.12.1_p38/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/tmp/pip-build-env-svy6f0zb/overlay/lib/python3.8/site-packages/numpy/core/include -I./common -I/data/opt/anaconda3/envs/pytorch1.12.1_p38/include/python3.8 -c pycocotools/_mask.c -o build/temp.linux-x86_64-cpython-38/pycocotools/_mask.o -Wno-cpp -Wno-unused-function -std=c99
+  pycocotools/_mask.c: In function ‘__pyx_pf_11pycocotools_5_mask_12iou’:
+  pycocotools/_mask.c:6154:31: warning: comparison of integer expressions of different signedness: ‘Py_ssize_t’ {aka ‘long int’} and ‘siz’ {aka ‘long unsigned int’} [-Wsign-compare]
+   6154 |     if (unlikely(!((__pyx_t_8 == __pyx_v_n) != 0))) {
+        |                               ^~
+  pycocotools/_mask.c:938:43: note: in definition of macro ‘unlikely’
+    938 |   #define unlikely(x) __builtin_expect(!!(x), 0)
+        |                                           ^
+  gcc -pthread -shared -B /data/opt/anaconda3/envs/pytorch1.12.1_p38/compiler_compat -L/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib -Wl,-rpath=/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-cpython-38/./common/maskApi.o build/temp.linux-x86_64-cpython-38/pycocotools/_mask.o -o build/lib.linux-x86_64-cpython-38/pycocotools/_mask.cpython-38-x86_64-linux-gnu.so
+  installing to build/bdist.linux-x86_64/wheel
+  running install
+  running install_lib
+  creating build/bdist.linux-x86_64
+  creating build/bdist.linux-x86_64/wheel
+  creating build/bdist.linux-x86_64/wheel/pycocotools
+  copying build/lib.linux-x86_64-cpython-38/pycocotools/__init__.py -> build/bdist.linux-x86_64/wheel/pycocotools
+  copying build/lib.linux-x86_64-cpython-38/pycocotools/mask.py -> build/bdist.linux-x86_64/wheel/pycocotools
+  copying build/lib.linux-x86_64-cpython-38/pycocotools/cocoeval.py -> build/bdist.linux-x86_64/wheel/pycocotools
+  copying build/lib.linux-x86_64-cpython-38/pycocotools/coco.py -> build/bdist.linux-x86_64/wheel/pycocotools
+  copying build/lib.linux-x86_64-cpython-38/pycocotools/_mask.cpython-38-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/pycocotools
+  running install_egg_info
+  running egg_info
+  writing pycocotools.egg-info/PKG-INFO
+  writing dependency_links to pycocotools.egg-info/dependency_links.txt
+  writing requirements to pycocotools.egg-info/requires.txt
+  writing top-level names to pycocotools.egg-info/top_level.txt
+  reading manifest file 'pycocotools.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  writing manifest file 'pycocotools.egg-info/SOURCES.txt'
+  Copying pycocotools.egg-info to build/bdist.linux-x86_64/wheel/pycocotools-2.0.5-py3.8.egg-info
+  running install_scripts
+  creating build/bdist.linux-x86_64/wheel/pycocotools-2.0.5.dist-info/WHEEL
+  creating '/tmp/pip-wheel-5gb0s_of/tmp_tsr7u_d/pycocotools-2.0.5-cp38-cp38-linux_x86_64.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+  adding 'pycocotools/__init__.py'
+  adding 'pycocotools/_mask.cpython-38-x86_64-linux-gnu.so'
+  adding 'pycocotools/coco.py'
+  adding 'pycocotools/cocoeval.py'
+  adding 'pycocotools/mask.py'
+  adding 'pycocotools-2.0.5.dist-info/METADATA'
+  adding 'pycocotools-2.0.5.dist-info/WHEEL'
+  adding 'pycocotools-2.0.5.dist-info/top_level.txt'
+  adding 'pycocotools-2.0.5.dist-info/RECORD'
+  removing build/bdist.linux-x86_64/wheel
+  /tmp/pip-build-env-svy6f0zb/overlay/lib/python3.8/site-packages/Cython/Compiler/Main.py:369: FutureWarning: Cython directive 'language_level' not set, using 2 for now (Py2). This will change in a later release! File: /tmp/pip-install-scv2_ivj/pycocotools_7cc1973d5bf54dd9b33c92ad475deda1/pycocotools/_mask.pyx
+    tree = Parsing.p_module(s, pxd, full_module_name)
+  Building wheel for pycocotools (pyproject.toml): finished with status 'done'
+  Created wheel for pycocotools: filename=pycocotools-2.0.5-cp38-cp38-linux_x86_64.whl size=425750 sha256=4feb05009fb6673ec76e7014cb45464f16e668847bb3d50461aaed3f83f586d8
+  Stored in directory: /home/happyhoo97/.cache/pip/wheels/88/17/cf/70d56b589c12b80ea6cc98f3aba11eea103993b660198788c0
+Successfully built onnx-simplifier pycocotools
+Installing collected packages: ninja, flatbuffers, tabulate, onnxruntime, onnx, loguru, thop, onnxoptimizer, pycocotools, onnx-simplifier, yolox
+  Creating /home/happyhoo97/.local/bin
+  changing mode of /home/happyhoo97/.local/bin/ninja to 775
+  WARNING: The script ninja is installed in '/home/happyhoo97/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  changing mode of /home/happyhoo97/.local/bin/tabulate to 775
+  WARNING: The script tabulate is installed in '/home/happyhoo97/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  changing mode of /home/happyhoo97/.local/bin/onnxruntime_test to 775
+  WARNING: The script onnxruntime_test is installed in '/home/happyhoo97/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  changing mode of /home/happyhoo97/.local/bin/backend-test-tools to 775
+  changing mode of /home/happyhoo97/.local/bin/check-model to 775
+  changing mode of /home/happyhoo97/.local/bin/check-node to 775
+  WARNING: The scripts backend-test-tools, check-model and check-node are installed in '/home/happyhoo97/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  Running setup.py develop for yolox
+    Running command python setup.py develop
+    running develop
+    running egg_info
+    writing yolox.egg-info/PKG-INFO
+    writing dependency_links to yolox.egg-info/dependency_links.txt
+    writing requirements to yolox.egg-info/requires.txt
+    writing top-level names to yolox.egg-info/top_level.txt
+    reading manifest file 'yolox.egg-info/SOURCES.txt'
+    reading manifest template 'MANIFEST.in'
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/setuptools/command/easy_install.py:144: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+      warnings.warn(
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+      warnings.warn(
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/torch/utils/cpp_extension.py:411: UserWarning: Attempted to use ninja as the BuildExtension backend but we could not find ninja.. Falling back to using the slow distutils backend.
+      warnings.warn(msg.format('we could not find ninja.'))
+    warning: no files found matching '*.cu' under directory 'yolox'
+    warning: no files found matching '*.cuh' under directory 'yolox'
+    warning: no files found matching '*.cc' under directory 'yolox'
+    adding license file 'LICENSE'
+    writing manifest file 'yolox.egg-info/SOURCES.txt'
+    running build_ext
+    copying build/lib.linux-x86_64-cpython-38/yolox/layers/fast_cocoeval.cpython-38-x86_64-linux-gnu.so -> yolox/layers
+    Creating /home/happyhoo97/.local/lib/python3.8/site-packages/yolox.egg-link (link to .)
+    Adding yolox 0.3.0 to easy-install.pth file
+
+    Installed /data/happyhoo97/repos/YOLOX
+Successfully installed flatbuffers-22.10.26 loguru-0.6.0 ninja-1.10.2.4 onnx-1.8.1 onnx-simplifier-0.3.5 onnxoptimizer-0.3.1 onnxruntime-1.8.0 pycocotools-2.0.5 tabulate-0.9.0 thop-0.1.1.post2209072238 yolox
+done
+20221101-204615
+2022-11-01 20:46:17 | INFO     | yolox.core.trainer:130 - args: Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=True, logger='tensorboard', machine_rank=0, name=None, num_machines=1, occupy=False, opts=[], resume=False, start_epoch=None)
+2022-11-01 20:46:17 | INFO     | yolox.core.trainer:131 - exp value:
+╒═══════════════════╤════════════════════════════╕
+│ keys              │ values                     │
+╞═══════════════════╪════════════════════════════╡
+│ seed              │ None                       │
+├───────────────────┼────────────────────────────┤
+│ output_dir        │ './YOLOX_outputs'          │
+├───────────────────┼────────────────────────────┤
+│ print_interval    │ 10                         │
+├───────────────────┼────────────────────────────┤
+│ eval_interval     │ 10                         │
+├───────────────────┼────────────────────────────┤
+│ num_classes       │ 12                         │
+├───────────────────┼────────────────────────────┤
+│ depth             │ 0.33                       │
+├───────────────────┼────────────────────────────┤
+│ width             │ 0.25                       │
+├───────────────────┼────────────────────────────┤
+│ act               │ 'silu'                     │
+├───────────────────┼────────────────────────────┤
+│ data_num_workers  │ 4                          │
+├───────────────────┼────────────────────────────┤
+│ input_size        │ (416, 416)                 │
+├───────────────────┼────────────────────────────┤
+│ multiscale_range  │ 5                          │
+├───────────────────┼────────────────────────────┤
+│ data_dir          │ '/local_datasets/VisDrone' │
+├───────────────────┼────────────────────────────┤
+│ train_ann         │ 'train2017.json'           │
+├───────────────────┼────────────────────────────┤
+│ val_ann           │ 'val2017.json'             │
+├───────────────────┼────────────────────────────┤
+│ test_ann          │ 'val2017.json'             │
+├───────────────────┼────────────────────────────┤
+│ mosaic_prob       │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ mixup_prob        │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ hsv_prob          │ 1.0                        │
+├───────────────────┼────────────────────────────┤
+│ flip_prob         │ 0.5                        │
+├───────────────────┼────────────────────────────┤
+│ degrees           │ 10.0                       │
+├───────────────────┼────────────────────────────┤
+│ translate         │ 0.1                        │
+├───────────────────┼────────────────────────────┤
+│ mosaic_scale      │ (0.5, 1.5)                 │
+├───────────────────┼────────────────────────────┤
+│ enable_mixup      │ False                      │
+├───────────────────┼────────────────────────────┤
+│ mixup_scale       │ (0.5, 1.5)                 │
+├───────────────────┼────────────────────────────┤
+│ shear             │ 2.0                        │
+├───────────────────┼────────────────────────────┤
+│ warmup_epochs     │ 5                          │
+├───────────────────┼────────────────────────────┤
+│ max_epoch         │ 300                        │
+├───────────────────┼────────────────────────────┤
+│ warmup_lr         │ 0                          │
+├───────────────────┼────────────────────────────┤
+│ min_lr_ratio      │ 0.05                       │
+├───────────────────┼────────────────────────────┤
+│ basic_lr_per_img  │ 0.00015625                 │
+├───────────────────┼────────────────────────────┤
+│ scheduler         │ 'yoloxwarmcos'             │
+├───────────────────┼────────────────────────────┤
+│ no_aug_epochs     │ 15                         │
+├───────────────────┼────────────────────────────┤
+│ ema               │ True                       │
+├───────────────────┼────────────────────────────┤
+│ weight_decay      │ 0.0005                     │
+├───────────────────┼────────────────────────────┤
+│ momentum          │ 0.9                        │
+├───────────────────┼────────────────────────────┤
+│ save_history_ckpt │ True                       │
+├───────────────────┼────────────────────────────┤
+│ exp_name          │ 'visdrone_nano'            │
+├───────────────────┼────────────────────────────┤
+│ test_size         │ (416, 416)                 │
+├───────────────────┼────────────────────────────┤
+│ test_conf         │ 0.01                       │
+├───────────────────┼────────────────────────────┤
+│ nmsthre           │ 0.65                       │
+├───────────────────┼────────────────────────────┤
+│ random_size       │ (10, 20)                   │
+╘═══════════════════╧════════════════════════════╛
+2022-11-01 20:46:19 | INFO     | yolox.core.trainer:136 - Model Summary: Params: 0.90M, Gflops: 1.08
+2022-11-01 20:46:21 | INFO     | yolox.core.trainer:311 - loading checkpoint for fine tuning
+2022-11-01 20:46:21 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([12, 64, 1, 1]).
+2022-11-01 20:46:21 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([12]).
+2022-11-01 20:46:21 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([12, 64, 1, 1]).
+2022-11-01 20:46:21 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([12]).
+2022-11-01 20:46:21 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([12, 64, 1, 1]).
+2022-11-01 20:46:21 | WARNING  | yolox.utils.checkpoint:24 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([12]).
+2022-11-01 20:46:21 | INFO     | yolox.data.datasets.coco:64 - loading annotations into memory...
+2022-11-01 20:46:21 | ERROR    | yolox.core.launch:98 - An error has been caught in function 'launch', process 'MainProcess' (680847), thread 'MainThread' (140160260080448):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 134, in <module>
+    launch(
+    └ <function launch at 0x7f79179bf160>
+
+> File "/data/happyhoo97/repos/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═══════════════════╤═══════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f7912b30820>
+
+  File "tools/train.py", line 118, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f7902cf6160>
+    └ <yolox.core.trainer.Trainer object at 0x7f7902cff8b0>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 74, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f7902cf69d0>
+    └ <yolox.core.trainer.Trainer object at 0x7f7902cff8b0>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 149, in before_train
+    self.train_loader = self.exp.get_data_loader(
+    │                   │    │   └ <function Exp.get_data_loader at 0x7f7902cf6310>
+    │                   │    └ ╒═══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │                   └ <yolox.core.trainer.Trainer object at 0x7f7902cff8b0>
+    └ <yolox.core.trainer.Trainer object at 0x7f7902cff8b0>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/yolox_base.py", line 143, in get_data_loader
+    dataset = COCODataset(
+              └ <class 'yolox.data.datasets.coco.COCODataset'>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/data/datasets/coco.py", line 64, in __init__
+    self.coco = COCO(os.path.join(self.data_dir, "annotations", self.json_file))
+    │           │    │  │    │    │    │                        │    └ 'train2017.json'
+    │           │    │  │    │    │    │                        └ <yolox.data.datasets.coco.COCODataset object at 0x7f78fc0b3ee0>
+    │           │    │  │    │    │    └ '/local_datasets/VisDrone'
+    │           │    │  │    │    └ <yolox.data.datasets.coco.COCODataset object at 0x7f78fc0b3ee0>
+    │           │    │  │    └ <function join at 0x7f799a44d940>
+    │           │    │  └ <module 'posixpath' from '/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/posixpath.py'>
+    │           │    └ <module 'os' from '/data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/os.py'>
+    │           └ <class 'pycocotools.coco.COCO'>
+    └ <yolox.data.datasets.coco.COCODataset object at 0x7f78fc0b3ee0>
+
+  File "/home/happyhoo97/.local/lib/python3.8/site-packages/pycocotools/coco.py", line 81, in __init__
+    with open(annotation_file, 'r') as f:
+              └ '/local_datasets/VisDrone/annotations/train2017.json'
+
+FileNotFoundError: [Errno 2] No such file or directory: '/local_datasets/VisDrone/annotations/train2017.json'
+Exception ignored in: <function COCODataset.__del__ at 0x7f7902de3dc0>
+Traceback (most recent call last):
+  File "/data/happyhoo97/repos/YOLOX/yolox/data/datasets/coco.py", line 82, in __del__
+    del self.imgs
+AttributeError: imgs
+done

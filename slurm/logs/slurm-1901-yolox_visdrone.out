@@ -1,0 +1,19 @@
+20221125-134709
+0.11094903945922852
+898509
+Case 1
+=== out_idx ===
+[ 1  2  4  6  7  8  9 10 12]
+torch.Size([16, 12, 3, 3])
+=== in_idx ===
+[ 1  2  4  6  7  8  9 10 12]
+torch.Size([16, 1, 3, 3])
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 260, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 226, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 128, in init_weights_from_loose_model
+    convIn = convIn_from_[bn_name]
+KeyError: 'backbone.backbone.dark2.0.pconv.bn'
+done

@@ -1,0 +1,23 @@
+20221124-003228
+0.11381053924560547
+898509
+[[5, 1, 15]]
+[[64, 6, 21], [21, 11, 25], [25, 15, 23]]
+[[1, 13, 33], [33, 38, 44], [44, 42, 61]]
+[[256, 70, 128]]
+[]
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 243, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 209, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 92, in init_weights_from_loose_model
+    pruned_model = yolox_prun(mask_bn_channel_dict)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 628, in __init__
+    backbone = YOLOPAFPN_prune(mask_bn_channel_dict=mask_bn_channel_dict)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 345, in __init__
+    act=act,
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 43, in __init__
+    cv3in = bottle_args[-1][-1]
+IndexError: list index out of range
+done

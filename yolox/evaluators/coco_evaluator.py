@@ -304,11 +304,17 @@ class COCOEvaluator:
             cat_ids = list(cocoGt.cats.keys())
             cat_names = [cocoGt.cats[catId]['name'] for catId in sorted(cat_ids)]
             if self.per_class_AP:
+                cocoEval.params.iouThrs = [0.50]
+                cocoEval.evaluate()
+                cocoEval.accumulate()
                 AP_table = per_class_AP_table(cocoEval, class_names=cat_names)
-                info += "per class AP:\n" + AP_table + "\n"
+                info += "per class AP (IOU=.05):\n" + AP_table + "\n"
             if self.per_class_AR:
+                cocoEval.params.iouThrs = [0.50]
+                cocoEval.evaluate()
+                cocoEval.accumulate()
                 AR_table = per_class_AR_table(cocoEval, class_names=cat_names)
-                info += "per class AR:\n" + AR_table + "\n"
+                info += "per class AR (IOU=.05):\n" + AR_table + "\n"
             return cocoEval.stats[0], cocoEval.stats[1], info
         else:
             return 0, 0, info

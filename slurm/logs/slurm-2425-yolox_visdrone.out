@@ -1,0 +1,14 @@
+20221202-035408
+0.11260318756103516
+898509
+backbone.backbone.stem.conv.conv
+conv
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 252, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 218, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 177, in init_weights_from_loose_model
+    prune_mask_dict[a[int(i)]].cpu().numpy())))
+ValueError: invalid literal for int() with base 10: 'conv'
+done

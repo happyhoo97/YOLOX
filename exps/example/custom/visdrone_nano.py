@@ -14,10 +14,12 @@ class Exp(MyExp):
         super(Exp, self).__init__()
         self.depth = 0.33
         self.width = 0.25
-        self.input_size = (416, 416)
+        #self.input_size = (416, 416)
+        self.input_size = (832, 832)
         self.mosaic_scale = (0.5, 1.5)
         self.random_size = (10, 20)
-        self.test_size = (416, 416)
+        #self.test_size = (416, 416)
+        self.test_size = (832, 832)
         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
         self.enable_mixup = False
 
@@ -25,9 +27,11 @@ class Exp(MyExp):
         self.data_dir = "/local_datasets/VisDrone"
         self.train_ann = "train2017.json"
         self.val_ann = "val2017.json"
-        self.test_ann = "val2017.json"
+        self.test_ann = "test2017.json"
 
-        self.num_classes = 12
+        self.num_classes = 10
+        self.max_epoch = 1
+        self.no_aug_epochs = 1
 
     def get_model(self, sublinear=False):
 

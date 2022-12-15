@@ -1,0 +1,18 @@
+20221209-003559
+Traceback (most recent call last):
+  File "YOLOX-Slim-network_slim/tools/gen_pruning_schema.py", line 9, in <module>
+    from pns import SlimPruner
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/pns/__init__.py", line 1, in <module>
+    from .pns import SlimPruner
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/pns/pns.py", line 9, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+Traceback (most recent call last):
+  File "YOLOX-Slim-network_slim/tools/train.py", line 122, in <module>
+    assert num_gpu <= get_num_devices()
+AssertionError
+Traceback (most recent call last):
+  File "YOLOX-Slim-network_slim/tools/train.py", line 122, in <module>
+    assert num_gpu <= get_num_devices()
+AssertionError
+done

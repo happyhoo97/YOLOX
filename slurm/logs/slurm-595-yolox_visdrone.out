@@ -1,0 +1,11 @@
+extracting the dataset from NAS ...
+done
+/var/spool/slurm/d/job00595/slurm_script: line 22: $'\necho \'setup yolox environment ...\'\npip3 install -v -e .  # or  python3 setup.py develop\necho \'done\'\n': command not found
+20221111-041529
+Traceback (most recent call last):
+  File "tools/train.py", line 125, in <module>
+    exp.merge(args.opts)
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/base_exp.py", line 64, in merge
+    assert len(cfg_list) % 2 == 0
+AssertionError
+done

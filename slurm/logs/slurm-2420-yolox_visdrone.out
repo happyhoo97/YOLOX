@@ -1,0 +1,13 @@
+20221202-034633
+0.12319326400756836
+898509
+torch.Size([16, 3, 3])
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 248, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 214, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 134, in init_weights_from_loose_model
+    w = w[out_idx, :, :, :].clone()
+IndexError: too many indices for tensor of dimension 3
+done

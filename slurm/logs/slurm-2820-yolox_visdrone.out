@@ -1,0 +1,313 @@
+20221209-011431
+==== Generate pruning schema ====
+2022-12-09 01:14:32.661 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.6]
+2022-12-09 01:14:32.889 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.7]
+2022-12-09 01:14:32.942 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.8]
+2022-12-09 01:14:33.000 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.9]
+==== Sparsity training ====
+2022-12-09 01:14:34 | INFO     | yolox.core.trainer:130 - args: Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/network_slim/yolox_s_slim_train.py', experiment_name='yolox_s_slim_sparsity_train', fp16=True, machine_rank=0, name=None, num_machines=1, occupy=False, opts=['network_slim_sparsity_train_s', '0.0001'], resume=False, start_epoch=None)
+2022-12-09 01:14:34 | INFO     | yolox.core.trainer:131 - exp value:
+╒══════════════════════════════════════════╤════════════════════════════╕
+│ keys                                     │ values                     │
+╞══════════════════════════════════════════╪════════════════════════════╡
+│ seed                                     │ None                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ output_dir                               │ './YOLOX_outputs'          │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ print_interval                           │ 10                         │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ eval_interval                            │ 10                         │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ num_classes                              │ 10                         │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ depth                                    │ 0.33                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ width                                    │ 0.5                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ act                                      │ 'silu'                     │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ data_num_workers                         │ 0                          │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ input_size                               │ (640, 640)                 │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ multiscale_range                         │ 5                          │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ data_dir                                 │ '/local_datasets/VisDrone' │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ train_ann                                │ 'train2017.json'           │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ val_ann                                  │ 'val2017.json'             │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ test_ann                                 │ 'test2017.json'            │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ mosaic_prob                              │ 1.0                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ mixup_prob                               │ 1.0                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ hsv_prob                                 │ 1.0                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ flip_prob                                │ 0.5                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ degrees                                  │ 10.0                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ translate                                │ 0.1                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ mosaic_scale                             │ (0.1, 2)                   │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ enable_mixup                             │ True                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ mixup_scale                              │ (0.5, 1.5)                 │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ shear                                    │ 2.0                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ warmup_epochs                            │ 5                          │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ max_epoch                                │ 120                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ warmup_lr                                │ 0                          │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ min_lr_ratio                             │ 0.05                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ basic_lr_per_img                         │ 0.00015625                 │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ scheduler                                │ 'yoloxwarmcos'             │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ no_aug_epochs                            │ 15                         │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ ema                                      │ True                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ weight_decay                             │ 0.0005                     │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ momentum                                 │ 0.9                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ save_history_ckpt                        │ True                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ exp_name                                 │ 'yolox_s_slim_train'       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ test_size                                │ (640, 640)                 │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ test_conf                                │ 0.01                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ nmsthre                                  │ 0.65                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ network_slim_sparsity_train_enable       │ True                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ network_slim_sparsity_train_s            │ 0.0001                     │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ network_slim_sparsity_train_warmup_epoch │ 120                        │
+╘══════════════════════════════════════════╧════════════════════════════╛
+2022-12-09 01:14:34 | INFO     | yolox.core.trainer:137 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 01:14:36 | INFO     | yolox.core.trainer:311 - loading checkpoint for fine tuning
+2022-12-09 01:14:36 | ERROR    | yolox.core.launch:98 - An error has been caught in function 'launch', process 'MainProcess' (17889), thread 'MainThread' (140011062047936):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 132, in <module>
+    args=(exp, args),
+          │    └ Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, ...
+          └ ╒══════════════════════════════════════════╤═════════════════════════════════════════════════════════════════════════════════...
+
+> File "/data/happyhoo97/repos/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒══════════════════════════════════════════╤════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f56dd24f7a0>
+
+  File "tools/train.py", line 110, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f5639fd2440>
+    └ <yolox.core.trainer.Trainer object at 0x7f562acd8150>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 74, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f562acd1710>
+    └ <yolox.core.trainer.Trainer object at 0x7f562acd8150>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 145, in before_train
+    model = self.resume_train(model)
+            │    │            └ YOLOX(
+            │    │                (backbone): YOLOPAFPN(
+            │    │                  (backbone): CSPDarknet(
+            │    │                    (stem): Focus(
+            │    │                      (conv): BaseConv(
+            │    │                        (conv): ...
+            │    └ <function Trainer.resume_train at 0x7f562acd1b00>
+            └ <yolox.core.trainer.Trainer object at 0x7f562acd8150>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 313, in resume_train
+    ckpt = torch.load(ckpt_file, map_location=self.device)["model"]
+           │     │    │                       │    └ 'cuda:0'
+           │     │    │                       └ <yolox.core.trainer.Trainer object at 0x7f562acd8150>
+           │     │    └ 'pretrained_models/yolox_nano.pth'
+           │     └ <function load at 0x7f563a317dd0>
+           └ <module 'torch' from '/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/__init__.py'>
+
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+         │               └ 'pretrained_models/yolox_nano.pth'
+         └ <function _open_file_like at 0x7f563a3133b0>
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           │          │               └ 'rb'
+           │          └ 'pretrained_models/yolox_nano.pth'
+           └ <class 'torch.serialization._open_file'>
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+          │           │                   │     └ 'rb'
+          │           │                   └ 'pretrained_models/yolox_nano.pth'
+          │           └ <torch.serialization._open_file object at 0x7f565fd571d0>
+          └ <class 'torch.serialization._open_file'>
+
+FileNotFoundError: [Errno 2] No such file or directory: 'pretrained_models/yolox_nano.pth'
+==== Network Slimming ====
+2022-12-09 01:14:38 | INFO     | yolox.core.trainer:130 - args: Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim_fine_tuning', fp16=True, machine_rank=0, name=None, num_machines=1, occupy=False, opts=['network_slim_ratio', '0.65'], resume=False, start_epoch=None)
+2022-12-09 01:14:38 | INFO     | yolox.core.trainer:131 - exp value:
+╒═════════════════════╤══════════════════════════════════════════════════════════════════════════════════════════════╕
+│ keys                │ values                                                                                       │
+╞═════════════════════╪══════════════════════════════════════════════════════════════════════════════════════════════╡
+│ seed                │ None                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ output_dir          │ './YOLOX_outputs'                                                                            │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ print_interval      │ 10                                                                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ eval_interval       │ 10                                                                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ num_classes         │ 10                                                                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ depth               │ 0.33                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ width               │ 0.5                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ act                 │ 'silu'                                                                                       │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ data_num_workers    │ 0                                                                                            │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ input_size          │ (640, 640)                                                                                   │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ multiscale_range    │ 5                                                                                            │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ data_dir            │ None                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ train_ann           │ 'train2017.json'                                                                             │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ val_ann             │ 'val2017.json'                                                                               │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ test_ann            │ 'val2017.json'                                                                               │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ mosaic_prob         │ 1.0                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ mixup_prob          │ 1.0                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ hsv_prob            │ 1.0                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ flip_prob           │ 0.5                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ degrees             │ 10.0                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ translate           │ 0.1                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ mosaic_scale        │ (0.1, 2)                                                                                     │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ enable_mixup        │ True                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ mixup_scale         │ (0.5, 1.5)                                                                                   │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ shear               │ 2.0                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ warmup_epochs       │ 5                                                                                            │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ max_epoch           │ 50                                                                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ warmup_lr           │ 0                                                                                            │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ min_lr_ratio        │ 0.05                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ basic_lr_per_img    │ 0.00015625                                                                                   │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ scheduler           │ 'yoloxwarmcos'                                                                               │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ no_aug_epochs       │ 15                                                                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ema                 │ True                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ weight_decay        │ 0.0005                                                                                       │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ momentum            │ 0.9                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ save_history_ckpt   │ True                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ exp_name            │ 'yolox_s_slim'                                                                               │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ test_size           │ (640, 640)                                                                                   │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ test_conf           │ 0.01                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ nmsthre             │ 0.65                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ run_network_slim    │ True                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ network_slim_schema │ '/data/happyhoo97/repos/YOLOX/YOLOX-Slim-network_slim/exps/network_slim/yolox_s_schema.json' │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ network_slim_ratio  │ 0.65                                                                                         │
+╘═════════════════════╧══════════════════════════════════════════════════════════════════════════════════════════════╛
+2022-12-09 01:14:38 | INFO     | yolox.core.trainer:137 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 01:14:39 | INFO     | yolox.core.trainer:311 - loading checkpoint for fine tuning
+2022-12-09 01:14:39 | ERROR    | yolox.core.launch:98 - An error has been caught in function 'launch', process 'MainProcess' (17957), thread 'MainThread' (140562108679360):
+Traceback (most recent call last):
+
+  File "tools/train.py", line 132, in <module>
+    args=(exp, args),
+          │    └ Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, ...
+          └ ╒═════════════════════╤══════════════════════════════════════════════════════════════════════════════════════════════════════...
+
+> File "/data/happyhoo97/repos/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═════════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fd72a154830>
+
+  File "tools/train.py", line 110, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7fd686ed74d0>
+    └ <yolox.core.trainer.Trainer object at 0x7fd677bd9f90>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 74, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7fd677bd77a0>
+    └ <yolox.core.trainer.Trainer object at 0x7fd677bd9f90>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 145, in before_train
+    model = self.resume_train(model)
+            │    │            └ YOLOX(
+            │    │                (backbone): YOLOPAFPN(
+            │    │                  (backbone): CSPDarknet(
+            │    │                    (stem): Focus(
+            │    │                      (conv): BaseConv(
+            │    │                        (conv): ...
+            │    └ <function Trainer.resume_train at 0x7fd677bd7b90>
+            └ <yolox.core.trainer.Trainer object at 0x7fd677bd9f90>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 313, in resume_train
+    ckpt = torch.load(ckpt_file, map_location=self.device)["model"]
+           │     │    │                       │    └ 'cuda:0'
+           │     │    │                       └ <yolox.core.trainer.Trainer object at 0x7fd677bd9f90>
+           │     │    └ 'pretrained_models/yolox_nano.pth'
+           │     └ <function load at 0x7fd68721be60>
+           └ <module 'torch' from '/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/__init__.py'>
+
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+         │               └ 'pretrained_models/yolox_nano.pth'
+         └ <function _open_file_like at 0x7fd687218440>
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           │          │               └ 'rb'
+           │          └ 'pretrained_models/yolox_nano.pth'
+           └ <class 'torch.serialization._open_file'>
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+          │           │                   │     └ 'rb'
+          │           │                   └ 'pretrained_models/yolox_nano.pth'
+          │           └ <torch.serialization._open_file object at 0x7fd670189f90>
+          └ <class 'torch.serialization._open_file'>
+
+FileNotFoundError: [Errno 2] No such file or directory: 'pretrained_models/yolox_nano.pth'
+done

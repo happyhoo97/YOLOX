@@ -1,24 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-# Copyright (c) Megvii Inc. All rights reserved.
+# Copyright (c) 2014-2021 Megvii Inc. All rights reserved.
 
 import inspect
 import os
 import sys
-from collections import defaultdict
+from pathlib import Path
+
 from loguru import logger
-
-import cv2
-import numpy as np
-
-import torch
 
 
 def get_caller_name(depth=0):
     """
     Args:
-        depth (int): Depth of caller conext, use 0 for caller depth.
-        Default value: 0.
+        depth (int): Depth of caller conext, use 0 for caller depth. Default value: 0.
 
     Returns:
         str: module name of the caller
@@ -60,14 +55,6 @@ class StreamToLoguru:
     def flush(self):
         pass
 
-    def isatty(self):
-        # when using colab, jax is installed by default and issue like
-        # https://github.com/Megvii-BaseDetection/YOLOX/issues/1437 might be raised
-        # due to missing attribute like`isatty`.
-        # For more details, checked the following link:
-        # https://github.com/google/jax/blob/10720258ea7fb5bde997dfa2f3f71135ab7a6733/jax/_src/pretty_printer.py#L54  # noqa
-        return True
-
 
 def redirect_sys_output(log_level="INFO"):
     redirect_logger = StreamToLoguru(log_level)
@@ -93,7 +80,10 @@ def setup_logger(save_dir, distributed_rank=0, filename="log.txt", mode="a"):
     )
 
     logger.remove()
+    if distributed_rank != 0:
+        filename = Path(filename).stem + f"_{distributed_rank}.txt"
     save_file = os.path.join(save_dir, filename)
+
     if mode == "o" and os.path.exists(save_file):
         os.remove(save_file)
     # only keep logger in rank0 process
@@ -104,11 +94,10 @@ def setup_logger(save_dir, distributed_rank=0, filename="log.txt", mode="a"):
             level="INFO",
             enqueue=True,
         )
-        logger.add(save_file)
+    logger.add(save_file)
 
     # redirect stdout/stderr to loguru
     redirect_sys_output("INFO")
-
 
 class WandbLogger(object):
     """

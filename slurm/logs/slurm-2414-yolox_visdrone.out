@@ -1,0 +1,12 @@
+20221202-032547
+0.10029768943786621
+898509
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 245, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 211, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 131, in init_weights_from_loose_model
+    w = loose_layer.weight.data[:, in_idx-1, :, :].clone()
+IndexError: index 1 is out of bounds for dimension 0 with size 1
+done

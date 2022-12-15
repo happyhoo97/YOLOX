@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-# Copyright (c) Megvii Inc. All rights reserved.
+# Copyright (c) 2014-2021 Megvii Inc. All rights reserved.
 
 import os
 import random
@@ -18,7 +18,7 @@ class Exp(BaseExp):
 
         # ---------------- model config ---------------- #
         # detect classes number of model
-        self.num_classes = 80
+        self.num_classes = 10
         # factor of model depth
         self.depth = 1.00
         # factor of model width
@@ -29,7 +29,7 @@ class Exp(BaseExp):
         # ---------------- dataloader config ---------------- #
         # set worker to 4 for shorter dataloader init time
         # If your training process cost many memory, reduce this value.
-        self.data_num_workers = 4
+        self.data_num_workers = 0
         self.input_size = (640, 640)  # (height, width)
         # Actual multiscale ranges: [640 - 5 * 32, 640 + 5 * 32].
         # To disable multiscale training, set the value to 0.
@@ -39,72 +39,57 @@ class Exp(BaseExp):
         # dir of dataset images, if data_dir is None, this project will use `datasets` dir
         self.data_dir = None
         # name of annotation file for training
-        self.train_ann = "instances_train2017.json"
+        self.train_ann = "train2017.json"
         # name of annotation file for evaluation
-        self.val_ann = "instances_val2017.json"
+        self.val_ann = "val2017.json"
         # name of annotation file for testing
-        self.test_ann = "instances_test2017.json"
+        self.test_ann = "test2017.json"
 
         # --------------- transform config ----------------- #
-        # prob of applying mosaic aug
         self.mosaic_prob = 1.0
-        # prob of applying mixup aug
         self.mixup_prob = 1.0
-        # prob of applying hsv aug
         self.hsv_prob = 1.0
-        # prob of applying flip aug
         self.flip_prob = 0.5
-        # rotation angle range, for example, if set to 2, the true range is (-2, 2)
         self.degrees = 10.0
-        # translate range, for example, if set to 0.1, the true range is (-0.1, 0.1)
         self.translate = 0.1
         self.mosaic_scale = (0.1, 2)
-        # apply mixup aug or not
-        self.enable_mixup = True
         self.mixup_scale = (0.5, 1.5)
-        # shear angle range, for example, if set to 2, the true range is (-2, 2)
         self.shear = 2.0
+        self.enable_mixup = True
 
         # --------------  training config --------------------- #
-        # epoch number used for warmup
         self.warmup_epochs = 5
-        # max training epoch
         self.max_epoch = 300
-        # minimum learning rate during warmup
         self.warmup_lr = 0
-        self.min_lr_ratio = 0.05
-        # learning rate for one image. During training, lr will multiply batchsize.
         self.basic_lr_per_img = 0.01 / 64.0
-        # name of LRScheduler
         self.scheduler = "yoloxwarmcos"
-        # last #epoch to close augmention like mosaic
         self.no_aug_epochs = 15
-        # apply EMA during training
+        self.min_lr_ratio = 0.05
         self.ema = True
 
-        # weight decay of optimizer
         self.weight_decay = 5e-4
-        # momentum of optimizer
         self.momentum = 0.9
-        # log period in iter, for example,
-        # if set to 1, user could see log every iteration.
         self.print_interval = 10
-        # eval period in epoch, for example,
-        # if set to 1, model will be evaluate after every epoch.
         self.eval_interval = 10
-        # save history checkpoint or not.
-        # If set to False, yolox will only save latest and best ckpt.
-        self.save_history_ckpt = True
-        # name of experiment
         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
 
+        # ----------------- network slimming  ------------------ #
+        # add L1 norm to bn weight
+        self.network_slim_sparsity_train_enable = False
+        self.network_slim_sparsity_train_s = 0.0001
+        # s = (0, s * current_epoch / self.network_slim_sparsity_train_warmup_epoch]
+        # set 0 to disable warmup
+        self.network_slim_sparsity_train_warmup_epoch = 300
+        # run_network_slim is used in train/test stage
+        # Train: apply network slimming before train; save pruning_result in checkpoint
+        # Test: restore pruning_result from checkpoint
+        self.run_network_slim = False
+        self.network_slim_schema = ""
+        self.network_slim_ratio = 0.65
+
         # -----------------  testing config ------------------ #
-        # output image size during evaluation/test
         self.test_size = (640, 640)
-        # confidence threshold during evaluation/test,
-        # boxes whose scores are less than test_conf will be filtered
         self.test_conf = 0.01
-        # nms threshold
         self.nmsthre = 0.65
 
     def get_model(self):
@@ -118,16 +103,21 @@ class Exp(BaseExp):
 
         if getattr(self, "model", None) is None:
             in_channels = [256, 512, 1024]
-            backbone = YOLOPAFPN(self.depth, self.width, in_channels=in_channels, act=self.act)
-            head = YOLOXHead(self.num_classes, self.width, in_channels=in_channels, act=self.act)
+            backbone = YOLOPAFPN(
+                self.depth, self.width, in_channels=in_channels, act=self.act
+            )
+            head = YOLOXHead(
+                self.num_classes, self.width, in_channels=in_channels, act=self.act
+            )
             self.model = YOLOX(backbone, head)
 
         self.model.apply(init_yolo)
         self.model.head.initialize_biases(1e-2)
-        self.model.train()
         return self.model
 
-    def get_data_loader(self, batch_size, is_distributed, no_aug=False, cache_img=False):
+    def get_data_loader(
+        self, batch_size, is_distributed, no_aug=False, cache_img=False
+    ):
         from yolox.data import (
             COCODataset,
             TrainTransform,
@@ -137,17 +127,21 @@ class Exp(BaseExp):
             MosaicDetection,
             worker_init_reset_seed,
         )
-        from yolox.utils import wait_for_the_master
+        from yolox.utils import (
+            wait_for_the_master,
+            get_local_rank,
+        )
 
-        with wait_for_the_master():
+        local_rank = get_local_rank()
+
+        with wait_for_the_master(local_rank):
             dataset = COCODataset(
                 data_dir=self.data_dir,
                 json_file=self.train_ann,
                 img_size=self.input_size,
                 preproc=TrainTransform(
-                    max_labels=50,
-                    flip_prob=self.flip_prob,
-                    hsv_prob=self.hsv_prob),
+                    max_labels=50, flip_prob=self.flip_prob, hsv_prob=self.hsv_prob
+                ),
                 cache=cache_img,
             )
 
@@ -156,9 +150,8 @@ class Exp(BaseExp):
             mosaic=not no_aug,
             img_size=self.input_size,
             preproc=TrainTransform(
-                max_labels=120,
-                flip_prob=self.flip_prob,
-                hsv_prob=self.hsv_prob),
+                max_labels=120, flip_prob=self.flip_prob, hsv_prob=self.hsv_prob
+            ),
             degrees=self.degrees,
             translate=self.translate,
             mosaic_scale=self.mosaic_scale,
@@ -199,7 +192,7 @@ class Exp(BaseExp):
 
         if rank == 0:
             size_factor = self.input_size[1] * 1.0 / self.input_size[0]
-            if not hasattr(self, 'random_size'):
+            if not hasattr(self, "random_size"):
                 min_size = int(self.input_size[0] / 32) - self.multiscale_range
                 max_size = int(self.input_size[0] / 32) + self.multiscale_range
                 self.random_size = (min_size, max_size)
@@ -274,7 +267,7 @@ class Exp(BaseExp):
 
         valdataset = COCODataset(
             data_dir=self.data_dir,
-            json_file=self.val_ann if not testdev else self.test_ann,
+            json_file=self.val_ann if not testdev else "val2017.json",
             name="val2017" if not testdev else "test2017",
             img_size=self.test_size,
             preproc=ValTransform(legacy=legacy),
@@ -318,5 +311,5 @@ class Exp(BaseExp):
         # NOTE: trainer shouldn't be an attribute of exp object
         return trainer
 
-    def eval(self, model, evaluator, is_distributed, half=False, return_outputs=False):
-        return evaluator.evaluate(model, is_distributed, half, return_outputs=return_outputs)
+    def eval(self, model, evaluator, is_distributed, half=False):
+        return evaluator.evaluate(model, is_distributed, half)

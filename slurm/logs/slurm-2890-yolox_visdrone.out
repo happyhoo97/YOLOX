@@ -1,0 +1,70 @@
+extracting the dataset from NAS ...
+done
+/var/spool/slurm/d/job02890/slurm_script: line 22: $'\necho \'setup yolox environment ...\'\npip3 install -v -e .  # or  python3 setup.py develop\necho \'done\'\n': command not found
+20221209-131613
+/var/spool/slurm/d/job02890/slurm_script: line 37: 
+python tools/demo.py image -f exps/network_slim/yolox_s_slim.py -c ./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth --path /local_datasets/VisDrone/test2017/0000001_02999_d_0000005.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result --device [cpu/gpu]
+python tools/demo.py image -f exps/network_slim/yolox_s_slim.py -c ./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth --path /local_datasets/VisDrone/test2017/0000153_01601_d_0000001.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result --device [cpu/gpu]
+python tools/demo.py image -f exps/network_slim/yolox_s_slim.py -c ./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth --path /local_datasets/VisDrone/test2017/0000244_00001_d_0000001.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result --device [cpu/gpu]
+python tools/demo.py image -f exps/network_slim/yolox_s_slim.py -c ./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth --path /local_datasets/VisDrone/test2017/0000276_04401_d_0000529.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result --device [cpu/gpu]
+python tools/demo.py image -f exps/network_slim/yolox_s_slim.py -c ./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth --path /local_datasets/VisDrone/test2017/0000289_02401_d_0000823.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result --device [cpu/gpu]
+python tools/demo.py image -f exps/network_slim/yolox_s_slim.py -c ./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth --path /local_datasets/VisDrone/test2017/0000313_07001_d_0000471.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result --device [cpu/gpu]
+python tools/demo.py image -f exps/network_slim/yolox_s_slim.py -c ./YOLOX_outputs/yolox_s_slim_sparsity_train/best_ckpt.pth --path /local_datasets/VisDrone/test2017/0000335_04117_d_0000064.jpg --conf 0.25 --nms 0.45 --tsize 640 --save_result --device [cpu/gpu]
+: No such file or directory
+2022-12-09 13:16:15.273 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_fine_tuning/latest_ckpt.pth', conf=0.3, demo='image', device='cpu', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.3, path='/local_datasets/VisDrone/test2017/0000001_02999_d_0000005.jpg', save_result=True, trt=False, tsize=None)
+2022-12-09 13:16:15.511 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:16:15.513 | INFO     | __main__:main:278 - loading checkpoint
+2022-12-09 13:16:15.637 | INFO     | yolox.utils.model_utils:restore_pruning_result:119 - Restoring pruning_result from checkpoint
+2022-12-09 13:16:15.737 | INFO     | __main__:main:282 - Pruned Model Summary: Params: 1.35M, Gflops: 5.91
+2022-12-09 13:16:15.747 | INFO     | __main__:main:285 - loaded checkpoint done.
+2022-12-09 13:16:15.866 | INFO     | __main__:inference:165 - Infer time: 0.0872s
+2022-12-09 13:16:15.867 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/yolox_s_slim/vis_res/2022_12_09_13_16_15/0000001_02999_d_0000005.jpg
+2022-12-09 13:16:17.758 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_fine_tuning/latest_ckpt.pth', conf=0.3, demo='image', device='cpu', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.3, path='/local_datasets/VisDrone/test2017/0000153_01601_d_0000001.jpg', save_result=True, trt=False, tsize=None)
+2022-12-09 13:16:17.991 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:16:17.992 | INFO     | __main__:main:278 - loading checkpoint
+2022-12-09 13:16:18.029 | INFO     | yolox.utils.model_utils:restore_pruning_result:119 - Restoring pruning_result from checkpoint
+2022-12-09 13:16:18.129 | INFO     | __main__:main:282 - Pruned Model Summary: Params: 1.35M, Gflops: 5.91
+2022-12-09 13:16:18.139 | INFO     | __main__:main:285 - loaded checkpoint done.
+2022-12-09 13:16:18.237 | INFO     | __main__:inference:165 - Infer time: 0.0860s
+2022-12-09 13:16:18.237 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/yolox_s_slim/vis_res/2022_12_09_13_16_18/0000153_01601_d_0000001.jpg
+2022-12-09 13:16:20.145 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_fine_tuning/latest_ckpt.pth', conf=0.3, demo='image', device='cpu', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.3, path='/local_datasets/VisDrone/test2017/0000244_00001_d_0000001.jpg', save_result=True, trt=False, tsize=None)
+2022-12-09 13:16:20.402 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:16:20.404 | INFO     | __main__:main:278 - loading checkpoint
+2022-12-09 13:16:20.439 | INFO     | yolox.utils.model_utils:restore_pruning_result:119 - Restoring pruning_result from checkpoint
+2022-12-09 13:16:20.540 | INFO     | __main__:main:282 - Pruned Model Summary: Params: 1.35M, Gflops: 5.91
+2022-12-09 13:16:20.550 | INFO     | __main__:main:285 - loaded checkpoint done.
+2022-12-09 13:16:20.646 | INFO     | __main__:inference:165 - Infer time: 0.0852s
+2022-12-09 13:16:20.647 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/yolox_s_slim/vis_res/2022_12_09_13_16_20/0000244_00001_d_0000001.jpg
+2022-12-09 13:16:22.724 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_fine_tuning/latest_ckpt.pth', conf=0.3, demo='image', device='cpu', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.3, path='/local_datasets/VisDrone/test2017/0000276_04401_d_0000529.jpg', save_result=True, trt=False, tsize=None)
+2022-12-09 13:16:22.964 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:16:22.966 | INFO     | __main__:main:278 - loading checkpoint
+2022-12-09 13:16:23.001 | INFO     | yolox.utils.model_utils:restore_pruning_result:119 - Restoring pruning_result from checkpoint
+2022-12-09 13:16:23.100 | INFO     | __main__:main:282 - Pruned Model Summary: Params: 1.35M, Gflops: 5.91
+2022-12-09 13:16:23.110 | INFO     | __main__:main:285 - loaded checkpoint done.
+2022-12-09 13:16:23.216 | INFO     | __main__:inference:165 - Infer time: 0.0876s
+2022-12-09 13:16:23.216 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/yolox_s_slim/vis_res/2022_12_09_13_16_23/0000276_04401_d_0000529.jpg
+2022-12-09 13:16:25.122 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_fine_tuning/latest_ckpt.pth', conf=0.3, demo='image', device='cpu', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.3, path='/local_datasets/VisDrone/test2017/0000289_02401_d_0000823.jpg', save_result=True, trt=False, tsize=None)
+2022-12-09 13:16:25.365 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:16:25.367 | INFO     | __main__:main:278 - loading checkpoint
+2022-12-09 13:16:25.404 | INFO     | yolox.utils.model_utils:restore_pruning_result:119 - Restoring pruning_result from checkpoint
+2022-12-09 13:16:25.507 | INFO     | __main__:main:282 - Pruned Model Summary: Params: 1.35M, Gflops: 5.91
+2022-12-09 13:16:25.517 | INFO     | __main__:main:285 - loaded checkpoint done.
+2022-12-09 13:16:25.621 | INFO     | __main__:inference:165 - Infer time: 0.0859s
+2022-12-09 13:16:25.622 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/yolox_s_slim/vis_res/2022_12_09_13_16_25/0000289_02401_d_0000823.jpg
+2022-12-09 13:16:27.519 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_fine_tuning/latest_ckpt.pth', conf=0.3, demo='image', device='cpu', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.3, path='/local_datasets/VisDrone/test2017/0000313_07001_d_0000471.jpg', save_result=True, trt=False, tsize=None)
+2022-12-09 13:16:27.759 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:16:27.761 | INFO     | __main__:main:278 - loading checkpoint
+2022-12-09 13:16:27.796 | INFO     | yolox.utils.model_utils:restore_pruning_result:119 - Restoring pruning_result from checkpoint
+2022-12-09 13:16:27.893 | INFO     | __main__:main:282 - Pruned Model Summary: Params: 1.35M, Gflops: 5.91
+2022-12-09 13:16:27.903 | INFO     | __main__:main:285 - loaded checkpoint done.
+2022-12-09 13:16:28.006 | INFO     | __main__:inference:165 - Infer time: 0.0861s
+2022-12-09 13:16:28.007 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/yolox_s_slim/vis_res/2022_12_09_13_16_27/0000313_07001_d_0000471.jpg
+2022-12-09 13:16:29.902 | INFO     | __main__:main:255 - Args: Namespace(camid=0, ckpt='./YOLOX_outputs/yolox_s_slim_fine_tuning/latest_ckpt.pth', conf=0.3, demo='image', device='cpu', exp_file='exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim', fp16=False, fuse=False, legacy=False, name=None, nms=0.3, path='/local_datasets/VisDrone/test2017/0000335_04117_d_0000064.jpg', save_result=True, trt=False, tsize=None)
+2022-12-09 13:16:30.134 | INFO     | __main__:main:265 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 13:16:30.135 | INFO     | __main__:main:278 - loading checkpoint
+2022-12-09 13:16:30.170 | INFO     | yolox.utils.model_utils:restore_pruning_result:119 - Restoring pruning_result from checkpoint
+2022-12-09 13:16:30.270 | INFO     | __main__:main:282 - Pruned Model Summary: Params: 1.35M, Gflops: 5.91
+2022-12-09 13:16:30.280 | INFO     | __main__:main:285 - loaded checkpoint done.
+2022-12-09 13:16:30.383 | INFO     | __main__:inference:165 - Infer time: 0.0857s
+2022-12-09 13:16:30.383 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/yolox_s_slim/vis_res/2022_12_09_13_16_30/0000335_04117_d_0000064.jpg
+done

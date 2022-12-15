@@ -1,0 +1,104 @@
+extracting the dataset from NAS ...
+/var/spool/slurm/d/job00139/slurm_script: line 13: copy_visdrone_to_node_and_untar.sh: command not found
+done
+setup yolox environment ...
+Using pip 22.1.2 from /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/pip (python 3.8)
+Defaulting to user installation because normal site-packages is not writeable
+Obtaining file:///data/happyhoo97/repos/YOLOX
+  Preparing metadata (setup.py): started
+  Running command python setup.py egg_info
+  running egg_info
+  creating /tmp/pip-pip-egg-info-phe84psq/yolox.egg-info
+  writing /tmp/pip-pip-egg-info-phe84psq/yolox.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-phe84psq/yolox.egg-info/dependency_links.txt
+  writing requirements to /tmp/pip-pip-egg-info-phe84psq/yolox.egg-info/requires.txt
+  writing top-level names to /tmp/pip-pip-egg-info-phe84psq/yolox.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-phe84psq/yolox.egg-info/SOURCES.txt'
+  reading manifest file '/tmp/pip-pip-egg-info-phe84psq/yolox.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/torch/utils/cpp_extension.py:411: UserWarning: Attempted to use ninja as the BuildExtension backend but we could not find ninja.. Falling back to using the slow distutils backend.
+    warnings.warn(msg.format('we could not find ninja.'))
+  warning: no files found matching '*.cu' under directory 'yolox'
+  warning: no files found matching '*.cuh' under directory 'yolox'
+  warning: no files found matching '*.cc' under directory 'yolox'
+  adding license file 'LICENSE'
+  writing manifest file '/tmp/pip-pip-egg-info-phe84psq/yolox.egg-info/SOURCES.txt'
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: numpy in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (1.23.1)
+Requirement already satisfied: torch>=1.7 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (1.12.1)
+Requirement already satisfied: opencv_python in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (4.6.0.66)
+Requirement already satisfied: loguru in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.6.0)
+Requirement already satisfied: tqdm in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (4.64.1)
+Requirement already satisfied: torchvision in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from yolox==0.3.0) (0.13.1)
+Requirement already satisfied: thop in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.1.1.post2209072238)
+Requirement already satisfied: ninja in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (1.10.2.4)
+Requirement already satisfied: tabulate in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.9.0)
+Requirement already satisfied: pycocotools>=2.0.2 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (2.0.5)
+Requirement already satisfied: onnx==1.8.1 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (1.8.1)
+Requirement already satisfied: onnxruntime==1.8.0 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (1.8.0)
+Requirement already satisfied: onnx-simplifier==0.3.5 in /home/happyhoo97/.local/lib/python3.8/site-packages (from yolox==0.3.0) (0.3.5)
+Requirement already satisfied: protobuf in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (3.19.5)
+Requirement already satisfied: six in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (1.16.0)
+Requirement already satisfied: typing-extensions>=3.6.2.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from onnx==1.8.1->yolox==0.3.0) (4.3.0)
+Requirement already satisfied: onnxoptimizer>=0.2.5 in /home/happyhoo97/.local/lib/python3.8/site-packages (from onnx-simplifier==0.3.5->yolox==0.3.0) (0.3.1)
+Requirement already satisfied: flatbuffers in /home/happyhoo97/.local/lib/python3.8/site-packages (from onnxruntime==1.8.0->yolox==0.3.0) (22.10.26)
+Requirement already satisfied: matplotlib>=2.1.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from pycocotools>=2.0.2->yolox==0.3.0) (3.5.3)
+Requirement already satisfied: requests in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from torchvision->yolox==0.3.0) (2.28.1)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from torchvision->yolox==0.3.0) (9.2.0)
+Requirement already satisfied: fonttools>=4.22.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (4.37.2)
+Requirement already satisfied: packaging>=20.0 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (21.3)
+Requirement already satisfied: kiwisolver>=1.0.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (1.4.4)
+Requirement already satisfied: cycler>=0.10 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (0.11.0)
+Requirement already satisfied: python-dateutil>=2.7 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (2.8.2)
+Requirement already satisfied: pyparsing>=2.2.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from matplotlib>=2.1.0->pycocotools>=2.0.2->yolox==0.3.0) (3.0.9)
+Requirement already satisfied: charset-normalizer<3,>=2 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (2.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (2022.6.15)
+Requirement already satisfied: idna<4,>=2.5 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (3.3)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages (from requests->torchvision->yolox==0.3.0) (1.26.11)
+Installing collected packages: yolox
+  Attempting uninstall: yolox
+    Found existing installation: yolox 0.3.0
+    Uninstalling yolox-0.3.0:
+      Removing file or directory /home/happyhoo97/.local/lib/python3.8/site-packages/yolox.egg-link
+      Removing pth entries from /home/happyhoo97/.local/lib/python3.8/site-packages/easy-install.pth:
+      Removing entry: /data/happyhoo97/repos/YOLOX
+      Successfully uninstalled yolox-0.3.0
+  Running setup.py develop for yolox
+    Running command python setup.py develop
+    running develop
+    running egg_info
+    writing yolox.egg-info/PKG-INFO
+    writing dependency_links to yolox.egg-info/dependency_links.txt
+    writing requirements to yolox.egg-info/requires.txt
+    writing top-level names to yolox.egg-info/top_level.txt
+    reading manifest file 'yolox.egg-info/SOURCES.txt'
+    reading manifest template 'MANIFEST.in'
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/setuptools/command/easy_install.py:144: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+      warnings.warn(
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+      warnings.warn(
+    /data/opt/anaconda3/envs/pytorch1.12.1_p38/lib/python3.8/site-packages/torch/utils/cpp_extension.py:411: UserWarning: Attempted to use ninja as the BuildExtension backend but we could not find ninja.. Falling back to using the slow distutils backend.
+      warnings.warn(msg.format('we could not find ninja.'))
+    warning: no files found matching '*.cu' under directory 'yolox'
+    warning: no files found matching '*.cuh' under directory 'yolox'
+    warning: no files found matching '*.cc' under directory 'yolox'
+    adding license file 'LICENSE'
+    writing manifest file 'yolox.egg-info/SOURCES.txt'
+    running build_ext
+    copying build/lib.linux-x86_64-cpython-38/yolox/layers/fast_cocoeval.cpython-38-x86_64-linux-gnu.so -> yolox/layers
+    Creating /home/happyhoo97/.local/lib/python3.8/site-packages/yolox.egg-link (link to .)
+    Adding yolox 0.3.0 to easy-install.pth file
+
+    Installed /data/happyhoo97/repos/YOLOX
+Successfully installed yolox
+done
+date: extra operand ‘%Y%m%d-%H%M%S’
+Try 'date --help' for more information.
+
+Traceback (most recent call last):
+  File "tools/train.py", line 125, in <module>
+    exp.merge(args.opts)
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/base_exp.py", line 64, in merge
+    assert len(cfg_list) % 2 == 0
+AssertionError
+done

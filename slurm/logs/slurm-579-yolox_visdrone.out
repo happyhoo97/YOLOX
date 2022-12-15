@@ -1,0 +1,111 @@
+extracting the dataset from NAS ...
+cp: cannot overwrite non-directory '/local_datasets/VisDrone' with directory '/data/datasets/VisDrone'
+done
+/var/spool/slurm/d/job00579/slurm_script: line 22: $'\necho \'setup yolox environment ...\'\npip3 install -v -e .  # or  python3 setup.py develop\necho \'done\'\n': command not found
+20221111-005814
+2022-11-11 00:58:19.459 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000001_02999_d_0000005.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 00:58:20.349 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 00:58:20.354 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 00:58:20.420 | INFO     | __main__:main:286 - loaded checkpoint done.
+[ WARN:0@4.943] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/local_datasets/VisDrone/test2017/0000001_02999_d_0000005.jpg'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "tools/demo.py", line 320, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 311, in main
+    image_demo(predictor, vis_folder, args.path, current_time, args.save_result)
+  File "tools/demo.py", line 194, in image_demo
+    outputs, img_info = predictor.inference(image_name)
+  File "tools/demo.py", line 140, in inference
+    height, width = img.shape[:2]
+AttributeError: 'NoneType' object has no attribute 'shape'
+2022-11-11 00:58:22.557 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000153_01601_d_0000001.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 00:58:22.920 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 00:58:22.922 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 00:58:22.965 | INFO     | __main__:main:286 - loaded checkpoint done.
+[ WARN:0@1.526] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/local_datasets/VisDrone/test2017/0000153_01601_d_0000001.jpg'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "tools/demo.py", line 320, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 311, in main
+    image_demo(predictor, vis_folder, args.path, current_time, args.save_result)
+  File "tools/demo.py", line 194, in image_demo
+    outputs, img_info = predictor.inference(image_name)
+  File "tools/demo.py", line 140, in inference
+    height, width = img.shape[:2]
+AttributeError: 'NoneType' object has no attribute 'shape'
+2022-11-11 00:58:24.160 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000244_00001_d_0000001.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 00:58:24.508 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 00:58:24.510 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 00:58:24.552 | INFO     | __main__:main:286 - loaded checkpoint done.
+[ WARN:0@1.222] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/local_datasets/VisDrone/test2017/0000244_00001_d_0000001.jpg'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "tools/demo.py", line 320, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 311, in main
+    image_demo(predictor, vis_folder, args.path, current_time, args.save_result)
+  File "tools/demo.py", line 194, in image_demo
+    outputs, img_info = predictor.inference(image_name)
+  File "tools/demo.py", line 140, in inference
+    height, width = img.shape[:2]
+AttributeError: 'NoneType' object has no attribute 'shape'
+2022-11-11 00:58:25.750 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000276_04401_d_0000529.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 00:58:26.065 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 00:58:26.067 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 00:58:26.109 | INFO     | __main__:main:286 - loaded checkpoint done.
+[ WARN:0@1.193] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/local_datasets/VisDrone/test2017/0000276_04401_d_0000529.jpg'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "tools/demo.py", line 320, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 311, in main
+    image_demo(predictor, vis_folder, args.path, current_time, args.save_result)
+  File "tools/demo.py", line 194, in image_demo
+    outputs, img_info = predictor.inference(image_name)
+  File "tools/demo.py", line 140, in inference
+    height, width = img.shape[:2]
+AttributeError: 'NoneType' object has no attribute 'shape'
+2022-11-11 00:58:27.315 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000289_02401_d_0000823.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 00:58:27.637 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 00:58:27.639 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 00:58:27.682 | INFO     | __main__:main:286 - loaded checkpoint done.
+[ WARN:0@1.211] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/local_datasets/VisDrone/test2017/0000289_02401_d_0000823.jpg'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "tools/demo.py", line 320, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 311, in main
+    image_demo(predictor, vis_folder, args.path, current_time, args.save_result)
+  File "tools/demo.py", line 194, in image_demo
+    outputs, img_info = predictor.inference(image_name)
+  File "tools/demo.py", line 140, in inference
+    height, width = img.shape[:2]
+AttributeError: 'NoneType' object has no attribute 'shape'
+2022-11-11 00:58:29.016 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000313_07001_d_0000471.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 00:58:29.365 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 00:58:29.367 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 00:58:29.410 | INFO     | __main__:main:286 - loaded checkpoint done.
+[ WARN:0@1.325] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/local_datasets/VisDrone/test2017/0000313_07001_d_0000471.jpg'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "tools/demo.py", line 320, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 311, in main
+    image_demo(predictor, vis_folder, args.path, current_time, args.save_result)
+  File "tools/demo.py", line 194, in image_demo
+    outputs, img_info = predictor.inference(image_name)
+  File "tools/demo.py", line 140, in inference
+    height, width = img.shape[:2]
+AttributeError: 'NoneType' object has no attribute 'shape'
+2022-11-11 00:58:30.602 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000335_04117_d_0000064.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 00:58:30.914 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 00:58:30.915 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 00:58:30.957 | INFO     | __main__:main:286 - loaded checkpoint done.
+[ WARN:0@1.188] global /io/opencv/modules/imgcodecs/src/loadsave.cpp (239) findDecoder imread_('/local_datasets/VisDrone/test2017/0000335_04117_d_0000064.jpg'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "tools/demo.py", line 320, in <module>
+    main(exp, args)
+  File "tools/demo.py", line 311, in main
+    image_demo(predictor, vis_folder, args.path, current_time, args.save_result)
+  File "tools/demo.py", line 194, in image_demo
+    outputs, img_info = predictor.inference(image_name)
+  File "tools/demo.py", line 140, in inference
+    height, width = img.shape[:2]
+AttributeError: 'NoneType' object has no attribute 'shape'
+done

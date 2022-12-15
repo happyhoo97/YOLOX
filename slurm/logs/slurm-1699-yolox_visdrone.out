@@ -1,0 +1,16 @@
+20221124-004801
+0.10091710090637207
+898509
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 243, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 209, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 92, in init_weights_from_loose_model
+    pruned_model = yolox_prun(mask_bn_channel_dict)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 627, in __init__
+    backbone = YOLOPAFPN_prune(mask_bn_channel_dict=mask_bn_channel_dict)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 405, in __init__
+    bottle_cv2out = mask_bn_channel_dict[named_m_bottle_cv2_bn]
+KeyError: 'backbone.C3_n3.m.0.conv2.bn'
+done

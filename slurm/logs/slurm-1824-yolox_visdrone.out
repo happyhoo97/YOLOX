@@ -1,0 +1,57 @@
+20221124-235610
+0.11718106269836426
+898509
+loose name
+
+pruned name
+
+loose name
+backbone
+pruned name
+backbone
+loose name
+backbone.backbone
+pruned name
+backbone.backbone
+loose name
+backbone.backbone.stem
+pruned name
+backbone.backbone.stem
+loose name
+backbone.backbone.stem.conv
+pruned name
+backbone.backbone.stem.conv
+loose name
+backbone.backbone.stem.conv.conv
+pruned name
+backbone.backbone.stem.conv.conv
+loose name
+backbone.backbone.stem.conv.bn
+pruned name
+backbone.backbone.stem.conv.bn
+loose name
+backbone.backbone.stem.conv.act
+pruned name
+backbone.backbone.stem.conv.act
+loose name
+backbone.backbone.dark2
+pruned name
+backbone.backbone.dark2
+loose name
+backbone.backbone.dark2.0
+pruned name
+backbone.backbone.dark2.0
+loose name
+backbone.backbone.dark2.0.dconv
+pruned name
+backbone.backbone.dark2.0.conv
+backbone.backbone.dark2.0.dconv backbone.backbone.dark2.0.conv
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 247, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 213, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 104, in init_weights_from_loose_model
+    assert loose_name == pruned_name, print(loose_name, pruned_name)
+AssertionError: None
+done

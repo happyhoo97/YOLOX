@@ -1,0 +1,1119 @@
+20221209-011325
+==== Generate pruning schema ====
+2022-12-09 01:13:26.897 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.6]
+2022-12-09 01:13:26.978 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.7]
+2022-12-09 01:13:27.033 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.8]
+2022-12-09 01:13:27.087 | INFO     | __main__:<module>:47 - Testing pruning [yolox-s] with ratio [0.9]
+==== Sparsity training ====
+2022-12-09 01:13:28 | INFO     | yolox.core.trainer:130 - args: Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='YOLOX-Slim-network_slim/exps/network_slim/yolox_s_slim_train.py', experiment_name='yolox_s_slim_sparsity_train', fp16=True, machine_rank=0, name=None, num_machines=1, occupy=False, opts=['network_slim_sparsity_train_s', '0.0001'], resume=False, start_epoch=None)
+2022-12-09 01:13:28 | INFO     | yolox.core.trainer:131 - exp value:
+╒══════════════════════════════════════════╤════════════════════════════╕
+│ keys                                     │ values                     │
+╞══════════════════════════════════════════╪════════════════════════════╡
+│ seed                                     │ None                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ output_dir                               │ './YOLOX_outputs'          │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ print_interval                           │ 10                         │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ eval_interval                            │ 10                         │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ num_classes                              │ 10                         │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ depth                                    │ 0.33                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ width                                    │ 0.5                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ act                                      │ 'silu'                     │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ data_num_workers                         │ 0                          │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ input_size                               │ (640, 640)                 │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ multiscale_range                         │ 5                          │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ data_dir                                 │ '/local_datasets/VisDrone' │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ train_ann                                │ 'train2017.json'           │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ val_ann                                  │ 'val2017.json'             │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ test_ann                                 │ 'test2017.json'            │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ mosaic_prob                              │ 1.0                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ mixup_prob                               │ 1.0                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ hsv_prob                                 │ 1.0                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ flip_prob                                │ 0.5                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ degrees                                  │ 10.0                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ translate                                │ 0.1                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ mosaic_scale                             │ (0.1, 2)                   │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ enable_mixup                             │ True                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ mixup_scale                              │ (0.5, 1.5)                 │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ shear                                    │ 2.0                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ warmup_epochs                            │ 5                          │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ max_epoch                                │ 120                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ warmup_lr                                │ 0                          │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ min_lr_ratio                             │ 0.05                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ basic_lr_per_img                         │ 0.00015625                 │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ scheduler                                │ 'yoloxwarmcos'             │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ no_aug_epochs                            │ 15                         │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ ema                                      │ True                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ weight_decay                             │ 0.0005                     │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ momentum                                 │ 0.9                        │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ save_history_ckpt                        │ True                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ exp_name                                 │ 'yolox_s_slim_train'       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ test_size                                │ (640, 640)                 │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ test_conf                                │ 0.01                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ nmsthre                                  │ 0.65                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ network_slim_sparsity_train_enable       │ True                       │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ network_slim_sparsity_train_s            │ 0.0001                     │
+├──────────────────────────────────────────┼────────────────────────────┤
+│ network_slim_sparsity_train_warmup_epoch │ 120                        │
+╘══════════════════════════════════════════╧════════════════════════════╛
+2022-12-09 01:13:29 | INFO     | yolox.core.trainer:137 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 01:13:30 | INFO     | yolox.core.trainer:311 - loading checkpoint for fine tuning
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.conv.weight in checkpoint is torch.Size([16, 12, 3, 3]), while shape of backbone.backbone.stem.conv.conv.weight in model is torch.Size([32, 12, 3, 3]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.weight in checkpoint is torch.Size([16]), while shape of backbone.backbone.stem.conv.bn.weight in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.bias in checkpoint is torch.Size([16]), while shape of backbone.backbone.stem.conv.bn.bias in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.running_mean in checkpoint is torch.Size([16]), while shape of backbone.backbone.stem.conv.bn.running_mean in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.running_var in checkpoint is torch.Size([16]), while shape of backbone.backbone.stem.conv.bn.running_var in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.conv.weight in checkpoint is torch.Size([16, 32, 1, 1]), while shape of backbone.backbone.dark2.1.conv1.conv.weight in model is torch.Size([32, 64, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.weight in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv1.bn.weight in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.bias in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv1.bn.bias in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.running_mean in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv1.bn.running_mean in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.running_var in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv1.bn.running_var in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.conv.weight in checkpoint is torch.Size([16, 32, 1, 1]), while shape of backbone.backbone.dark2.1.conv2.conv.weight in model is torch.Size([32, 64, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.weight in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv2.bn.weight in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.bias in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv2.bn.bias in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.running_mean in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv2.bn.running_mean in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.running_var in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv2.bn.running_var in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.conv.weight in checkpoint is torch.Size([32, 32, 1, 1]), while shape of backbone.backbone.dark2.1.conv3.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv3.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv3.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv3.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv3.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.conv.weight in checkpoint is torch.Size([16, 16, 1, 1]), while shape of backbone.backbone.dark2.1.m.0.conv1.conv.weight in model is torch.Size([32, 32, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.weight in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.weight in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.bias in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.bias in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_mean in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_mean in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_var in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_var in model is torch.Size([32]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.conv.weight in checkpoint is torch.Size([32, 64, 1, 1]), while shape of backbone.backbone.dark3.1.conv1.conv.weight in model is torch.Size([64, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.conv.weight in checkpoint is torch.Size([32, 64, 1, 1]), while shape of backbone.backbone.dark3.1.conv2.conv.weight in model is torch.Size([64, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv2.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv2.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv2.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv2.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark3.1.conv3.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv3.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv3.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv3.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv3.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.conv.weight in checkpoint is torch.Size([32, 32, 1, 1]), while shape of backbone.backbone.dark3.1.m.0.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.conv.weight in checkpoint is torch.Size([32, 32, 1, 1]), while shape of backbone.backbone.dark3.1.m.1.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.conv.weight in checkpoint is torch.Size([32, 32, 1, 1]), while shape of backbone.backbone.dark3.1.m.2.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.backbone.dark4.1.conv1.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.backbone.dark4.1.conv2.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv2.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv2.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv2.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv2.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.backbone.dark4.1.conv3.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv3.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv3.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv3.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv3.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark4.1.m.0.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark4.1.m.1.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark4.1.m.2.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.backbone.dark5.1.conv1.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.1.conv1.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.1.conv1.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.1.conv1.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.1.conv1.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.conv.weight in checkpoint is torch.Size([256, 512, 1, 1]), while shape of backbone.backbone.dark5.1.conv2.conv.weight in model is torch.Size([512, 1024, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv2.bn.weight in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv2.bn.bias in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv2.bn.running_mean in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv2.bn.running_var in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.backbone.dark5.2.conv1.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv1.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv1.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv1.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv1.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.backbone.dark5.2.conv2.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv2.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv2.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv2.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv2.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.conv.weight in checkpoint is torch.Size([256, 256, 1, 1]), while shape of backbone.backbone.dark5.2.conv3.conv.weight in model is torch.Size([512, 512, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv3.bn.weight in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv3.bn.bias in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv3.bn.running_mean in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv3.bn.running_var in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.backbone.dark5.2.m.0.conv1.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.lateral_conv0.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.lateral_conv0.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.lateral_conv0.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.lateral_conv0.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.lateral_conv0.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.conv.weight in checkpoint is torch.Size([64, 256, 1, 1]), while shape of backbone.C3_p4.conv1.conv.weight in model is torch.Size([128, 512, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.conv.weight in checkpoint is torch.Size([64, 256, 1, 1]), while shape of backbone.C3_p4.conv2.conv.weight in model is torch.Size([128, 512, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv2.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv2.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv2.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv2.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.C3_p4.conv3.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv3.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv3.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv3.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv3.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.C3_p4.m.0.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.m.0.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.m.0.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.m.0.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.m.0.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.reduce_conv1.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.reduce_conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.reduce_conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.reduce_conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.reduce_conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.conv.weight in checkpoint is torch.Size([32, 128, 1, 1]), while shape of backbone.C3_p3.conv1.conv.weight in model is torch.Size([64, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.conv.weight in checkpoint is torch.Size([32, 128, 1, 1]), while shape of backbone.C3_p3.conv2.conv.weight in model is torch.Size([64, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv2.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv2.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv2.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv2.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.C3_p3.conv3.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv3.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv3.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv3.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv3.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.conv.weight in checkpoint is torch.Size([32, 32, 1, 1]), while shape of backbone.C3_p3.m.0.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.m.0.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.m.0.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.m.0.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.m.0.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.C3_n3.conv1.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.C3_n3.conv2.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv2.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv2.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv2.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv2.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.C3_n3.conv3.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv3.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv3.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv3.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv3.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.C3_n3.m.0.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.m.0.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.m.0.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.m.0.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.m.0.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.C3_n4.conv1.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv1.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv1.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv1.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv1.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.C3_n4.conv2.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv2.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv2.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv2.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv2.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.conv.weight in checkpoint is torch.Size([256, 256, 1, 1]), while shape of backbone.C3_n4.conv3.conv.weight in model is torch.Size([512, 512, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv3.bn.weight in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv3.bn.bias in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv3.bn.running_mean in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv3.bn.running_var in model is torch.Size([512]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.C3_n4.m.0.conv1.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.m.0.conv1.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.m.0.conv1.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.m.0.conv1.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.m.0.conv1.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([10, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([10]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([10, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([10]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([10, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([10]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.reg_preds.0.weight in checkpoint is torch.Size([4, 64, 1, 1]), while shape of head.reg_preds.0.weight in model is torch.Size([4, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.reg_preds.1.weight in checkpoint is torch.Size([4, 64, 1, 1]), while shape of head.reg_preds.1.weight in model is torch.Size([4, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.reg_preds.2.weight in checkpoint is torch.Size([4, 64, 1, 1]), while shape of head.reg_preds.2.weight in model is torch.Size([4, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.obj_preds.0.weight in checkpoint is torch.Size([1, 64, 1, 1]), while shape of head.obj_preds.0.weight in model is torch.Size([1, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.obj_preds.1.weight in checkpoint is torch.Size([1, 64, 1, 1]), while shape of head.obj_preds.1.weight in model is torch.Size([1, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.obj_preds.2.weight in checkpoint is torch.Size([1, 64, 1, 1]), while shape of head.obj_preds.2.weight in model is torch.Size([1, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of head.stems.0.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.weight in checkpoint is torch.Size([64]), while shape of head.stems.0.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.bias in checkpoint is torch.Size([64]), while shape of head.stems.0.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.running_mean in checkpoint is torch.Size([64]), while shape of head.stems.0.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.running_var in checkpoint is torch.Size([64]), while shape of head.stems.0.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of head.stems.1.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.weight in checkpoint is torch.Size([64]), while shape of head.stems.1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.bias in checkpoint is torch.Size([64]), while shape of head.stems.1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.running_mean in checkpoint is torch.Size([64]), while shape of head.stems.1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.running_var in checkpoint is torch.Size([64]), while shape of head.stems.1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.conv.weight in checkpoint is torch.Size([64, 256, 1, 1]), while shape of head.stems.2.conv.weight in model is torch.Size([128, 512, 1, 1]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.weight in checkpoint is torch.Size([64]), while shape of head.stems.2.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.bias in checkpoint is torch.Size([64]), while shape of head.stems.2.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.running_mean in checkpoint is torch.Size([64]), while shape of head.stems.2.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:30 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.running_var in checkpoint is torch.Size([64]), while shape of head.stems.2.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:30 | INFO     | yolox.data.datasets.coco:65 - loading annotations into memory...
+2022-12-09 01:13:32 | INFO     | yolox.data.datasets.coco:65 - Done (t=1.33s)
+2022-12-09 01:13:32 | INFO     | pycocotools.coco:86 - creating index...
+2022-12-09 01:13:32 | INFO     | pycocotools.coco:86 - index created!
+2022-12-09 01:13:41 | WARNING  | yolox.data.datasets.coco:90 - 
+********************************************************************************
+You are using cached images in RAM to accelerate training.
+This requires large system RAM.
+Make sure you have 200G+ RAM and 136G available disk space for training COCO.
+********************************************************************************
+
+2022-12-09 01:13:41 | WARNING  | yolox.data.datasets.coco:124 - You are using cached imgs! Make sure your dataset is not changed!!
+Everytime the self.input_size is changed in your exp file, you need to delete
+the cached data and re-generate them.
+
+2022-12-09 01:13:41 | INFO     | yolox.data.datasets.coco:129 - Loading cached imgs...
+2022-12-09 01:13:41 | INFO     | yolox.core.trainer:155 - init prefetcher, this might take one minute or less...
+2022-12-09 01:13:43 | INFO     | yolox.data.datasets.coco:65 - loading annotations into memory...
+2022-12-09 01:13:43 | INFO     | yolox.data.datasets.coco:65 - Done (t=0.07s)
+2022-12-09 01:13:43 | INFO     | pycocotools.coco:86 - creating index...
+2022-12-09 01:13:43 | INFO     | pycocotools.coco:86 - index created!
+2022-12-09 01:13:44 | ERROR    | yolox.core.launch:98 - An error has been caught in function 'launch', process 'MainProcess' (17366), thread 'MainThread' (140524889220288):
+Traceback (most recent call last):
+
+  File "YOLOX-Slim-network_slim/tools/train.py", line 132, in <module>
+    args=(exp, args),
+          │    └ Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, ...
+          └ ╒══════════════════════════════════════════╤═════════════════════════════════════════════════════════════════════════════════...
+
+> File "/data/happyhoo97/repos/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒══════════════════════════════════════════╤════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fce7fa167a0>
+
+  File "YOLOX-Slim-network_slim/tools/train.py", line 110, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7fcddc798560>
+    └ <yolox.core.trainer.Trainer object at 0x7fcdcd57a190>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 74, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7fcdcd499830>
+    └ <yolox.core.trainer.Trainer object at 0x7fcdcd57a190>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 180, in before_train
+    if self.args.logger == "tensorboard":
+       │    └ Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, ...
+       └ <yolox.core.trainer.Trainer object at 0x7fcdcd57a190>
+
+AttributeError: 'Namespace' object has no attribute 'logger'
+==== Network Slimming ====
+2022-12-09 01:13:47 | INFO     | yolox.core.trainer:130 - args: Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, exp_file='YOLOX-Slim-network_slim/exps/network_slim/yolox_s_slim.py', experiment_name='yolox_s_slim_fine_tuning', fp16=True, machine_rank=0, name=None, num_machines=1, occupy=False, opts=['network_slim_ratio', '0.65'], resume=False, start_epoch=None)
+2022-12-09 01:13:47 | INFO     | yolox.core.trainer:131 - exp value:
+╒═════════════════════╤══════════════════════════════════════════════════════════════════════════════════════════════╕
+│ keys                │ values                                                                                       │
+╞═════════════════════╪══════════════════════════════════════════════════════════════════════════════════════════════╡
+│ seed                │ None                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ output_dir          │ './YOLOX_outputs'                                                                            │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ print_interval      │ 10                                                                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ eval_interval       │ 10                                                                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ num_classes         │ 10                                                                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ depth               │ 0.33                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ width               │ 0.5                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ act                 │ 'silu'                                                                                       │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ data_num_workers    │ 0                                                                                            │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ input_size          │ (640, 640)                                                                                   │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ multiscale_range    │ 5                                                                                            │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ data_dir            │ None                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ train_ann           │ 'train2017.json'                                                                             │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ val_ann             │ 'val2017.json'                                                                               │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ test_ann            │ 'val2017.json'                                                                               │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ mosaic_prob         │ 1.0                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ mixup_prob          │ 1.0                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ hsv_prob            │ 1.0                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ flip_prob           │ 0.5                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ degrees             │ 10.0                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ translate           │ 0.1                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ mosaic_scale        │ (0.1, 2)                                                                                     │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ enable_mixup        │ True                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ mixup_scale         │ (0.5, 1.5)                                                                                   │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ shear               │ 2.0                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ warmup_epochs       │ 5                                                                                            │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ max_epoch           │ 50                                                                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ warmup_lr           │ 0                                                                                            │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ min_lr_ratio        │ 0.05                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ basic_lr_per_img    │ 0.00015625                                                                                   │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ scheduler           │ 'yoloxwarmcos'                                                                               │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ no_aug_epochs       │ 15                                                                                           │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ema                 │ True                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ weight_decay        │ 0.0005                                                                                       │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ momentum            │ 0.9                                                                                          │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ save_history_ckpt   │ True                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ exp_name            │ 'yolox_s_slim'                                                                               │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ test_size           │ (640, 640)                                                                                   │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ test_conf           │ 0.01                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ nmsthre             │ 0.65                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ run_network_slim    │ True                                                                                         │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ network_slim_schema │ '/data/happyhoo97/repos/YOLOX/YOLOX-Slim-network_slim/exps/network_slim/yolox_s_schema.json' │
+├─────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────┤
+│ network_slim_ratio  │ 0.65                                                                                         │
+╘═════════════════════╧══════════════════════════════════════════════════════════════════════════════════════════════╛
+2022-12-09 01:13:48 | INFO     | yolox.core.trainer:137 - Model Summary: Params: 8.94M, Gflops: 26.78
+2022-12-09 01:13:49 | INFO     | yolox.core.trainer:311 - loading checkpoint for fine tuning
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.conv.weight in checkpoint is torch.Size([16, 12, 3, 3]), while shape of backbone.backbone.stem.conv.conv.weight in model is torch.Size([32, 12, 3, 3]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.weight in checkpoint is torch.Size([16]), while shape of backbone.backbone.stem.conv.bn.weight in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.bias in checkpoint is torch.Size([16]), while shape of backbone.backbone.stem.conv.bn.bias in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.running_mean in checkpoint is torch.Size([16]), while shape of backbone.backbone.stem.conv.bn.running_mean in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.stem.conv.bn.running_var in checkpoint is torch.Size([16]), while shape of backbone.backbone.stem.conv.bn.running_var in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.conv.weight in checkpoint is torch.Size([16, 32, 1, 1]), while shape of backbone.backbone.dark2.1.conv1.conv.weight in model is torch.Size([32, 64, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.weight in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv1.bn.weight in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.bias in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv1.bn.bias in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.running_mean in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv1.bn.running_mean in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv1.bn.running_var in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv1.bn.running_var in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.conv.weight in checkpoint is torch.Size([16, 32, 1, 1]), while shape of backbone.backbone.dark2.1.conv2.conv.weight in model is torch.Size([32, 64, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.weight in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv2.bn.weight in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.bias in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv2.bn.bias in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.running_mean in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv2.bn.running_mean in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv2.bn.running_var in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.conv2.bn.running_var in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.conv.weight in checkpoint is torch.Size([32, 32, 1, 1]), while shape of backbone.backbone.dark2.1.conv3.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv3.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv3.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv3.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.conv3.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark2.1.conv3.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.conv.weight in checkpoint is torch.Size([16, 16, 1, 1]), while shape of backbone.backbone.dark2.1.m.0.conv1.conv.weight in model is torch.Size([32, 32, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.weight in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.weight in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.bias in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.bias in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_mean in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_mean in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_var in checkpoint is torch.Size([16]), while shape of backbone.backbone.dark2.1.m.0.conv1.bn.running_var in model is torch.Size([32]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark2.1.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.conv.weight in checkpoint is torch.Size([32, 64, 1, 1]), while shape of backbone.backbone.dark3.1.conv1.conv.weight in model is torch.Size([64, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.conv.weight in checkpoint is torch.Size([32, 64, 1, 1]), while shape of backbone.backbone.dark3.1.conv2.conv.weight in model is torch.Size([64, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv2.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv2.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv2.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv2.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.conv2.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark3.1.conv3.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv3.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv3.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv3.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.conv3.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark3.1.conv3.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.conv.weight in checkpoint is torch.Size([32, 32, 1, 1]), while shape of backbone.backbone.dark3.1.m.0.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.0.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.conv.weight in checkpoint is torch.Size([32, 32, 1, 1]), while shape of backbone.backbone.dark3.1.m.1.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.1.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.1.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.conv.weight in checkpoint is torch.Size([32, 32, 1, 1]), while shape of backbone.backbone.dark3.1.m.2.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.backbone.dark3.1.m.2.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark3.1.m.2.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.backbone.dark4.1.conv1.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.backbone.dark4.1.conv2.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv2.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv2.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv2.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv2.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.conv2.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.backbone.dark4.1.conv3.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv3.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv3.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv3.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.conv3.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark4.1.conv3.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark4.1.m.0.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.0.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark4.1.m.1.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.1.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.1.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.backbone.dark4.1.m.2.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.backbone.dark4.1.m.2.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark4.1.m.2.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.backbone.dark5.1.conv1.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.1.conv1.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.1.conv1.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.1.conv1.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.1.conv1.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.conv.weight in checkpoint is torch.Size([256, 512, 1, 1]), while shape of backbone.backbone.dark5.1.conv2.conv.weight in model is torch.Size([512, 1024, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv2.bn.weight in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv2.bn.bias in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv2.bn.running_mean in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.1.conv2.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.1.conv2.bn.running_var in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.backbone.dark5.2.conv1.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv1.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv1.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv1.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv1.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.backbone.dark5.2.conv2.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv2.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv2.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv2.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv2.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.conv2.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.conv.weight in checkpoint is torch.Size([256, 256, 1, 1]), while shape of backbone.backbone.dark5.2.conv3.conv.weight in model is torch.Size([512, 512, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv3.bn.weight in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv3.bn.bias in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv3.bn.running_mean in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.conv3.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.backbone.dark5.2.conv3.bn.running_var in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.backbone.dark5.2.m.0.conv1.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.backbone.dark5.2.m.0.conv1.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.backbone.dark5.2.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.lateral_conv0.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.lateral_conv0.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.lateral_conv0.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.lateral_conv0.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.lateral_conv0.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.lateral_conv0.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.conv.weight in checkpoint is torch.Size([64, 256, 1, 1]), while shape of backbone.C3_p4.conv1.conv.weight in model is torch.Size([128, 512, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.conv.weight in checkpoint is torch.Size([64, 256, 1, 1]), while shape of backbone.C3_p4.conv2.conv.weight in model is torch.Size([128, 512, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv2.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv2.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv2.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv2.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.conv2.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.C3_p4.conv3.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv3.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv3.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv3.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.conv3.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_p4.conv3.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.C3_p4.m.0.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.m.0.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.m.0.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.m.0.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p4.m.0.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_p4.m.0.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p4.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.reduce_conv1.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.reduce_conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.reduce_conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.reduce_conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.reduce_conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.reduce_conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.conv.weight in checkpoint is torch.Size([32, 128, 1, 1]), while shape of backbone.C3_p3.conv1.conv.weight in model is torch.Size([64, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.conv.weight in checkpoint is torch.Size([32, 128, 1, 1]), while shape of backbone.C3_p3.conv2.conv.weight in model is torch.Size([64, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv2.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv2.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv2.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv2.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.conv2.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.C3_p3.conv3.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv3.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv3.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv3.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.conv3.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_p3.conv3.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.conv.weight in checkpoint is torch.Size([32, 32, 1, 1]), while shape of backbone.C3_p3.m.0.conv1.conv.weight in model is torch.Size([64, 64, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.weight in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.m.0.conv1.bn.weight in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.bias in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.m.0.conv1.bn.bias in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.running_mean in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.m.0.conv1.bn.running_mean in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_p3.m.0.conv1.bn.running_var in checkpoint is torch.Size([32]), while shape of backbone.C3_p3.m.0.conv1.bn.running_var in model is torch.Size([64]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_p3.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.C3_n3.conv1.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of backbone.C3_n3.conv2.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv2.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv2.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv2.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv2.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.conv2.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.C3_n3.conv3.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv3.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv3.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv3.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.conv3.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_n3.conv3.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of backbone.C3_n3.m.0.conv1.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.weight in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.m.0.conv1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.bias in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.m.0.conv1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.running_mean in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.m.0.conv1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n3.m.0.conv1.bn.running_var in checkpoint is torch.Size([64]), while shape of backbone.C3_n3.m.0.conv1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n3.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.bu_conv1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.C3_n4.conv1.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv1.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv1.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv1.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv1.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.conv.weight in checkpoint is torch.Size([128, 256, 1, 1]), while shape of backbone.C3_n4.conv2.conv.weight in model is torch.Size([256, 512, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv2.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv2.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv2.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv2.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.conv2.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.conv.weight in checkpoint is torch.Size([256, 256, 1, 1]), while shape of backbone.C3_n4.conv3.conv.weight in model is torch.Size([512, 512, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.weight in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv3.bn.weight in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.bias in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv3.bn.bias in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.running_mean in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv3.bn.running_mean in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.conv3.bn.running_var in checkpoint is torch.Size([256]), while shape of backbone.C3_n4.conv3.bn.running_var in model is torch.Size([512]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.conv.weight in checkpoint is torch.Size([128, 128, 1, 1]), while shape of backbone.C3_n4.m.0.conv1.conv.weight in model is torch.Size([256, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.weight in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.m.0.conv1.bn.weight in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.bias in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.m.0.conv1.bn.bias in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.running_mean in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.m.0.conv1.bn.running_mean in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of backbone.C3_n4.m.0.conv1.bn.running_var in checkpoint is torch.Size([128]), while shape of backbone.C3_n4.m.0.conv1.bn.running_var in model is torch.Size([256]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - backbone.C3_n4.m.0.conv2.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.0.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.1.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.cls_convs.2.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.0.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.1.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.0.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.conv.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.bn.weight is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.bn.bias is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.bn.running_mean is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.bn.running_var is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:18 - head.reg_convs.2.1.bn.num_batches_tracked is not in the ckpt. Please double check and see if this is desired.
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.0.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.0.weight in model is torch.Size([10, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.0.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.0.bias in model is torch.Size([10]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.1.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.1.weight in model is torch.Size([10, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.1.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.1.bias in model is torch.Size([10]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.2.weight in checkpoint is torch.Size([80, 64, 1, 1]), while shape of head.cls_preds.2.weight in model is torch.Size([10, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.cls_preds.2.bias in checkpoint is torch.Size([80]), while shape of head.cls_preds.2.bias in model is torch.Size([10]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.reg_preds.0.weight in checkpoint is torch.Size([4, 64, 1, 1]), while shape of head.reg_preds.0.weight in model is torch.Size([4, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.reg_preds.1.weight in checkpoint is torch.Size([4, 64, 1, 1]), while shape of head.reg_preds.1.weight in model is torch.Size([4, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.reg_preds.2.weight in checkpoint is torch.Size([4, 64, 1, 1]), while shape of head.reg_preds.2.weight in model is torch.Size([4, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.obj_preds.0.weight in checkpoint is torch.Size([1, 64, 1, 1]), while shape of head.obj_preds.0.weight in model is torch.Size([1, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.obj_preds.1.weight in checkpoint is torch.Size([1, 64, 1, 1]), while shape of head.obj_preds.1.weight in model is torch.Size([1, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.obj_preds.2.weight in checkpoint is torch.Size([1, 64, 1, 1]), while shape of head.obj_preds.2.weight in model is torch.Size([1, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.conv.weight in checkpoint is torch.Size([64, 64, 1, 1]), while shape of head.stems.0.conv.weight in model is torch.Size([128, 128, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.weight in checkpoint is torch.Size([64]), while shape of head.stems.0.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.bias in checkpoint is torch.Size([64]), while shape of head.stems.0.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.running_mean in checkpoint is torch.Size([64]), while shape of head.stems.0.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.0.bn.running_var in checkpoint is torch.Size([64]), while shape of head.stems.0.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.conv.weight in checkpoint is torch.Size([64, 128, 1, 1]), while shape of head.stems.1.conv.weight in model is torch.Size([128, 256, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.weight in checkpoint is torch.Size([64]), while shape of head.stems.1.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.bias in checkpoint is torch.Size([64]), while shape of head.stems.1.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.running_mean in checkpoint is torch.Size([64]), while shape of head.stems.1.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.1.bn.running_var in checkpoint is torch.Size([64]), while shape of head.stems.1.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.conv.weight in checkpoint is torch.Size([64, 256, 1, 1]), while shape of head.stems.2.conv.weight in model is torch.Size([128, 512, 1, 1]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.weight in checkpoint is torch.Size([64]), while shape of head.stems.2.bn.weight in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.bias in checkpoint is torch.Size([64]), while shape of head.stems.2.bn.bias in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.running_mean in checkpoint is torch.Size([64]), while shape of head.stems.2.bn.running_mean in model is torch.Size([128]).
+2022-12-09 01:13:49 | WARNING  | yolox.utils.checkpoint:26 - Shape of head.stems.2.bn.running_var in checkpoint is torch.Size([64]), while shape of head.stems.2.bn.running_var in model is torch.Size([128]).
+2022-12-09 01:13:49 | INFO     | yolox.data.datasets.coco:65 - loading annotations into memory...
+2022-12-09 01:13:51 | INFO     | yolox.data.datasets.coco:65 - Done (t=1.45s)
+2022-12-09 01:13:51 | INFO     | pycocotools.coco:86 - creating index...
+2022-12-09 01:13:51 | INFO     | pycocotools.coco:86 - index created!
+2022-12-09 01:14:00 | WARNING  | yolox.data.datasets.coco:90 - 
+********************************************************************************
+You are using cached images in RAM to accelerate training.
+This requires large system RAM.
+Make sure you have 200G+ RAM and 136G available disk space for training COCO.
+********************************************************************************
+
+2022-12-09 01:14:00 | WARNING  | yolox.data.datasets.coco:124 - You are using cached imgs! Make sure your dataset is not changed!!
+Everytime the self.input_size is changed in your exp file, you need to delete
+the cached data and re-generate them.
+
+2022-12-09 01:14:00 | INFO     | yolox.data.datasets.coco:129 - Loading cached imgs...
+2022-12-09 01:14:00 | INFO     | yolox.core.trainer:155 - init prefetcher, this might take one minute or less...
+2022-12-09 01:14:02 | INFO     | yolox.data.datasets.coco:65 - loading annotations into memory...
+2022-12-09 01:14:02 | INFO     | yolox.data.datasets.coco:65 - Done (t=0.08s)
+2022-12-09 01:14:02 | INFO     | pycocotools.coco:86 - creating index...
+2022-12-09 01:14:02 | INFO     | pycocotools.coco:86 - index created!
+2022-12-09 01:14:03 | ERROR    | yolox.core.launch:98 - An error has been caught in function 'launch', process 'MainProcess' (17449), thread 'MainThread' (139737750402240):
+Traceback (most recent call last):
+
+  File "YOLOX-Slim-network_slim/tools/train.py", line 132, in <module>
+    args=(exp, args),
+          │    └ Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, ...
+          └ ╒═════════════════════╤══════════════════════════════════════════════════════════════════════════════════════════════════════...
+
+> File "/data/happyhoo97/repos/YOLOX/yolox/core/launch.py", line 98, in launch
+    main_func(*args)
+    │          └ (╒═════════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f173a803830>
+
+  File "YOLOX-Slim-network_slim/tools/train.py", line 110, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f16975855f0>
+    └ <yolox.core.trainer.Trainer object at 0x7f1688288f50>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 74, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f16882858c0>
+    └ <yolox.core.trainer.Trainer object at 0x7f1688288f50>
+
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/trainer.py", line 180, in before_train
+    if self.args.logger == "tensorboard":
+       │    └ Namespace(batch_size=64, cache=True, ckpt='pretrained_models/yolox_nano.pth', devices=1, dist_backend='nccl', dist_url=None, ...
+       └ <yolox.core.trainer.Trainer object at 0x7f1688288f50>
+
+AttributeError: 'Namespace' object has no attribute 'logger'
+done

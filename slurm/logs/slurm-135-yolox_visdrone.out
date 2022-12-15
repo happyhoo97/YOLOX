@@ -1,0 +1,14 @@
+extracting the dataset from NAS ...
+/var/spool/slurm/d/job00135/slurm_script: line 13: copy_visdrone_to_node_and_untar.sh: command not found
+done
+setup yolox environment ...
+/var/spool/slurm/d/job00135/slurm_script: line 17: !pip3: command not found
+done
+date: extra operand ‘%Y%m%d-%H%M%S’
+Try 'date --help' for more information.
+
+Traceback (most recent call last):
+  File "tools/train.py", line 8, in <module>
+    from loguru import logger
+ModuleNotFoundError: No module named 'loguru'
+done

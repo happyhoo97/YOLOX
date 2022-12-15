@@ -1,0 +1,47 @@
+extracting the dataset from NAS ...
+done
+/var/spool/slurm/d/job00580/slurm_script: line 22: $'\necho \'setup yolox environment ...\'\npip3 install -v -e .  # or  python3 setup.py develop\necho \'done\'\n': command not found
+20221111-005944
+2022-11-11 00:59:46.856 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000001_02999_d_0000005.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 00:59:47.585 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 00:59:47.589 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 00:59:47.669 | INFO     | __main__:main:286 - loaded checkpoint done.
+2022-11-11 00:59:47.919 | INFO     | __main__:inference:165 - Infer time: 0.1877s
+2022-11-11 00:59:47.943 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/visdrone_nano/vis_res/2022_11_11_00_59_47/0000001_02999_d_0000005.jpg
+2022-11-11 00:59:50.780 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000153_01601_d_0000001.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 00:59:52.022 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 00:59:52.026 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 00:59:52.108 | INFO     | __main__:main:286 - loaded checkpoint done.
+2022-11-11 00:59:52.222 | INFO     | __main__:inference:165 - Infer time: 0.0897s
+2022-11-11 00:59:52.236 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/visdrone_nano/vis_res/2022_11_11_00_59_52/0000153_01601_d_0000001.jpg
+2022-11-11 00:59:54.581 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000244_00001_d_0000001.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 00:59:55.236 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 00:59:55.240 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 00:59:55.320 | INFO     | __main__:main:286 - loaded checkpoint done.
+2022-11-11 00:59:55.434 | INFO     | __main__:inference:165 - Infer time: 0.0929s
+2022-11-11 00:59:55.441 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/visdrone_nano/vis_res/2022_11_11_00_59_55/0000244_00001_d_0000001.jpg
+2022-11-11 00:59:57.780 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000276_04401_d_0000529.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 00:59:58.443 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 00:59:58.447 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 00:59:58.529 | INFO     | __main__:main:286 - loaded checkpoint done.
+2022-11-11 00:59:58.659 | INFO     | __main__:inference:165 - Infer time: 0.0970s
+2022-11-11 00:59:58.676 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/visdrone_nano/vis_res/2022_11_11_00_59_58/0000276_04401_d_0000529.jpg
+2022-11-11 01:00:01.027 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000289_02401_d_0000823.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 01:00:01.679 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 01:00:01.683 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 01:00:01.762 | INFO     | __main__:main:286 - loaded checkpoint done.
+2022-11-11 01:00:01.885 | INFO     | __main__:inference:165 - Infer time: 0.0913s
+2022-11-11 01:00:01.900 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/visdrone_nano/vis_res/2022_11_11_01_00_01/0000289_02401_d_0000823.jpg
+2022-11-11 01:00:04.248 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000313_07001_d_0000471.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 01:00:04.944 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 01:00:04.948 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 01:00:05.027 | INFO     | __main__:main:286 - loaded checkpoint done.
+2022-11-11 01:00:05.160 | INFO     | __main__:inference:165 - Infer time: 0.1003s
+2022-11-11 01:00:05.162 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/visdrone_nano/vis_res/2022_11_11_01_00_05/0000313_07001_d_0000471.jpg
+2022-11-11 01:00:07.499 | INFO     | __main__:main:259 - Args: Namespace(camid=0, ckpt='YOLOX_outputs/visdrone_nano/best_ckpt.pth', conf=0.25, demo='image', device='[cpu/gpu]', exp_file='exps/example/custom/visdrone_nano.py', experiment_name='visdrone_nano', fp16=False, fuse=False, legacy=False, name=None, nms=0.45, path='/local_datasets/VisDrone/test2017/0000335_04117_d_0000064.jpg', save_result=True, trt=False, tsize=640)
+2022-11-11 01:00:08.161 | INFO     | __main__:main:269 - Model Summary: Params: 0.90M, Gflops: 2.56
+2022-11-11 01:00:08.165 | INFO     | __main__:main:282 - loading checkpoint
+2022-11-11 01:00:08.244 | INFO     | __main__:main:286 - loaded checkpoint done.
+2022-11-11 01:00:08.370 | INFO     | __main__:inference:165 - Infer time: 0.0969s
+2022-11-11 01:00:08.379 | INFO     | __main__:image_demo:202 - Saving detection result in ./YOLOX_outputs/visdrone_nano/vis_res/2022_11_11_01_00_08/0000335_04117_d_0000064.jpg
+done

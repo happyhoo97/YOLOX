@@ -14,7 +14,7 @@ import torch
 from yolox.data.data_augment import ValTransform
 from yolox.data.datasets import COCO_CLASSES
 from yolox.exp import get_exp
-from yolox.utils import fuse_model, get_model_info, postprocess, vis
+from yolox.utils import fuse_model, get_model_info, postprocess, vis, restore_pruning_result
 
 IMAGE_EXT = [".jpg", ".jpeg", ".webp", ".bmp", ".png"]
 
@@ -43,7 +43,7 @@ def make_parser():
         "--exp_file",
         default=None,
         type=str,
-        help="please input your experiment description file",
+        help="pls input your experiment description file",
     )
     parser.add_argument("-c", "--ckpt", default=None, type=str, help="ckpt for eval")
     parser.add_argument(
@@ -211,19 +211,18 @@ def imageflow_demo(predictor, vis_folder, current_time, args):
     width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)  # float
     height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)  # float
     fps = cap.get(cv2.CAP_PROP_FPS)
-    if args.save_result:
-        save_folder = os.path.join(
-            vis_folder, time.strftime("%Y_%m_%d_%H_%M_%S", current_time)
-        )
-        os.makedirs(save_folder, exist_ok=True)
-        if args.demo == "video":
-            save_path = os.path.join(save_folder, os.path.basename(args.path))
-        else:
-            save_path = os.path.join(save_folder, "camera.mp4")
-        logger.info(f"video save_path is {save_path}")
-        vid_writer = cv2.VideoWriter(
-            save_path, cv2.VideoWriter_fourcc(*"mp4v"), fps, (int(width), int(height))
-        )
+    save_folder = os.path.join(
+        vis_folder, time.strftime("%Y_%m_%d_%H_%M_%S", current_time)
+    )
+    os.makedirs(save_folder, exist_ok=True)
+    if args.demo == "video":
+        save_path = os.path.join(save_folder, args.path.split("/")[-1])
+    else:
+        save_path = os.path.join(save_folder, "camera.mp4")
+    logger.info(f"video save_path is {save_path}")
+    vid_writer = cv2.VideoWriter(
+        save_path, cv2.VideoWriter_fourcc(*"mp4v"), fps, (int(width), int(height))
+    )
     while True:
         ret_val, frame = cap.read()
         if ret_val:
@@ -231,9 +230,6 @@ def imageflow_demo(predictor, vis_folder, current_time, args):
             result_frame = predictor.visual(outputs[0], img_info, predictor.confthre)
             if args.save_result:
                 vid_writer.write(result_frame)
-            else:
-                cv2.namedWindow("yolox", cv2.WINDOW_NORMAL)
-                cv2.imshow("yolox", result_frame)
             ch = cv2.waitKey(1)
             if ch == 27 or ch == ord("q") or ch == ord("Q"):
                 break
@@ -281,6 +277,9 @@ def main(exp, args):
             ckpt_file = args.ckpt
         logger.info("loading checkpoint")
         ckpt = torch.load(ckpt_file, map_location="cpu")
+        if exp.run_network_slim:
+            model = restore_pruning_result(model, ckpt)
+            logger.info("Pruned Model Summary: {}".format(get_model_info(model, exp.test_size)))
         # load the model state dict
         model.load_state_dict(ckpt["model"])
         logger.info("loaded checkpoint done.")

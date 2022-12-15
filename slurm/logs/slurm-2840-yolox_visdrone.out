@@ -1,0 +1,49 @@
+20221209-023109
+==== Generate pruning schema ====
+Traceback (most recent call last):
+  File "tools/gen_pruning_schema.py", line 42, in <module>
+    with open(args.save_path, "w", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'exps/network_slim/yolox_s_schema.json'
+==== Sparsity training ====
+Traceback (most recent call last):
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/build.py", line 13, in get_exp_by_file
+    current_exp = importlib.import_module(os.path.basename(exp_file).split(".")[0])
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'yolox_s_slim_train'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/train.py", line 126, in <module>
+    exp = get_exp(args.exp_file, args.name)
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/build.py", line 40, in get_exp
+    return get_exp_by_file(exp_file)
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/build.py", line 16, in get_exp_by_file
+    raise ImportError("{} doesn't contains class named 'Exp'".format(exp_file))
+ImportError: exps/network_slim/yolox_s_slim_train.py doesn't contains class named 'Exp'
+==== Network Slimming ====
+Traceback (most recent call last):
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/build.py", line 13, in get_exp_by_file
+    current_exp = importlib.import_module(os.path.basename(exp_file).split(".")[0])
+  File "/data/happyhoo97/anaconda3/envs/yolox_env/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'yolox_s_slim'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/train.py", line 126, in <module>
+    exp = get_exp(args.exp_file, args.name)
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/build.py", line 40, in get_exp
+    return get_exp_by_file(exp_file)
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/build.py", line 16, in get_exp_by_file
+    raise ImportError("{} doesn't contains class named 'Exp'".format(exp_file))
+ImportError: exps/network_slim/yolox_s_slim.py doesn't contains class named 'Exp'
+done

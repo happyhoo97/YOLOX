@@ -1,0 +1,18 @@
+20221125-131506
+0.10619616508483887
+898509
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 257, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 223, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 92, in init_weights_from_loose_model
+    pruned_model = yolox_prun(mask_bn_channel_dict)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 654, in __init__
+    backbone = YOLOPAFPN_prune(mask_bn_channel_dict=mask_bn_channel_dict)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 331, in __init__
+    depth, width, mask_bn_channel_dict=mask_bn_channel_dict, depthwise=depthwise, act=act)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 151, in __init__
+    DWconv(stem_bn_out, conv0_out, 3, 2, act=act),
+NameError: name 'DWconv' is not defined
+done

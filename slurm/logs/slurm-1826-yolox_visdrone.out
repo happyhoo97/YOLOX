@@ -1,0 +1,13 @@
+20221124-235903
+0.12520647048950195
+898509
+loose name
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 253, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 219, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 100, in init_weights_from_loose_model
+    print(loose_model.named_modules()[0])
+TypeError: 'generator' object is not subscriptable
+done

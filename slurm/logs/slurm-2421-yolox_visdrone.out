@@ -1,0 +1,12 @@
+20221202-034747
+0.09990596771240234
+898509
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 249, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 215, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 119, in init_weights_from_loose_model
+    convIn = convIn_from_[bn_name]
+KeyError: 'backbone.backbone.dark2.0.pconv.bn'
+done

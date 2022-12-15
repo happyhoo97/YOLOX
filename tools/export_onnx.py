@@ -11,7 +11,7 @@ from torch import nn
 
 from yolox.exp import get_exp
 from yolox.models.network_blocks import SiLU
-from yolox.utils import replace_module
+from yolox.utils import replace_module, restore_pruning_result
 
 
 def make_parser():
@@ -38,7 +38,7 @@ def make_parser():
         "--exp_file",
         default=None,
         type=str,
-        help="experiment description file",
+        help="expriment description file",
     )
     parser.add_argument("-expn", "--experiment-name", type=str, default=None)
     parser.add_argument("-n", "--name", type=str, default=None, help="model name")
@@ -48,11 +48,6 @@ def make_parser():
         help="Modify config options using the command-line",
         default=None,
         nargs=argparse.REMAINDER,
-    )
-    parser.add_argument(
-        "--decode_in_inference",
-        action="store_true",
-        help="decode in inference or not"
     )
 
     return parser
@@ -79,11 +74,16 @@ def main():
     ckpt = torch.load(ckpt_file, map_location="cpu")
 
     model.eval()
+
+    if exp.run_network_slim:
+        model = restore_pruning_result(model, ckpt)
+
     if "model" in ckpt:
         ckpt = ckpt["model"]
+
     model.load_state_dict(ckpt)
     model = replace_module(model, nn.SiLU, SiLU)
-    model.head.decode_in_inference = args.decode_in_inference
+    model.head.decode_in_inference = False
 
     logger.info("loading checkpoint done.")
     dummy_input = torch.randn(args.batch_size, 3, exp.test_size[0], exp.test_size[1])

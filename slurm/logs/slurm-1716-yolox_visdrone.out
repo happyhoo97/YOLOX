@@ -1,0 +1,70 @@
+20221124-010843
+0.12647700309753418
+898509
+At firtst
+None
+
+and
+None
+
+finish
+At firtst
+backbone
+and
+backbone
+finish
+At firtst
+backbone.backbone
+and
+backbone.backbone
+finish
+At firtst
+backbone.backbone.stem
+and
+backbone.backbone.stem
+finish
+At firtst
+backbone.backbone.stem.conv
+and
+backbone.backbone.stem.conv
+finish
+At firtst
+backbone.backbone.stem.conv.conv
+and
+backbone.backbone.stem.conv.conv
+finish
+At firtst
+backbone.backbone.stem.conv.bn
+and
+backbone.backbone.stem.conv.bn
+finish
+At firtst
+backbone.backbone.stem.conv.act
+and
+backbone.backbone.stem.conv.act
+finish
+At firtst
+backbone.backbone.dark2
+and
+backbone.backbone.dark2
+finish
+At firtst
+backbone.backbone.dark2.0
+and
+backbone.backbone.dark2.0
+finish
+At firtst
+backbone.backbone.dark2.0.dconv
+and
+backbone.backbone.dark2.0.conv
+finish
+backbone.backbone.dark2.0.dconv backbone.backbone.dark2.0.conv
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 252, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 218, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 109, in init_weights_from_loose_model
+    assert loose_name == pruned_name, print(loose_name, pruned_name)
+AssertionError: None
+done

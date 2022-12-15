@@ -1,0 +1,35 @@
+20221209-022516
+==== Generate pruning schema ====
+Traceback (most recent call last):
+  File "tools/gen_pruning_schema.py", line 12, in <module>
+    from yolox.exp import get_exp
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/__init__.py", line 5, in <module>
+    from .base_exp import BaseExp
+  File "/data/happyhoo97/repos/YOLOX/yolox/exp/base_exp.py", line 14, in <module>
+    from yolox.utils import LRScheduler
+  File "/data/happyhoo97/repos/YOLOX/yolox/utils/__init__.py", line 12, in <module>
+    from .logger import WandbLogger, setup_logger
+ImportError: cannot import name 'WandbLogger' from 'yolox.utils.logger' (/data/happyhoo97/repos/YOLOX/yolox/utils/logger.py)
+==== Sparsity training ====
+Traceback (most recent call last):
+  File "tools/train.py", line 13, in <module>
+    from yolox.core import launch
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/__init__.py", line 5, in <module>
+    from .launch import launch
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/launch.py", line 16, in <module>
+    import yolox.utils.dist as comm
+  File "/data/happyhoo97/repos/YOLOX/yolox/utils/__init__.py", line 12, in <module>
+    from .logger import WandbLogger, setup_logger
+ImportError: cannot import name 'WandbLogger' from 'yolox.utils.logger' (/data/happyhoo97/repos/YOLOX/yolox/utils/logger.py)
+==== Network Slimming ====
+Traceback (most recent call last):
+  File "tools/train.py", line 13, in <module>
+    from yolox.core import launch
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/__init__.py", line 5, in <module>
+    from .launch import launch
+  File "/data/happyhoo97/repos/YOLOX/yolox/core/launch.py", line 16, in <module>
+    import yolox.utils.dist as comm
+  File "/data/happyhoo97/repos/YOLOX/yolox/utils/__init__.py", line 12, in <module>
+    from .logger import WandbLogger, setup_logger
+ImportError: cannot import name 'WandbLogger' from 'yolox.utils.logger' (/data/happyhoo97/repos/YOLOX/yolox/utils/logger.py)
+done

@@ -1,0 +1,24 @@
+20221124-005954
+0.12600469589233398
+898509
+
+backbone
+backbone.backbone
+backbone.backbone.stem
+backbone.backbone.stem.conv
+backbone.backbone.stem.conv.conv
+backbone.backbone.stem.conv.bn
+backbone.backbone.stem.conv.act
+backbone.backbone.dark2
+backbone.backbone.dark2.0
+backbone.backbone.dark2.0.conv
+backbone.backbone.dark2.0.dconv backbone.backbone.dark2.0.conv
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 245, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 211, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 102, in init_weights_from_loose_model
+    assert loose_name == pruned_name, print(loose_name, pruned_name)
+AssertionError: None
+done

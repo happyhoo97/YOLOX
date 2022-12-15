@@ -1,0 +1,18 @@
+20221124-003058
+0.1049656867980957
+898509
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 243, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 209, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 92, in init_weights_from_loose_model
+    pruned_model = yolox_prun(mask_bn_channel_dict)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 627, in __init__
+    backbone = YOLOPAFPN_prune(mask_bn_channel_dict=mask_bn_channel_dict)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 344, in __init__
+    act=act,
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 42, in __init__
+    cv3in = bottle_args[-1][-1]
+IndexError: list index out of range
+done

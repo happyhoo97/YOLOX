@@ -1,0 +1,26 @@
+20221124-232325
+0.10738587379455566
+898509
+==== bottle len ====
+[32, 1, 16]
+==== n len ====
+3
+Traceback (most recent call last):
+  File "prun_train/prune.py", line 243, in <module>
+    main(exp,args)
+  File "prun_train/prune.py", line 209, in main
+    loose_model, prune_mask_dict, prune_bn_dict, mask_bn_channel_dict)
+  File "prun_train/prune.py", line 92, in init_weights_from_loose_model
+    pruned_model = yolox_prun(mask_bn_channel_dict)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 631, in __init__
+    backbone = YOLOPAFPN_prune(mask_bn_channel_dict=mask_bn_channel_dict)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 307, in __init__
+    depth, width, mask_bn_channel_dict=mask_bn_channel_dict, depthwise=depthwise, act=act)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 144, in __init__
+    act=act,
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 52, in __init__
+    for i in range(n)
+  File "/data/happyhoo97/repos/YOLOX/prun_train/prune_model.py", line 52, in <listcomp>
+    for i in range(n)
+IndexError: list index out of range
+done
